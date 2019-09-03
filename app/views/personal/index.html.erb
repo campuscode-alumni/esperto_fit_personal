@@ -1,0 +1,4 @@
+<%= link_to 'Entrar', new_personal_session_path%>
+<% if personal_signed_in? %>
+  <%= link_to 'Cadastrar agenda', root_path %>
+<% end %>
