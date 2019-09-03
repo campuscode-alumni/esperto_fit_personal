@@ -1,0 +1,19 @@
+<%= form_for @personal do |f| %>
+  <%= f.label :first_name, 'Nome' %>
+  <%= f.text_field :first_name %>
+  <%= f.label :last_name, 'Sobrenome' %>
+  <%= f.text_field :name %>
+  <%= f.label :document, 'Documento' %>
+  <%= f.text_field :document %>
+  <%= f.label :address, 'Endereço' %>
+  <%= f.text_field :address %>
+  <%= f.label :contact, 'Contato' %>
+  <%= f.text_field :contact %>
+  <%= f.label :email, 'E-mail' %>
+  <%= f.text_field :email %>
+  <%= f.label :user, 'Usuário/Nickname' %>
+  <%= f.text_field :user %>
+  <%= f.label :password, 'Senha' %>
+  <%= f.text_field :password %>
+  <%= f.submit 'Enviar' %>
+<% end %>

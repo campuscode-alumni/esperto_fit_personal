@@ -1,2 +1,4 @@
-class Personal < ApplicationRecord
+class Personal < Account
+  
+
 end

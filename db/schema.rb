@@ -10,22 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_03_184955) do
+ActiveRecord::Schema.define(version: 2019_09_03_193948) do
 
   create_table "accounts", force: :cascade do |t|
-    t.string "email"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "document"
-    t.string "first_name"
-    t.string "last_name"
-    t.date "date_of_birth"
-    t.string "gender"
-    t.text "address"
-    t.string "contact"
-    t.string "password"
-    t.string "payment"
-    t.string "user"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_accounts_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
 
   create_table "customers", force: :cascade do |t|
@@ -34,9 +31,26 @@ ActiveRecord::Schema.define(version: 2019_09_03_184955) do
   end
 
   create_table "personals", force: :cascade do |t|
-    t.string "work_document"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "document"
+    t.string "first_name"
+    t.string "last_name"
+    t.date "date_of_birth"
+    t.integer "gender"
+    t.text "address"
+    t.string "contact"
+    t.string "nickname"
+    t.string "payment_method"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "work_document"
+    t.integer "type"
+    t.integer "accounts_id"
+    t.index ["accounts_id"], name: "index_profiles_on_accounts_id"
   end
 
   create_table "units", force: :cascade do |t|
