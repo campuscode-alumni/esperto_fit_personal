@@ -10,6 +10,11 @@
   </head>
 
   <body>
+    <header>
+      <% if current_account %>
+        <h2> Olá <%= current_account.name %></h2>
+      <% end %>
+    </header>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
