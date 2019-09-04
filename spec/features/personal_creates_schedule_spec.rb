@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Personal creates schedule' do
   scenario 'and they should be logged in' do
-    personal = create(:personal)
+    personal = create(:personal, email: 'teste@email.com', password: '123456')
 
     visit root_path
     click_on 'Entrar'
@@ -14,7 +14,7 @@ feature 'Personal creates schedule' do
   end
 
   scenario 'successfully' do
-    personal = create(:personal)
+    personal = create(:personal, email: 'teste@email.com', password: '123456')
     unit = create(:unit)
 
     visit root_path
@@ -37,7 +37,7 @@ feature 'Personal creates schedule' do
   end
 
   scenario 'and must fill all field' do
-    personal = create(:personal)
+    personal = create(:personal, email: 'teste@email.com', password: '123456')
     unit = create(:unit)
 
     visit root_path
@@ -58,7 +58,7 @@ feature 'Personal creates schedule' do
   end
 
   scenario 'and the price cant be negative' do
-    personal = create(:personal)
+    personal = create(:personal, email: 'teste@email.com', password: '123456')
     unit = create(:unit)
 
     visit root_path
