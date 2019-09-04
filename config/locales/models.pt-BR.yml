@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      account: Conta
+      customer: Aluno
+      personal: Personal
+      unit: Unidade
+    attributes:
+      account: 
+        email: Email
+        name: Nome
+        password: Senha
