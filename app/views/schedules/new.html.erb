@@ -1,18 +1,18 @@
 <%= flash[:notice] %>
 <%= form_for @schedule do |f| %>
-  <%= f.label :unit_id, 'Unidade' %> 
+  <%= f.label :unit_id %> 
   <%= f.collection_select(:unit_id, Unit.all, :id, :name) %>
 
-  <%= f.label :date, 'Dia da semana' %> 
+  <%= f.label :date %> 
   <%= f.date_field :date  %>
 
-  <%= f.label :start, 'Horário de início' %> 
+  <%= f.label :start %> 
   <%= f.time_field :start %>
 
-  <%= f.label :finish, 'Horário de término' %> 
+  <%= f.label :finish %> 
   <%= f.time_field :finish  %>
 
-  <%= f.label :price, 'Valor' %> 
+  <%= f.label :price %> 
   <%= f.number_field :price  %>
 
   <%= f.submit "Salvar" %>
