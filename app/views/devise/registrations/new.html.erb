@@ -27,8 +27,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :type, 'Tipo de Conta' %>
-    <%= f.select(:type, options_for_select([['Aluno', 1], ['Personal', 2]])) %>
+    <%= f.label :account_type, 'Tipo de Conta' %>
+    <%= f.select(:account_type, options_for_select([['Aluno', :aluno ], [ 'Personal', :personal]])) %>
 
   </div>
 

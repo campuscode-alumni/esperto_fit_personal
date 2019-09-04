@@ -1,2 +1,3 @@
-class Customer < ApplicationRecord
+class Customer < Account
+  belongs_to :account
 end
