@@ -9,38 +9,40 @@ feature 'Personal can register into system' do
     click_on 'Cadastrar na EspertoFit'
     fill_in 'Email', with: 'email@email.com'
     fill_in 'Senha', with: '123123'
-    # fill_in 'Nome', with: 'Joao'
-    # fill_in 'Sobrenome', with: 'Rafael'
-    # fill_in 'Documento', with: '365900187'
-    # fill_in 'Endereço', with: 'Av Paulista, 374'
-    # fill_in 'Contato', with: '989551359'
-    # fill_in 'E-mail', with: 'j.rafaeel@hotmail.com'
-    # fill_in 'Usuário/Nickname', with: 'jrafaeel'
-    # fill_in 'Senha', with: '123456'
+    fill_in 'Confirme a senha', with: '123123'
+    select 'Personal', from: 'Tipo de Conta'
     click_on 'Enviar'
 
     #Assert
-    expect(page).to have_css('p', text: 'Olá, email@email.com.')
+    expect(current_path).to eq new_profile_path
   end
 
   scenario 'second: register as personal' do
-    pending
     #Arrange
 
     #Act
     visit root_path
-    ### logar para cadastrar como personal
+
+    click_on 'Cadastrar na EspertoFit'
+    fill_in 'Email', with: 'email@email.com'
+    fill_in 'Senha', with: '123123'
+    fill_in 'Confirme a senha', with: '123123'
+    select 'Personal', from: 'Tipo de Conta'
+    click_on 'Enviar'
+
     fill_in 'Nome', with: 'Joao'
     fill_in 'Sobrenome', with: 'Rafael'
     fill_in 'Documento', with: '365900187'
     fill_in 'Endereço', with: 'Av Paulista, 374'
+    fill_in 'Data de Nascimento', with: '25/05/1996'
     fill_in 'Contato', with: '989551359'
-    fill_in 'E-mail', with: 'j.rafaeel@hotmail.com'
-    fill_in 'Usuário/Nickname', with: 'jrafaeel'
-    fill_in 'Senha', with: '123456'
+    fill_in 'Sexo', with: 0
+    fill_in 'Apelido', with: 'jrafaeel'
+    fill_in 'Metodo de pagamento', with: 'cartao de creito'
+    fill_in 'Documento de trabalho', with: '654987'
     click_on 'Enviar'
 
     #Assert
-    #expect(page).to have_css('p', text: 'Olá, email@email.com.')
+    expect(Profile.last.first_name).to eq 'Joao'
   end
 end
