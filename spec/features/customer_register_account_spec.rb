@@ -78,4 +78,19 @@ feature 'User register account' do
     #arrange
     expect(page).to have_content("Password can't be blank")
   end
+
+  scenario 'and email must be unique' do
+    user = create(:account, email: 'meu@email.com')
+    #act
+    visit root_path
+    click_on 'Novo Usuario'
+    fill_in 'Nome Completo', with: 'Nome Generico'
+    fill_in 'Email', with: 'meu@email.com'
+    fill_in 'Senha', with: '123456'
+    fill_in 'Confirmar Senha', with: '123456'
+    select 'Aluno', from: 'Tipo de Conta'
+    click_on 'Enviar'
+    #arrange
+    expect(page).to have_content("Email has already been taken")
+  end
 end
