@@ -52,4 +52,30 @@ feature 'User register account' do
     #arrange
     expect(page).to have_content("Name can't be blank")
   end
+  scenario 'and must fill email field' do
+    #act
+    visit root_path
+    click_on 'Novo Usuario'
+    fill_in 'Nome Completo', with: 'Nome Generico'
+    fill_in 'Email', with: ''
+    fill_in 'Senha', with: '123456'
+    fill_in 'Confirmar Senha', with: '123456'
+    select 'Aluno', from: 'Tipo de Conta'
+    click_on 'Enviar'
+    #arrange
+    expect(page).to have_content("Email can't be blank")
+  end
+  scenario 'and must fill password field' do
+    #act
+    visit root_path
+    click_on 'Novo Usuario'
+    fill_in 'Nome Completo', with: 'Nome Generico'
+    fill_in 'Email', with: 'email@generico.com'
+    fill_in 'Senha', with: ''
+    fill_in 'Confirmar Senha', with: ''
+    select 'Aluno', from: 'Tipo de Conta'
+    click_on 'Enviar'
+    #arrange
+    expect(page).to have_content("Password can't be blank")
+  end
 end
