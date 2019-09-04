@@ -13,7 +13,7 @@ feature 'User register account' do
     click_on 'Enviar'
     #arrange
     account = Account.last
-    expect(page).to have_content('Welcome! You have signed up successfully.')
+    expect(page).to have_content('Bem vindo! A sua conta foi registrada com sucesso.')
     expect(current_path).to eq root_path
     expect(page).to have_css('h2', text: 'Olá Nome Genérico')
     expect(account.type).to eq 'Customer' 
@@ -32,7 +32,7 @@ feature 'User register account' do
     click_on 'Enviar'
     #arrange
     account = Account.last
-    expect(page).to have_content('Welcome! You have signed up successfully.')
+    expect(page).to have_content('Bem vindo! A sua conta foi registrada com sucesso.')
     expect(current_path).to eq root_path
     expect(page).to have_css('h2', text: 'Olá Nome Genérico')
     expect(account.type).to eq 'Personal' 
@@ -50,7 +50,7 @@ feature 'User register account' do
     select 'Aluno', from: 'Tipo de Conta'
     click_on 'Enviar'
     #arrange
-    expect(page).to have_content("Name can't be blank")
+    expect(page).to have_content("Nome não pode ficar em branco")
   end
   scenario 'and must fill email field' do
     #act
@@ -63,7 +63,7 @@ feature 'User register account' do
     select 'Aluno', from: 'Tipo de Conta'
     click_on 'Enviar'
     #arrange
-    expect(page).to have_content("Email can't be blank")
+    expect(page).to have_content("Email não pode ficar em branco")
   end
   scenario 'and must fill password field' do
     #act
@@ -76,7 +76,7 @@ feature 'User register account' do
     select 'Aluno', from: 'Tipo de Conta'
     click_on 'Enviar'
     #arrange
-    expect(page).to have_content("Password can't be blank")
+    expect(page).to have_content("Senha não pode ficar em branco")
   end
 
   scenario 'and email must be unique' do
@@ -91,6 +91,6 @@ feature 'User register account' do
     select 'Aluno', from: 'Tipo de Conta'
     click_on 'Enviar'
     #arrange
-    expect(page).to have_content("Email has already been taken")
+    expect(page).to have_content("Email já está em uso")
   end
 end
