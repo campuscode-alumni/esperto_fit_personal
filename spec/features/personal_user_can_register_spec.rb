@@ -7,9 +7,10 @@ feature 'Personal can register into system' do
     #Act
     visit root_path
     click_on 'Cadastrar na EspertoFit'
+    fill_in 'Nome Completo', with: 'Joao Rafael'
     fill_in 'Email', with: 'email@email.com'
     fill_in 'Senha', with: '123123'
-    fill_in 'Confirme a senha', with: '123123'
+    fill_in 'Confirmar Senha', with: '123123'
     select 'Personal', from: 'Tipo de Conta'
     click_on 'Enviar'
 
@@ -24,9 +25,10 @@ feature 'Personal can register into system' do
     visit root_path
 
     click_on 'Cadastrar na EspertoFit'
+    fill_in 'Nome Completo', with: 'Joao Rafael'
     fill_in 'Email', with: 'email@email.com'
     fill_in 'Senha', with: '123123'
-    fill_in 'Confirme a senha', with: '123123'
+    fill_in 'Confirmar Senha', with: '123123'
     select 'Personal', from: 'Tipo de Conta'
     click_on 'Enviar'
 
