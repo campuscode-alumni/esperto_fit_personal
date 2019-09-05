@@ -1,5 +1,7 @@
 FactoryBot.define do
   factory :unit do
-    name { "Matriz" }
+    sequence :name do |n|
+      "Unidade#{n}"
+    end
   end
 end

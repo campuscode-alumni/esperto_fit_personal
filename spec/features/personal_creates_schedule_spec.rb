@@ -15,7 +15,7 @@ feature 'Personal creates schedule' do
 
   scenario 'successfully creates schedule' do
     personal = create(:personal, email: 'teste@email.com', password: '123456')
-    unit = create(:unit)
+    unit = create(:unit, name: 'Matriz')
 
     visit root_path
     click_on 'Entrar'
@@ -38,7 +38,7 @@ feature 'Personal creates schedule' do
 
   scenario 'and must fill all fields' do
     personal = create(:personal, email: 'teste@email.com', password: '123456')
-    unit = create(:unit)
+    unit = create(:unit, name: 'Matriz')
 
     visit root_path
     click_on 'Entrar'
@@ -59,7 +59,7 @@ feature 'Personal creates schedule' do
 
   scenario 'and the price cant be negative' do
     personal = create(:personal, email: 'teste@email.com', password: '123456')
-    unit = create(:unit)
+    unit = create(:unit, name: 'Matriz')
 
     visit root_path
     click_on 'Entrar'

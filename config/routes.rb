@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :schedules, only:%i[new create edit update show]
   root to: 'home#index'
+  resources :units, only: %i[ index show ]
 end
