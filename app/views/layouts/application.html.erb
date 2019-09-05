@@ -15,10 +15,21 @@
         <h2> Olá <%= current_account.name %></h2>
       <% end %>
     </header>
+
+    <nav>
+      <% if account_signed_in? %>
+        <% if current_account.type == 'Personal' %>
+          <%= link_to 'Cadastrar agenda', new_schedule_path %>
+        <% end %>
+      <% else %>
+        <%= link_to 'Novo Usuario', new_account_registration_path %>      
+        <%= link_to 'Entrar', new_account_session_path %>
+      <% end %>
+    </nav>
+
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
   </body>
 </html>

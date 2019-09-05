@@ -13,7 +13,7 @@ feature 'Personal creates schedule' do
     expect(page).to have_content('Cadastrar agenda')
   end
 
-  scenario 'successfully' do
+  scenario 'successfully creates schedule' do
     personal = create(:personal, email: 'teste@email.com', password: '123456')
     unit = create(:unit)
 
@@ -36,7 +36,7 @@ feature 'Personal creates schedule' do
     expect(page).to have_css('li', text: 'Horário de início: 8h')
   end
 
-  scenario 'and must fill all field' do
+  scenario 'and must fill all fields' do
     personal = create(:personal, email: 'teste@email.com', password: '123456')
     unit = create(:unit)
 
@@ -47,11 +47,11 @@ feature 'Personal creates schedule' do
     click_on 'Log in'
     click_on 'Cadastrar agenda'
 
-    select 'Matriz', from: 'Unidade'
+    select 'Matriz', from: ''
     fill_in 'Dia da semana', with: ''
-    fill_in 'Horário de início', with: '8'
+    fill_in 'Horário de início', with: ''
     fill_in 'Horário de término', with: ''
-    fill_in 'Valor', with: '35'
+    fill_in 'Valor', with: ''
     click_on 'Salvar'
 
     expect(page).to have_content('Erro ao cadastrar agenda')
@@ -76,6 +76,13 @@ feature 'Personal creates schedule' do
     click_on 'Salvar'
 
     expect(page).to have_content('Erro ao cadastrar agenda')
+
+  end
+
+  scenario 'and a not loged in personal cant create schedule' do
+    visit root_path
+
+    expect(page).not_to have_content('Cadastrar agenda')
 
   end
 end
