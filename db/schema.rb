@@ -54,6 +54,17 @@ ActiveRecord::Schema.define(version: 2019_09_05_174928) do
     t.index ["account_id"], name: "index_profiles_on_account_id"
   end
 
+  create_table "schedules", force: :cascade do |t|
+    t.string "date"
+    t.string "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "unit_id"
+    t.integer "start"
+    t.integer "finish"
+    t.index ["unit_id"], name: "index_schedules_on_unit_id"
+  end
+
   create_table "units", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
