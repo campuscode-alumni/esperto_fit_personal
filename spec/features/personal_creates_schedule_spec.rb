@@ -10,7 +10,7 @@ feature 'Personal creates schedule' do
     fill_in 'Senha', with: '123456'
     click_on 'Log in'
 
-    expect(page).to have_content('Cadastrar agenda')
+    expect(page).to have_content('Cadastrar Agenda')
   end
 
   scenario 'successfully creates schedule' do
@@ -22,7 +22,7 @@ feature 'Personal creates schedule' do
     fill_in 'Email', with: 'teste@email.com'
     fill_in 'Senha', with: '123456'
     click_on 'Log in'
-    click_on 'Cadastrar agenda'
+    click_on 'Cadastrar Agenda'
 
     select 'Matriz', from: 'Unidade'
     fill_in 'Dia da semana', with: 'Segunda-feira'
@@ -45,7 +45,7 @@ feature 'Personal creates schedule' do
     fill_in 'Email', with: 'teste@email.com'
     fill_in 'Senha', with: '123456'
     click_on 'Log in'
-    click_on 'Cadastrar agenda'
+    click_on 'Cadastrar Agenda'
 
     select 'Matriz', from: ''
     fill_in 'Dia da semana', with: ''
@@ -66,7 +66,7 @@ feature 'Personal creates schedule' do
     fill_in 'Email', with: 'teste@email.com'
     fill_in 'Senha', with: '123456'
     click_on 'Log in'
-    click_on 'Cadastrar agenda'
+    click_on 'Cadastrar Agenda'
 
     select 'Matriz', from: 'Unidade'
     fill_in 'Dia da semana', with: 'Segunda-feira'
@@ -82,7 +82,7 @@ feature 'Personal creates schedule' do
   scenario 'and a not loged in personal cant create schedule' do
     visit root_path
 
-    expect(page).not_to have_content('Cadastrar agenda')
+    expect(page).not_to have_content('Cadastrar Agenda')
 
   end
 end
