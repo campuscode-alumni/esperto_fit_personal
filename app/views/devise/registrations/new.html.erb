@@ -28,13 +28,13 @@
 
   <div class="field">
     <%= f.label :type, 'Tipo de Conta' %>
-    <%= f.select(:type, options_for_select([['Aluno', 'Customer'], [ 'Personal', 'Personal']])) %>
-
+    <%= f.select(:type, options_for_select([['Aluno', 'Customer'], ['Personal', 'Personal']])) %>
   </div>
 
   <div class="actions">
     <%= f.submit "Enviar" %>
   </div>
+  
 <% end %>
 
 <%= render "devise/shared/links" %>

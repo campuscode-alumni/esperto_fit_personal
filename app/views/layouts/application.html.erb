@@ -8,27 +8,22 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <header>
-      <% if current_account %>
-        <h2> Olá <%= current_account.name %></h2>
-      <% end %>
-    </header>
-
     <nav>
-      <% if account_signed_in? %>
+      <%= link_to 'Cadastrar na EspertoFit', new_account_registration_path %>
+      <% if account_signed_in? %> 
         <% if current_account.type == 'Personal' %>
           <%= link_to 'Cadastrar agenda', new_schedule_path %>
         <% end %>
-        <%= link_to 'Sair', destroy_account_session_path, method: :delete%>
+        <p>Olá, <%= current_account.email %>.</p>
+        <h2> Olá <%= current_account.name %></h2>
+        <%= link_to 'Sair', destroy_account_session_path, method: :delete %>
       <% else %>
         <%= link_to 'Novo Usuario', new_account_registration_path %>      
-        <%= link_to 'Entrar', new_account_session_path %>
+        <%= link_to 'Entrar', new_account_session_path %>]
       <% end %>
       <%= link_to 'Unidades Disponíveis', units_path %>
     </nav>
-
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
