@@ -1,3 +1,2 @@
 class Personal < Account
-
 end

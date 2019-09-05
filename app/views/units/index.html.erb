@@ -1,0 +1,10 @@
+<% if @units.empty? %>
+  <h2>Nenhuma Unidade Disponível no Momento </h2>
+<% else %>
+  <h2>Unidades Disponíveis</h2>
+  <ul>
+  <% @units.each do |unit| %>
+    <li><%= link_to unit.name, unit_path(unit) %></li>
+  <% end %>
+  </ul>
+<% end %>

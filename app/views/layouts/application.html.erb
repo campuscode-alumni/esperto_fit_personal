@@ -10,12 +10,14 @@
   </head>
 
   <body>
-    
-    <% if account_signed_in? %>
-      <p>Olá, <%= current_account.email %>.</p>
-      <%= link_to 'Sair', destroy_account_session_path, method: :delete %>
-    <% end %>
-    
+    <header>
+      <% if account_signed_in? %>
+        <p>Olá, <%= current_account.email %>.</p>
+        <h2> Olá <%= current_account.name %></h2>
+        <%= link_to 'Sair', destroy_account_session_path, method: :delete %>
+      <% end %>
+    </header>
+
     <%= flash[:alert]%>
     <%= flash[:notice]%>
     <%= yield %>
