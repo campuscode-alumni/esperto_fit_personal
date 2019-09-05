@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :units, only: %i[index show]
 
   resources :schedules, only:%i[new create edit update show]
+
+  get '/my_schedule', to: 'schedules#my_schedule'
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_05_174928) do
+ActiveRecord::Schema.define(version: 2019_09_05_194019) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 2019_09_05_174928) do
     t.integer "unit_id"
     t.integer "start"
     t.integer "finish"
+    t.integer "personal_id"
+    t.index ["personal_id"], name: "index_schedules_on_personal_id"
     t.index ["unit_id"], name: "index_schedules_on_unit_id"
   end
 

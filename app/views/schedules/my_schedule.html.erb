@@ -1,0 +1,10 @@
+<h1> Agendas </h1>
+<% if @schedule.any? %>
+  <% @schedule.each do |schedule| %>
+    <h2><%= schedule.unit.name%></h2>
+  <% end %>
+<% else %>
+  <div>
+    <%= flash[:failure] %>
+  </div>
+<% end %>
