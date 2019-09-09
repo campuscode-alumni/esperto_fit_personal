@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :personals, only: %i[index new create edit]
-  resources :profiles, only: %i[index new create show]
+  resources :profiles, only: %i[index new create show edit update]
   resources :units, only: %i[index show]
   resources :schedules, only:%i[new create edit update show]
   resources :accounts, only:%i[show]

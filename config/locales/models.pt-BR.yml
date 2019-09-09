@@ -5,8 +5,21 @@ pt-BR:
       customer: Aluno
       personal: Personal
       unit: Unidade
+      profile: Perfil
     attributes:
       account: 
         email: Email
         name: Nome
         password: Senha
+      profile:
+        first_name: Nome
+        last_name: Sobrenome
+        document: Documento
+        address: Endereço
+        date_of_birth: Data de Nascimento
+        contact: Contato
+        gender: Sexo
+        nickname: Apelido
+        payment_method: Método de pagamento
+
+      

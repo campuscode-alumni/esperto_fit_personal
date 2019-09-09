@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EspertoFitPersonal</title>
+    <title>Academia EspertoFit</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
+  <body><br>
     <nav>
-
       <% if account_signed_in? %>
-      <h2>Olá, <%= link_to current_account.name, account_path(current_account) %></h2> <br>
+      <h2>Olá, <%= link_to current_account.name, profile_path(current_account) %></h2> <br>
       <% end %> 
-
-      
-
+    
       <% if account_signed_in? %> 
         <% if current_account.type == 'Personal' %>
           <%= link_to 'Cadastrar Agenda', new_schedule_path %> | 
@@ -27,7 +24,7 @@
         <%= link_to 'Entrar', new_account_session_path %> | 
         <%= link_to 'Unidades Disponíveis', units_path %>
       <% end %>
-    </nav> <br>
+    </nav><hr>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

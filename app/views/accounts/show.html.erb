@@ -1,21 +1,14 @@
-<%= form_for @profile do |f| %>
-  <%= f.label :first_name, 'Nome' %>
-  <%= f.text_field :first_name %><br>
-  <%= f.label :last_name, 'Sobrenome' %>
-  <%= f.text_field :last_name %><br>
-  <%= f.label :document, 'Documento' %>
-  <%= f.text_field :document %><br>
-  <%= f.label :address, 'Endereço' %>
-  <%= f.text_field :address %><br>
-  <%= f.label :date_of_birth, 'Data de Nascimento' %>
-  <%= f.text_field :date_of_birth %><br>
-  <%= f.label :contact, 'Contato' %>
-  <%= f.text_field :contact %><br>
-  <%= f.label :gender, 'Sexo' %>
-  <%= f.text_field :gender %><br>
-  <%= f.label :nickname, 'Apelido' %>
-  <%= f.text_field :nickname %><br>
-  <%= f.label :payment_method, 'Metodo de pagamento' %>
-  <%= f.text_field :payment_method %><br>
-  <%= f.submit 'Enviar' %>
-<% end %>
+<h3>Conta de: <%= @profile.first_name.capitalize %></h3>
+
+ <p>Nome: <%= @profile.first_name %></p>
+ <p>Sobrenome: <%= @profile.last_name %></p>
+ <p>Documento: <%= @profile.document %></p>
+ <p>Endereço: <%= @profile.address %></p> 
+ <p>Data de nascimento: <%= @profile.date_of_birth %></p> 
+ <p>Contato: <%= @profile.contact %></p> 
+ <p>Sexo: <%= @profile.gender %></p>
+ <p>Apelido: <%= @profile.nickname %></p>
+ <p>Metodo de pagamento: <%= @profile.payment_method %></p>
+ 
+ <%= link_to 'Editar cadastro', edit_profile_path %>
+
