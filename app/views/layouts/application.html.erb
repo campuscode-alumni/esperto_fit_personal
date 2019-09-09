@@ -8,27 +8,35 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body><br>
-    <nav>
-      <% if account_signed_in? %>
-      <h2>Olá, <%= link_to current_account.name, profile_path(current_account) %></h2> <br>
-      <% end %> 
-    
-      <% if account_signed_in? %> 
-        <% if current_account.type == 'Personal' %>
-          <%= link_to 'Cadastrar agenda', new_schedule_path %>
-          <%= link_to 'Minhas agendas', my_schedule_path %>
-        <% end %>
-        <%= link_to 'Sair', destroy_account_session_path, method: :delete %>
-        <%= link_to 'Unidades Disponíveis', units_path %>
-      <% else %>
-        <%= link_to 'Cadastrar na EspertoFit', new_account_registration_path %> | 
-        <%= link_to 'Entrar', new_account_session_path %>
-      <% end %>
-    </nav><hr>
+  <body>
+    <div class="container">
+      <div class="row">
+        <nav class="col-sm-12">
+          <% if account_signed_in? %>
+          <h2>Olá, <%= link_to current_account.name, profile_path(current_account) %></h2> <br>
+          <% end %> 
+        
+          <% if account_signed_in? %> 
+            <% if current_account.type == 'Personal' %>
+              <%= link_to 'Cadastrar agenda', new_schedule_path %>
+              <%= link_to 'Minhas agendas', my_schedule_path %>
+            <% end %>
+            <%= link_to 'Sair', destroy_account_session_path, method: :delete %>
+            <%= link_to 'Unidades Disponíveis', units_path %>
+          <% else %>
+            <%= link_to 'Cadastrar na EspertoFit', new_account_registration_path %> | 
+            <%= link_to 'Entrar', new_account_session_path %>
+          <% end %>
+        </nav>
+      </div>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+      <div class="row">
+        <main class="col-sm-12">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+          <%= yield %>
+        </main>
+      </div>
+    </div>
   </body>
 </html>
