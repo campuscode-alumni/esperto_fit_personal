@@ -12,13 +12,21 @@
     <nav>
       <% if account_signed_in? %>
       <h2>Olá, <%= link_to current_account.name, profile_path(current_account) %></h2> <br>
+      <p>Você é um <%= current_account.type %></p> <!-- implementar método para traduzir o tipo da conta -->
       <% end %> 
     
       <% if account_signed_in? %> 
         <% if current_account.type == 'Personal' %>
           <%= link_to 'Cadastrar Agenda', new_schedule_path %> | 
         <% end %>
-        <%= link_to 'Sair', destroy_account_session_path, method: :delete %>
+
+       <!--  
+        <%# if current_account.type == 'Customer' %>
+          <%#= link_to 'Visualizar Aulas', new_class_path %> | 
+        <%# end %>
+        -->
+
+        <%= link_to 'Sair', destroy_account_session_path, method: :delete %> | 
         <%= link_to 'Unidades Disponíveis', units_path %>
       <% else %>
         <%= link_to 'Cadastrar na EspertoFit', new_account_registration_path %> | 
