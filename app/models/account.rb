@@ -8,6 +8,7 @@ class Account < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :profile
+  has_many :schedules
 
   def personal?
     is_a? Personal

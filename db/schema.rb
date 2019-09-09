@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_05_194019) do
+ActiveRecord::Schema.define(version: 2019_09_09_170923) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
@@ -22,7 +22,9 @@ ActiveRecord::Schema.define(version: 2019_09_05_194019) do
     t.datetime "remember_created_at"
     t.string "type"
     t.string "email"
+    t.integer "schedule_id"
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
+    t.index ["schedule_id"], name: "index_accounts_on_schedule_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -62,8 +64,8 @@ ActiveRecord::Schema.define(version: 2019_09_05_194019) do
     t.integer "unit_id"
     t.integer "start"
     t.integer "finish"
-    t.integer "personal_id"
-    t.index ["personal_id"], name: "index_schedules_on_personal_id"
+    t.integer "account_id"
+    t.index ["account_id"], name: "index_schedules_on_account_id"
     t.index ["unit_id"], name: "index_schedules_on_unit_id"
   end
 
@@ -71,6 +73,8 @@ ActiveRecord::Schema.define(version: 2019_09_05_194019) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "schedule_id"
+    t.index ["schedule_id"], name: "index_units_on_schedule_id"
   end
 
 end
