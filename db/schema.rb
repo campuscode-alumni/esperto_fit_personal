@@ -27,16 +27,13 @@ ActiveRecord::Schema.define(version: 2019_09_09_170923) do
     t.index ["schedule_id"], name: "index_accounts_on_schedule_id"
   end
 
-  create_table "customers", force: :cascade do |t|
+  create_table "enrollments", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "unit_id"
     t.integer "account_id"
-    t.index ["account_id"], name: "index_customers_on_account_id"
-  end
-
-  create_table "personals", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_enrollments_on_account_id"
+    t.index ["unit_id"], name: "index_enrollments_on_unit_id"
   end
 
   create_table "profiles", force: :cascade do |t|

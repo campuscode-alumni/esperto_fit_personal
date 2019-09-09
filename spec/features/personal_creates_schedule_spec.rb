@@ -1,6 +1,17 @@
 require 'rails_helper'
 
 feature 'Personal creates schedule' do
+  scenario 'and they should be logged in' do
+    account = create(:personal, email: 'teste@email.com', password: '123456')
+    profile = create(:profile, account: account)
+
+    login_as(account, scope: :account)
+
+    visit root_path
+
+    expect(page).to have_content('Cadastrar agenda')
+  end
+
   scenario 'successfully creates schedule' do
     personal = create(:personal, email: 'teste@email.com', password: '123456')
     unit = create(:unit, name: 'Matriz')
@@ -64,6 +75,13 @@ feature 'Personal creates schedule' do
     click_on 'Salvar'
 
     expect(page).to have_content('Erro ao cadastrar agenda')
+
+  end
+
+  scenario 'and a not loged in personal cant create schedule' do
+    visit root_path
+
+    expect(page).not_to have_content('Cadastrar agenda')
 
   end
 end

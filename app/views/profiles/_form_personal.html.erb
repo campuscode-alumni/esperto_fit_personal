@@ -1,0 +1,23 @@
+<%= form_for @profile do |f| %>
+  <%= f.label :first_name, 'Nome' %>
+  <%= f.text_field :first_name %><br>
+  <%= f.label :last_name, 'Sobrenome' %>
+  <%= f.text_field :last_name %><br>
+  <%= f.label :document, 'Documento' %>
+  <%= f.text_field :document %><br>
+  <%= f.label :address, 'Endereço' %>
+  <%= f.text_field :address %><br>
+  <%= f.label :date_of_birth, 'Data de Nascimento' %>
+  <%= f.text_field :date_of_birth %><br>
+  <%= f.label :contact, 'Contato' %>
+  <%= f.text_field :contact %><br>
+  <%= f.label :gender, 'Sexo' %>
+  <%= f.text_field :gender %><br>
+  <%= f.label :nickname, 'Apelido' %>
+  <%= f.text_field :nickname %><br>
+  <%= f.label :payment_method, 'Metodo de recebimento' %>
+  <%= f.text_field :payment_method %><br>
+  <%= f.label :work_document, 'Documento de trabalho' %>
+  <%= f.text_field :work_document %><br>
+  <%= f.submit 'Enviar' %>
+<% end %>

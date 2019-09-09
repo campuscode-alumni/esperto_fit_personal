@@ -5,7 +5,7 @@ feature 'User register account' do
 
     #act
     visit root_path
-    click_on 'Novo Usuario'
+    click_on 'Cadastrar na EspertoFit'
     fill_in 'Nome Completo', with: 'Nome Genérico'
     fill_in 'Email', with: 'email@generico.com'
     fill_in 'Senha', with: '123456'
@@ -22,7 +22,7 @@ feature 'User register account' do
   scenario 'Successfully as personal' do
     #act
     visit root_path
-    click_on 'Novo Usuario'
+    click_on 'Cadastrar na EspertoFit'
     fill_in 'Nome Completo', with: 'Nome Genérico'
     fill_in 'Email', with: 'email@generico.com'
     fill_in 'Senha', with: '123456'
@@ -39,7 +39,7 @@ feature 'User register account' do
   scenario 'and must fill name field' do
     #act
     visit root_path
-    click_on 'Novo Usuario'
+    click_on 'Cadastrar na EspertoFit'
     fill_in 'Nome Completo', with: ''
     fill_in 'Email', with: 'email@generico.com'
     fill_in 'Senha', with: '123456'
@@ -52,7 +52,7 @@ feature 'User register account' do
   scenario 'and must fill email field' do
     #act
     visit root_path
-    click_on 'Novo Usuario'
+    click_on 'Cadastrar na EspertoFit'
     fill_in 'Nome Completo', with: 'Nome Generico'
     fill_in 'Email', with: ''
     fill_in 'Senha', with: '123456'
@@ -65,7 +65,7 @@ feature 'User register account' do
   scenario 'and must fill password field' do
     #act
     visit root_path
-    click_on 'Novo Usuario'
+    click_on 'Cadastrar na EspertoFit'
     fill_in 'Nome Completo', with: 'Nome Generico'
     fill_in 'Email', with: 'email@generico.com'
     fill_in 'Senha', with: ''
@@ -80,7 +80,7 @@ feature 'User register account' do
     user = create(:account, email: 'meu@email.com')
     #act
     visit root_path
-    click_on 'Novo Usuario'
+    click_on 'Cadastrar na EspertoFit'
     fill_in 'Nome Completo', with: 'Nome Generico'
     fill_in 'Email', with: 'meu@email.com'
     fill_in 'Senha', with: '123456'
