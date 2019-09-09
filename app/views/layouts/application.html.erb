@@ -17,7 +17,8 @@
     
       <% if account_signed_in? %> 
         <% if current_account.type == 'Personal' %>
-          <%= link_to 'Cadastrar Agenda', new_schedule_path %> | 
+          <%= link_to 'Cadastrar agenda', new_schedule_path %>
+          <%= link_to 'Minhas agendas', my_schedule_path %>
         <% end %>
 
        <!--  

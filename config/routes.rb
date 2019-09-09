@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   resources :profiles, only: %i[index new create show edit update]
   resources :units, only: %i[index show]
   resources :schedules, only:%i[new create edit update show]
+
+  get '/my_schedule', to: 'schedules#my_schedule'
   resources :accounts, only:%i[show]
 end

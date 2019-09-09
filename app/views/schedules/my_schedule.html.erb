@@ -1,0 +1,16 @@
+<h1> Agendas </h1>
+<% if @schedule.any? %>
+  <% @schedule.each do |schedule| %>
+    <h2><%= schedule.unit.name%></h2>
+    <ul>
+      <li><%= schedule.date %></li>
+      <li>Horário de início: <%= schedule.start %>h</li>
+      <li>Horário de término: <%= schedule.finish %>h</li>
+      <li>Valor/hora: R$<%= schedule.price %></li>
+    </ul>
+  <% end %>
+<% else %>
+  <div>
+    <%= flash[:failure] %>
+  </div>
+<% end %>
