@@ -1,6 +1,12 @@
+
 <% if @units.empty? %>
   <h2>Nenhuma Unidade Disponível no Momento </h2>
 <% else %>
+  <% if current_account && current_account.unit %>
+    <div id="current_unit">
+      <h3> Sua unidade atual é <%= current_account.unit.name%></h3>
+    </div>
+  <% end %>
   <h2>Unidades Disponíveis</h2>
   <ul>
   <% @units.each do |unit| %>
