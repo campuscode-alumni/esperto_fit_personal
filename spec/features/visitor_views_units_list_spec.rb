@@ -2,6 +2,10 @@ require 'rails_helper'
 
 feature 'Visitor access units list' do
   scenario 'and view empty list' do
+    user = create(:customer)
+
+    #Act
+    login_as(user, scope: :account)
     visit root_path
     click_on 'Unidades Disponíveis'
 
@@ -13,6 +17,10 @@ feature 'Visitor access units list' do
     create(:unit)
     create(:unit)
     lista = Unit.all
+    user = create(:customer)
+
+    #Act
+    login_as(user, scope: :account)
     
     visit root_path
     click_on 'Unidades Disponíveis'
@@ -24,15 +32,19 @@ feature 'Visitor access units list' do
   end
 
   scenario 'and sees unit details' do
-    #arrange
+    #Arrange
     create(:unit)
     create(:unit)
     lista = Unit.all
-    #act
+    user = create(:customer)
+
+    #Act
+    login_as(user, scope: :account)
     visit root_path
     click_on 'Unidades Disponíveis'
     click_on lista[0].name
-    #assert
+
+    #Assert
     expect(current_path).to eq unit_path(lista[0])
     expect(page).to have_css('h2', text: lista[0].name)
   end

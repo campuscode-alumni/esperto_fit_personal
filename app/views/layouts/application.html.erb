@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EspertoFitPersonal</title>
+    <title>Academia EspertoFit</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
+  <body><br>
     <nav>
-      <%= link_to 'Cadastrar na EspertoFit', new_account_registration_path %>
+      <% if account_signed_in? %>
+      <h2>Olá, <%= link_to current_account.name, profile_path(current_account) %></h2> <br>
+      <% end %> 
+    
       <% if account_signed_in? %> 
         <% if current_account.type == 'Personal' %>
           <%= link_to 'Cadastrar agenda', new_schedule_path %>
+          <%= link_to 'Minhas agendas', my_schedule_path %>
         <% end %>
-        <p>Olá, <%= current_account.email %>.</p>
-        <h2> Olá <%= current_account.name %></h2>
         <%= link_to 'Sair', destroy_account_session_path, method: :delete %>
+        <%= link_to 'Unidades Disponíveis', units_path %>
       <% else %>
-        <%= link_to 'Novo Usuario', new_account_registration_path %>      
+        <%= link_to 'Cadastrar na EspertoFit', new_account_registration_path %> | 
         <%= link_to 'Entrar', new_account_session_path %>
       <% end %>
-      <%= link_to 'Unidades Disponíveis', units_path %>
-    </nav>
+    </nav><hr>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

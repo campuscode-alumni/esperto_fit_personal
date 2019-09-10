@@ -1,4 +1,8 @@
 class ProfilesController < ApplicationController
+
+  before_action :set_id, only: %i[edit update]
+  before_action :authenticate_account!, only: %i[new create edit update]
+
   def index 
     
   end
@@ -20,11 +24,29 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
   end
 
+  def edit
+    redirect_to root_path if !@profile.owner? current_account
+  end
+
+  def update
+    if @profile.update(profile_params)
+      flash[:notice] = 'Editado com sucesso!'
+      redirect_to @profile
+    else
+      flash.now[:alert] = 'Cadastro não editado.'
+      render :edit
+    end
+  end
+
   private
 
   def profile_params
     params.require(:profile).permit(:document, :first_name, :last_name, :date_of_birth,
                                     :gender, :address, :contact, :nickname,
                                     :payment_method, :work_document)
+  end
+
+  def set_id
+    @profile = Profile.find(params[:id])
   end
 end

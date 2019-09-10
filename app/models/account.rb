@@ -12,6 +12,7 @@ class Account < ApplicationRecord
   has_one :unit, through: :enrollment
 
   has_one :profile
+  has_many :schedules
 
   def personal?
     is_a? Personal

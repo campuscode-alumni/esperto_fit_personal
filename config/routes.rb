@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     post 'add_unit', on: :member
   end
   resources :personals, only: %i[index new create edit]
-  resources :profiles, only: %i[index new create show]
+  resources :profiles, only: %i[index new create show edit update]
+  resources :units, only: %i[index show]
   resources :schedules, only:%i[new create edit update show]
+
+  get '/my_schedule', to: 'schedules#my_schedule'
+  resources :accounts, only:%i[show]
 end
