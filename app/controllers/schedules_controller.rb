@@ -11,6 +11,7 @@ class SchedulesController < ApplicationController
     
     if @schedule.save
       flash[:notice] = "Cadastrado com sucesso"
+      @schedule.create_appointments
       redirect_to my_schedule_path
     else
       flash.now[:notice] = "Erro ao cadastrar agenda"

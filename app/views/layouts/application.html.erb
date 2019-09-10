@@ -21,16 +21,12 @@
           <%= link_to 'Minhas agendas', my_schedule_path %>
         <% end %>
 
-       <!--  
-        <%# if current_account.type == 'Customer' %>
-          <%#= link_to 'Visualizar Aulas', new_class_path %> | 
-        <%# end %>
-        -->
-
+  
         <%= link_to 'Sair', destroy_account_session_path, method: :delete %> | 
-        <%= link_to 'Unidades Disponíveis', units_path %>
+        
       <% else %>
-        <%= link_to 'Cadastrar na EspertoFit', new_account_registration_path %> | 
+        <%= link_to 'Cadastrar na EspertoFit', new_account_registration_path %> |
+        <%= link_to 'Unidades Disponíveis', units_path %> 
         <%= link_to 'Entrar', new_account_session_path %>
       <% end %>
     </nav><hr>
