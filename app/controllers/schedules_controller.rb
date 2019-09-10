@@ -7,7 +7,7 @@ class SchedulesController < ApplicationController
 
   def create
     @schedule = Schedule.new(params_schedule)
-    @schedule.account = current_account
+    @schedule.personal = current_account if current_account.personal?
     if @schedule.save
       flash[:notice] = "Cadastrado com sucesso"
       redirect_to my_schedule_path
@@ -23,8 +23,8 @@ class SchedulesController < ApplicationController
 
   def my_schedule
     redirect_to root_path unless current_account.type == "Personal"    
-    @schedule = Schedule.where(account: current_account)    
-    if @schedule.blank?
+    @schedules = Schedule.where(personal: current_account)    
+    if @schedules.empty?
       flash[:failure] = "Não há agendas cadastradas"
     end
   end

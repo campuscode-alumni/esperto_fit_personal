@@ -68,10 +68,10 @@ feature 'Schedule receives account ID' do
   end
 
   scenario 'and user should be a personal' do
-    account = create(:account, email: 'teste@email.com', password: '123456')
-    profile = create(:profile, account: account)
+    customer = create(:customer, email: 'teste@email.com', password: '123456')
+    profile = create(:profile, account: customer)
 
-    login_as(account, :scope => :account)
+    login_as(customer, scope: :account)
 
     visit my_schedule_path
 

@@ -18,6 +18,8 @@
         <% if current_account.type == 'Personal' %>
           <%= link_to 'Cadastrar agenda', new_schedule_path %>
           <%= link_to 'Minhas agendas', my_schedule_path %>
+        <% else %>
+          <%= link_to 'Agendar horário com Personal', personals_path %>
         <% end %>
         <%= link_to 'Sair', destroy_account_session_path, method: :delete %>
         <%= link_to 'Unidades Disponíveis', units_path %>

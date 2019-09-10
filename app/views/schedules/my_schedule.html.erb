@@ -1,6 +1,6 @@
 <h1> Agendas </h1>
-<% if @schedule.any? %>
-  <% @schedule.each do |schedule| %>
+<% if @schedules.any? %>
+  <% @schedules.each do |schedule| %>
     <h2><%= schedule.unit.name%></h2>
     <ul>
       <li><%= schedule.date %></li>
