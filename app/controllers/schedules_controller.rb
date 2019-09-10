@@ -8,6 +8,7 @@ class SchedulesController < ApplicationController
   def create
     @schedule = Schedule.new(params_schedule)
     @schedule.account = current_account
+    
     if @schedule.save
       flash[:notice] = "Cadastrado com sucesso"
       redirect_to my_schedule_path
