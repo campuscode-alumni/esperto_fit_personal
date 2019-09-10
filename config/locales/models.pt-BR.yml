@@ -5,12 +5,19 @@ pt-BR:
       customer: Aluno
       personal: Personal
       unit: Unidade
+      schedule: Agenda
       profile: Perfil
     attributes:
       account: 
         email: Email
         name: Nome
         password: Senha
+      schedule:
+        unit_id: Unidade
+        date: Dia da semana
+        start: Horário de início
+        finish: Horário de término
+        price: Valor
       profile:
         first_name: Nome
         last_name: Sobrenome
