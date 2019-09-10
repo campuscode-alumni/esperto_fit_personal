@@ -3,5 +3,9 @@
   <p>Você é membro desta unidade </p>
    <%= link_to "Aulas disponíveis na #{@unit.name}", appointments_path %>
 <% else %>
-<%= link_to 'Matricular-se Nesta Unidade', add_unit_customer_path(@unit), method: :post %>
+  <% if  current_account && current_account.unit%>
+    <%= link_to 'Mudar-se Para Esta Unidade', add_unit_customer_path(@unit), method: :post %>
+  <% else %>
+    <%= link_to 'Matricular-se Nesta Unidade', add_unit_customer_path(@unit), method: :post %>
+  <% end %>
 <% end %>
