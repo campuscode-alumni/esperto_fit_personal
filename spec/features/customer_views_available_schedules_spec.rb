@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+#Corrigir a rota(mudar de Appointment p/ Schedule)
 feature 'Customer can see Personal schedules' do
   scenario 'Successfully' do
     #Arrange
@@ -15,7 +15,6 @@ feature 'Customer can see Personal schedules' do
     visit root_path
     click_on 'Unidades Disponíveis'
     click_on 'Unidade 1'
-    #click_on 'Matricular-se Nesta Unidade'
     click_on "Personals na Unidade 1"
 
     #Assert
@@ -27,12 +26,25 @@ feature 'Customer can see Personal schedules' do
     expect(page).to have_css('tr', text: "#{unit.schedules[0].start} às #{unit.schedules[0].finish}")
     expect(page).to have_css('th', text: "Valor")
     expect(page).to have_css('tr', text: "#{unit.schedules[0].price}")
-    # expect(page).to have_content('10h')
-    # expect(page).to have_content('11h')
-    # expect(page).to have_content('10/09/2019')
-    # expect(page).to have_content('R$ 50,00')
-    # expect(page).to have_link('Reservar Horário')
-    # expect(page).to have_link('Voltar')
+
+
+  end
+
+  scenario 'and there are no schedules in his unit' do
+    unit = create(:unit)
+    customer = create(:customer, unit: unit)
+
+    login_as(customer, scope: :account)
+    visit root_path
+    click_on 'Unidades Disponíveis'
+
+  end
+
+  scenario 'and customer is not yet registered at a unit' do
+
+  end
+
+  scenario '' do
 
   end
 end
