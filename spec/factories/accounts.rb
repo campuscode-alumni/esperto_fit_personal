@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :account do
-    name { "João Silva" }
+    document { "12345678900" }
     sequence :email do |n|
       "email#{n}@generico.com" 
     end
@@ -9,7 +9,7 @@ FactoryBot.define do
 
   end
   factory :customer, class: Customer do
-    name { "Aluno Genérico" }
+    document { "12345678900" }
     sequence :email do |n|
       "aluno#{n}@generico.com" 
     end
@@ -17,7 +17,7 @@ FactoryBot.define do
     type { "Customer"}
   end
   factory :personal, class: Personal do
-    name { "Personal Genérico" }
+    document { "12345678900" }
     sequence :email do |n|
       "personal#{n}@generico.com" 
     end

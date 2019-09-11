@@ -13,4 +13,10 @@ Rails.application.routes.draw do
 
   get '/my_schedule', to: 'schedules#my_schedule'
   resources :accounts, only:%i[show]
+
+  namespace 'api' do
+    namespace 'v1' do
+      get '/search/account', to: 'accounts#search'
+    end
+  end
 end
