@@ -1,0 +1,19 @@
+<h3> Aulas disponiveis em <%= @unit.name %> </h3>
+
+  <br>
+<% @unit.schedules.each do |schedule|%>
+<table>
+  <tr>
+    <th>Personal</th>
+    <th>Data Disponível</th>
+    <th>Horário de Atendimento</th>
+    <th>Valor</th>
+  </tr>
+  <tr>
+    <td><%= schedule.account.profile.first_name %></td>
+    <td><%= schedule.date %></td>
+    <td><%= schedule.start %> às <%= schedule.finish %></td>
+    <td><%= schedule.price %></td>
+  </tr>
+  </table>
+<% end %>

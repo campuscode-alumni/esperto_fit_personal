@@ -1,7 +1,7 @@
 <h2><%= @unit.name %> </h2>
 <% if current_account && current_account.unit == @unit %>
   <p>Você é membro desta unidade </p>
-   <%= link_to "Aulas disponíveis na #{@unit.name}", appointments_path %>
+   <%= link_to "Personals na #{@unit.name}", appointment_path %>
 <% else %>
   <% if  current_account && current_account.unit%>
     <%= link_to 'Mudar-se Para Esta Unidade', add_unit_customer_path(@unit), method: :post %>

@@ -10,7 +10,11 @@
   <h2>Unidades Disponíveis</h2>
   <ul>
   <% @units.each do |unit| %>
-    <li><%= link_to unit.name, unit_path(unit) %></li>
+    <% if current_account.type == "Customer" %>
+      <li><%= link_to unit.name, unit_path(unit) %></li>
+    <% else %>
+      <p><%=  unit.name%></p>
+    <% end %>
   <% end %>
   </ul>
 <% end %>

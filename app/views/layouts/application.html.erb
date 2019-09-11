@@ -42,21 +42,6 @@
         </div>
       </nav>
 
-<<<<<<< HEAD
-  
-        <%= link_to 'Sair', destroy_account_session_path, method: :delete %> | 
-        
-      <% else %>
-        <%= link_to 'Cadastrar na EspertoFit', new_account_registration_path %> |
-        <%= link_to 'Unidades Disponíveis', units_path %> 
-        <%= link_to 'Entrar', new_account_session_path %>
-      <% end %>
-    </nav><hr>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-=======
       <main class="row">
         <div id="content" class="col-md-12 mt-2">
           <% if flash[:notice]%>
@@ -81,6 +66,5 @@
         </div>
       </footer>
     </div>
->>>>>>> master
   </body>
 </html>
