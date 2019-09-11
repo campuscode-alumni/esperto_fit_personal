@@ -8,29 +8,65 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body><br>
-    <nav>
-      <% if account_signed_in? %>
-      <h2>Olá, <%= link_to current_account.name, profile_path(current_account) %></h2> <br>
-      <% end %> 
-    
-      <% if account_signed_in? %> 
-        <% if current_account.type == 'Personal' %>
-          <%= link_to 'Cadastrar agenda', new_schedule_path %>
-          <%= link_to 'Minhas agendas', my_schedule_path %>
-        <% else %>
-          <%= link_to 'Agendar horário com Personal', personals_path %>
-        <% end %>
-        <%= link_to 'Sair', destroy_account_session_path, method: :delete %>
-        <%= link_to 'Unidades Disponíveis', units_path %>
-      <% else %>
-        <%= link_to 'Cadastrar na EspertoFit', new_account_registration_path %> | 
-        <%= link_to 'Entrar', new_account_session_path %>
-      <% end %>
-    </nav><hr>
+  <body>
+    <div class="container">
+      <nav class="row">
+        <div id="hello" class="col-md-4">
+          <ul class="link_list">
+            <li>
+              <span id="logo"><%= link_to 'esperto', root_path %><%= link_to 'fit', root_path, class: "accent" %></span>
+            </li>
+            <% if account_signed_in? %>
+            <li>
+              Olá, <%= link_to current_account.name, profile_path(current_account) %>
+            </li>
+            <% end %>
+          </ul>
+        </div> 
+      
+        <div id="top-menu" class="col-md-8 text-right">
+          <ul class="link_list">
+            <% if account_signed_in? %> 
+              <% if current_account.type == 'Personal' %>
+                <li><%= link_to 'Cadastrar agenda', new_schedule_path %></li>
+                <li><%= link_to 'Minhas agendas', my_schedule_path %></li>
+              <% else %>
+                <li><%= link_to 'Agendar horário com Personal', personals_path %></li>
+              <% end %>
+              <li><%= link_to 'Unidades Disponíveis', units_path %></li>
+              <li><%= link_to 'Sair', destroy_account_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to 'Unidades Disponíveis', units_path %></li>
+              <li><%= link_to 'Cadastrar na EspertoFit', new_account_registration_path %></li> 
+              <li><%= link_to 'Entrar', new_account_session_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+      <main class="row">
+        <div id="content" class="col-md-12 mt-2">
+          <% if flash[:notice]%>
+            <p class="notice"><%= notice %></p>
+          <% end %>
+          <% if flash[:alert]%>
+          <p class="alert"><%= alert %></p>
+          <% end %>
+          <%= yield %>
+        </div>
+      </main>
+
+      <footer class="row mt-2">
+        <div class="col-md-12 text-center">
+          <ul class="link_list">
+            <li><%= link_to 'Home', root_path %></li>
+            <li><%= link_to 'Link1', root_path %></li>
+            <li><%= link_to 'Link2', root_path %></li>
+          </ul>
+          <hr>
+          <span id="logo">esperto<span class="accent">fit</span></span>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
