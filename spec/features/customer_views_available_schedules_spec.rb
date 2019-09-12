@@ -26,25 +26,19 @@ feature 'Customer can see Personal schedules' do
     expect(page).to have_css('tr', text: "#{unit.schedules[0].start} às #{unit.schedules[0].finish}")
     expect(page).to have_css('th', text: "Valor")
     expect(page).to have_css('tr', text: "#{unit.schedules[0].price}")
-
-
   end
 
   scenario 'and there are no schedules in his unit' do
     unit = create(:unit)
     customer = create(:customer, unit: unit)
 
+    
     login_as(customer, scope: :account)
     visit root_path
     click_on 'Unidades Disponíveis'
+    click_on unit.name
+    click_on "Personals na #{unit.name}"
 
-  end
-
-  scenario 'and customer is not yet registered at a unit' do
-
-  end
-
-  scenario '' do
-
+    expect(page).to have_content('Até o momento não há aulas de Personal disponível nesta unidade.')
   end
 end

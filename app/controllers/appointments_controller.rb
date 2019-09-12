@@ -1,14 +1,6 @@
 class AppointmentsController < ApplicationController
   def show
     @unit = Unit.find(params[:id])
-    
- 
-    #byebug
-    # @schedule = Schedule.where(unit_id: @unit)
-    # byebug
-    # @personal = Account.where(schedule_id: @schedule)
-    # byebug
-    # @appm = Appointment.where(account_id: @personal)
-    # byebug
+    flash.now[:alert] = 'Até o momento não há aulas de Personal disponível nesta unidade.' unless @unit.schedules.nil?
   end
 end

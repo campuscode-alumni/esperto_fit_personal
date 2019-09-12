@@ -9,7 +9,8 @@ class Schedule < ApplicationRecord
 
   def create_appointments
     (self.start..self.finish).each do |x| 
-      appm = Appointment.create(date_appointment: self.date, start_hour: x, end_hour: x+1, available: false, account: self.account)
+
+      appm = Appointment.create(date_appointment: self.date, start_hour: x, end_hour: x+1, available: false, account: self.account, schedule: self)
       CustomerAppointment.create(appointment: appm, name_class: "Aulas com Personal")
     end
   end
