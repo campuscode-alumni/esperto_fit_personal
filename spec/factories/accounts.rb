@@ -5,14 +5,23 @@ FactoryBot.define do
       "email#{n}@generico.com" 
     end
     password { "123456"}
+    type { "Personal"}
+
+  end
+  factory :customer, class: Customer do
+    name { "Aluno Genérico" }
+    sequence :email do |n|
+      "aluno#{n}@generico.com" 
+    end
+    password { "123456"}
     type { "Customer"}
-
-    factory :personal do
-      type { "Personal" }
+  end
+  factory :personal, class: Personal do
+    name { "Personal Genérico" }
+    sequence :email do |n|
+      "personal#{n}@generico.com" 
     end
-
-    factory :customer do
-      type { "Customer" }
-    end
+    password { "123456"}
+    type { "Personal"}
   end
 end

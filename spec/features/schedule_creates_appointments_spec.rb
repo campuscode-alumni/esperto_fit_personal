@@ -9,6 +9,6 @@ feature 'Schedule creates appointments' do
     schedule.create_appointments
     
     #Assert
-    expect(Appointment.last.account.type).to eq schedule.account.type
+    expect(Appointment.last.account.type).to eq schedule.personal.type
   end
 end

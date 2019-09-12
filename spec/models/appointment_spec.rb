@@ -6,7 +6,7 @@ RSpec.describe Appointment, type: :model do
     it 'Create an appointment and accounts must be equal' do
       account = create(:personal)
       unit = create(:unit)
-      schedule = Schedule.create!(date: "10-09-2019", price: "50", start: 10, finish: 18, account: account, unit: unit)
+      schedule = Schedule.create!(date: "10-09-2019", price: "50", start: 10, finish: 18, personal: account, unit: unit)
       #create(:appointment)
       schedule.create_appointments
 

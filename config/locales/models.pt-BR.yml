@@ -28,5 +28,9 @@ pt-BR:
         gender: Sexo
         nickname: Apelido
         payment_method: Método de pagamento
+      unit:
+        personals: Personal Trainers
+        name: Nome
+        schedules: Agendas
 
       

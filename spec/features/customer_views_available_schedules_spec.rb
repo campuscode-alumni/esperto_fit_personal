@@ -8,14 +8,14 @@ feature 'Customer can see Personal schedules' do
     account = create(:personal, email: 'teste@email.com', password: '123456')
     profile = create(:profile, account: account, first_name: 'Patricia')
 
-    create(:schedule, date: '10/09/2019', start: 10, finish: 18, price: "50", account: account, unit: unit)
+    create(:schedule, date: '10/09/2019', start: 10, finish: 18, price: "50", personal: account, unit: unit)
     
     #Act
     login_as(customer, scope: :account)
     visit root_path
     click_on 'Unidades Disponíveis'
-    click_on 'Unidade 1'
-    click_on "Personals na Unidade 1"
+    click_on unit.name
+    click_on "Personals na #{unit.name}"
 
     #Assert
     expect(page).to have_css('th', text: "Personal")

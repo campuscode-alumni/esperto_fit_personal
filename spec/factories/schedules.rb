@@ -4,7 +4,7 @@ FactoryBot.define do
     start { 10 }
     finish { 18 }
     price { "50" }
-    account
+    personal
     unit
   end
 end

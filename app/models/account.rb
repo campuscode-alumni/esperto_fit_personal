@@ -13,7 +13,7 @@ class Account < ApplicationRecord
 
   has_one :profile
   has_many :schedules
-
+  
   has_many :customers, through: :customer_appointments
 
   def personal?
