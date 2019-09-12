@@ -10,8 +10,8 @@ describe 'API gets customer profile' do
 
     expect(response.status).to eq 202
     expect(response.body).not_to include customer.email
-    expect(json_customer[:account][:profile][:first_name]).to include profile1.first_name
-    expect(json_customer[:account][:profile][:last_name]).to include profile1.last_name
+    expect(json_customer[:profile][:first_name]).to include profile1.first_name
+    expect(json_customer[:profile][:last_name]).to include profile1.last_name
   end
 
   it 'and the account ID is not valid' do
