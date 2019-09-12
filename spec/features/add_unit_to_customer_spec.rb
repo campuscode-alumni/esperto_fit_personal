@@ -5,6 +5,7 @@ feature 'Add unit to customer' do
     #arrange
     unit = create(:unit, name: 'Paulista')
     user = create(:customer)
+    create(:profile, account: user)
     #act
     login_as(user, scope: :account)
     visit root_path

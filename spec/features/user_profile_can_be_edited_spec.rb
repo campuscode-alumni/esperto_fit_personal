@@ -9,10 +9,10 @@ feature 'User profile can be edited' do
     login_as profile.account, scope: :account
     visit root_path
 
-    click_on profile.account.name
+    click_on profile.account.email
 
     #Assert
-    expect(page).to have_css('h3', text: "Conta de #{profile.account.name}")
+    expect(page).to have_css('h3', text: "Conta de #{profile.nickname}")
     expect(page).to have_link('Editar Cadastro')
     expect(page).to have_text(profile.last_name)
   end
@@ -25,13 +25,13 @@ feature 'User profile can be edited' do
     login_as profile.account, scope: :account
     visit root_path
 
-    click_on profile.account.name
+    click_on profile.account.email
     click_on 'Editar Cadastro'
 
     fill_in 'Nome', with: 'Mauricio'
     fill_in 'Sobrenome', with: 'Oliveira'
     fill_in 'Documento', with: '54654654'
-    click_on 'Editar'
+    click_on 'Enviar'
 
     #Assert
     expect(page).to have_text('Editado com sucesso!')
@@ -46,7 +46,7 @@ feature 'User profile can be edited' do
     login_as profile.account, scope: :account
     visit root_path
 
-    click_on profile.account.name
+    click_on profile.account.email
     click_on 'Editar Cadastro'
     fill_in 'Nome', with: ''
     fill_in 'Sobrenome', with: ''
@@ -56,8 +56,8 @@ feature 'User profile can be edited' do
     fill_in 'Contato', with: ''
     fill_in 'Sexo', with: ''
     fill_in 'Apelido', with: ''
-    fill_in 'Método de pagamento', with: ''
-    click_on 'Editar'
+    fill_in 'Método de recebimento', with: ''
+    click_on 'Enviar'
 
     #Assert
     expect(page).to have_content('Cadastro não editado.')

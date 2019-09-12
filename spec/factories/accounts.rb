@@ -6,7 +6,7 @@ FactoryBot.define do
     end
     password { "123456"}
     type { "Personal"}
-
+    
   end
   factory :customer, class: Customer do
     document { "12345678900" }
@@ -15,6 +15,7 @@ FactoryBot.define do
     end
     password { "123456"}
     type { "Customer"}
+    
   end
   factory :personal, class: Personal do
     document { "12345678900" }
@@ -23,5 +24,6 @@ FactoryBot.define do
     end
     password { "123456"}
     type { "Personal"}
+    
   end
 end

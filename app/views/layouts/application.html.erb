@@ -18,7 +18,7 @@
             </li>
             <% if account_signed_in? %>
             <li>
-              Olá, <%= link_to current_account.name, profile_path(current_account) %>
+              Olá, <%= link_to current_account.email, profile_path(current_account) %>
             </li>
             <% end %>
           </ul>

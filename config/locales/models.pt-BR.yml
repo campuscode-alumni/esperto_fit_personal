@@ -10,7 +10,7 @@ pt-BR:
     attributes:
       account: 
         email: Email
-        name: Nome
+        document: CPF
         password: Senha
       schedule:
         unit_id: Unidade
@@ -21,7 +21,6 @@ pt-BR:
       profile:
         first_name: Nome
         last_name: Sobrenome
-        document: Documento
         address: Endereço
         date_of_birth: Data de Nascimento
         contact: Contato

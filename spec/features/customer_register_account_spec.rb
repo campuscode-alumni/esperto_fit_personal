@@ -6,7 +6,7 @@ feature 'User register account' do
     #act
     visit root_path
     click_on 'Cadastrar na EspertoFit'
-    fill_in 'Nome Completo', with: 'Nome Genérico'
+    fill_in 'CPF', with: '12345678900'
     fill_in 'Email', with: 'email@generico.com'
     fill_in 'Senha', with: '123456'
     fill_in 'Confirmar Senha', with: '123456'
@@ -23,7 +23,7 @@ feature 'User register account' do
     #act
     visit root_path
     click_on 'Cadastrar na EspertoFit'
-    fill_in 'Nome Completo', with: 'Nome Genérico'
+    fill_in 'CPF', with: '12345678900'
     fill_in 'Email', with: 'email@generico.com'
     fill_in 'Senha', with: '123456'
     fill_in 'Confirmar Senha', with: '123456'
@@ -36,24 +36,24 @@ feature 'User register account' do
     expect(Personal.last).to be_truthy
   end
 
-  scenario 'and must fill name field' do
+  scenario 'and must fill CPF field' do
     #act
     visit root_path
     click_on 'Cadastrar na EspertoFit'
-    fill_in 'Nome Completo', with: ''
+    fill_in 'CPF', with: ''
     fill_in 'Email', with: 'email@generico.com'
     fill_in 'Senha', with: '123456'
     fill_in 'Confirmar Senha', with: '123456'
     select 'Aluno', from: 'Tipo de Conta'
     click_on 'Enviar'
     #arrange
-    expect(page).to have_content("Nome não pode ficar em branco")
+    expect(page).to have_content("CPF não pode ficar em branco")
   end
   scenario 'and must fill email field' do
     #act
     visit root_path
     click_on 'Cadastrar na EspertoFit'
-    fill_in 'Nome Completo', with: 'Nome Generico'
+    fill_in 'CPF', with: '12345678900'
     fill_in 'Email', with: ''
     fill_in 'Senha', with: '123456'
     fill_in 'Confirmar Senha', with: '123456'
@@ -66,7 +66,7 @@ feature 'User register account' do
     #act
     visit root_path
     click_on 'Cadastrar na EspertoFit'
-    fill_in 'Nome Completo', with: 'Nome Generico'
+    fill_in 'CPF', with: '12345678900'
     fill_in 'Email', with: 'email@generico.com'
     fill_in 'Senha', with: ''
     fill_in 'Confirmar Senha', with: ''
@@ -81,7 +81,7 @@ feature 'User register account' do
     #act
     visit root_path
     click_on 'Cadastrar na EspertoFit'
-    fill_in 'Nome Completo', with: 'Nome Generico'
+    fill_in 'CPF', with: '12345678900'
     fill_in 'Email', with: 'meu@email.com'
     fill_in 'Senha', with: '123456'
     fill_in 'Confirmar Senha', with: '123456'

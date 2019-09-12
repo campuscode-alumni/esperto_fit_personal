@@ -3,9 +3,12 @@ require 'rails_helper'
 feature 'Customer view personal list' do
   scenario 'view personals for unit' do
     unit = create(:unit)
-    personal = create(:personal, name: 'Personal 1')
-    second_personal = create(:personal, name: 'Personal 2')
-    third_personal = create(:personal, name: 'Personal 3')
+    personal = create(:personal, document: '12345678901')
+    create(:profile, first_name: 'Personal 1', account: personal)
+    second_personal = create(:personal, document: '12345678902')
+    create(:profile, first_name: 'Personal 2', account: second_personal)
+    third_personal = create(:personal, document: '12345678903')
+    create(:profile, first_name: 'Personal 3', account: third_personal)
     schedule = create(:schedule, personal: personal, unit: unit)
     schedule = create(:schedule, personal: second_personal, unit: unit)    
     user = create(:customer, unit: unit)
