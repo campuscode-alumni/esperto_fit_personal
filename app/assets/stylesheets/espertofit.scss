@@ -106,5 +106,19 @@ body{
             color: $primary;
             font-weight: bold;
         }
+
+    }
+
+
+    .alert {
+      color: red;
+      border: solid 1px red;
+      text-align: center;
+    }
+
+    .notice {
+      color: lightgreen;
+      border: solid 1px lightgreen;
+      text-align: center;
     }
 }

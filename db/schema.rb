@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_164803) do
+ActiveRecord::Schema.define(version: 2019_09_12_162703) do
 
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -25,6 +25,29 @@ ActiveRecord::Schema.define(version: 2019_09_11_164803) do
     t.string "document"
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
     t.index ["schedule_id"], name: "index_accounts_on_schedule_id"
+  end
+
+  create_table "appointments", force: :cascade do |t|
+    t.integer "account_id"
+    t.integer "start_hour"
+    t.integer "end_hour"
+    t.date "date_appointment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "available"
+    t.integer "schedule_id"
+    t.index ["account_id"], name: "index_appointments_on_account_id"
+    t.index ["schedule_id"], name: "index_appointments_on_schedule_id"
+  end
+
+  create_table "customer_appointments", force: :cascade do |t|
+    t.integer "account_id"
+    t.integer "appointment_id"
+    t.string "name_class"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_customer_appointments_on_account_id"
+    t.index ["appointment_id"], name: "index_customer_appointments_on_appointment_id"
   end
 
   create_table "enrollments", force: :cascade do |t|

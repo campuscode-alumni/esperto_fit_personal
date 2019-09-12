@@ -7,7 +7,12 @@ class Account < ApplicationRecord
   validates :document, presence: true
 
   has_one :enrollment
+  has_one :unit, through: :enrollment
+
   has_one :profile
+  has_many :schedules
+  
+  has_many :customers, through: :customer_appointments
 
   def personal?
     is_a? Personal

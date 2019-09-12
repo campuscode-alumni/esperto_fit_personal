@@ -1,10 +1,10 @@
 FactoryBot.define do
   factory :schedule do
-    unit
-    personal
-    date { "MyString" }
-    start { 7 }
-    finish { 20 }
+    date { "10-09-2019" }
+    start { 10 }
+    finish { 18 }
     price { "50" }
+    personal
+    unit
   end
 end
