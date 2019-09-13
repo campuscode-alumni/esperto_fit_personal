@@ -6,5 +6,8 @@ class AppointmentsController < ApplicationController
 
   def view
     @schedule = Schedule.find(params[:id])
+    if !(@schedule.unit == current_account.unit)
+      redirect_to root_path
+    end
   end
 end
