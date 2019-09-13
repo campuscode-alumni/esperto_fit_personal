@@ -23,7 +23,7 @@ feature 'Customer can see Personal schedules' do
     expect(page).to have_css('th', text: "Data Disponível")
     expect(page).to have_css('tr', text: "#{unit.schedules[0].date}")
     expect(page).to have_css('th', text: "Horário de Atendimento")
-    expect(page).to have_css('tr', text: "#{unit.schedules[0].start} às #{unit.schedules[0].finish}")
+    expect(page).to have_css('tr', text: "#{unit.schedules[0].start}h às #{unit.schedules[0].finish}h")
     expect(page).to have_css('th', text: "Valor")
     expect(page).to have_css('tr', text: "#{unit.schedules[0].price}")
   end

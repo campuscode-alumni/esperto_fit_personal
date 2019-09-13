@@ -1,6 +1,6 @@
 <h1>Agenda da <%= @schedule.personal.profile.first_name %> para a data <%= @schedule.date %> </h1>
 <ul>
 <% @schedule.appointments.each do |appm| %>
-  <li><%= link_to "Horário das #{appm.start_hour} às #{appm.end_hour} - Preço #{@schedule.price}", root_path %></li>
+  <li><%= link_to "Horário das #{appm.start_hour}h às #{appm.end_hour}h - Preço #{@schedule.price}", enroll_appointment_path, method: :post, data: { confirm: "Você realmente deseja agendar esta aula?" } %></li>
 <% end %>
 </ul>

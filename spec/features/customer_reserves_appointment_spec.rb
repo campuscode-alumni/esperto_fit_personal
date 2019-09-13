@@ -17,10 +17,10 @@ feature 'Customer can reserve an appointment with a personal' do
     click_on unit.name
     click_on "Personals na #{unit.name}"
     click_on 'Patricia' 
+    click_on "Horário das 11h às 12h - Preço 50"
 
     #Assert
-    expect(page).to have_css('h1', text: "Agenda da #{profile.first_name} para a data #{schedule.date}")
-    expect(page).to have_link('li', text: "Horário das #{(schedule.appointments[0].start_hour)} às #{(schedule.appointments[0].end_hour)} - Preço #{(schedule.price)}")
+    expect(page).to have_content('Aula agendada com sucesso. Veja mais detalhes em sua área do aluno!')
   end
 
 end
