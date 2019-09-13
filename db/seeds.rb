@@ -17,3 +17,7 @@ schedule = Schedule.create(date: '12-11-2020', price: '50', unit: unit, start: 1
 schedule.create_appointments
 
 profile = Profile.create(first_name: 'Jeová', last_name: 'Jesus', document: '12345678900', date_of_birth: '12-11-1992', gender: 'male', address: 'Av. Paulista, 1374', contact: '11998856633', nickname: 'Jeovazinho', payment_method: 'Débito em conta', work_document: '12345678900', account: personal_acc)
+
+Unit.create(name: 'Santana')
+
+
