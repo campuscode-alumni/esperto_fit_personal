@@ -45,10 +45,6 @@ feature 'Customer can see apppointments' do
     expect(current_path).to eq root_path
   end
 
-  scenario 'and there are no personals in unit' do
-    pending
-  end
-
   scenario 'and must be logged in' do
     unit = create(:unit)
     account = create(:personal, email: 'teste@email.com', password: '123456')
@@ -57,7 +53,7 @@ feature 'Customer can see apppointments' do
     schedule.create_appointments
   
     visit root_path
-    visit appointment_path(1)
+    visit appointment_path(schedule)
 
     expect(current_path).to eq root_path
   end
