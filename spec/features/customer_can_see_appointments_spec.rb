@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 feature 'Customer can see apppointments' do
-  scenario 'only if is authenticated' do
-    unit = create(:unit)
+  scenario 'Successfully' do
+      unit = create(:unit)
     customer = create(:customer, unit: unit)
     account = create(:personal, email: 'teste@email.com', password: '123456')
     profile = create(:profile, account: account, first_name: 'Patricia')
@@ -19,9 +19,8 @@ feature 'Customer can see apppointments' do
     expect(page).to have_css('h1', text: "Agenda da #{profile.first_name} para a data #{schedule.date}")
     expect(page).to have_css('li', text: "Horário das #{(schedule.appointments[0].start_hour)} às #{(schedule.appointments[0].end_hour)} - Preço #{(schedule.price)}")
     expect(page).to have_css('li', text: "Horário das #{(schedule.appointments[1].start_hour)} às #{(schedule.appointments[1].end_hour)} - Preço #{(schedule.price)}")
-
-
   end
+
   scenario 'and can\'t access other units through direct link' do 
     unit = create(:unit)
     other_unit = create(:unit)
@@ -42,6 +41,23 @@ feature 'Customer can see apppointments' do
     #byebug
     login_as(customer_account, scope: :account) 
     visit view_appointment_path(other_unit)
+
+    expect(current_path).to eq root_path
+  end
+
+  scenario 'and there are no personals in unit' do
+    pending
+  end
+
+  scenario 'and must be logged in' do
+    unit = create(:unit)
+    account = create(:personal, email: 'teste@email.com', password: '123456')
+    profile = create(:profile, account: account, first_name: 'Patricia')
+    schedule = create(:schedule, date: '10/09/2019', start: 10, finish: 12, price: "50", personal: account, unit: unit)
+    schedule.create_appointments
+  
+    visit root_path
+    visit appointment_path(1)
 
     expect(current_path).to eq root_path
   end
