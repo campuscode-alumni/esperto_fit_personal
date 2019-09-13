@@ -1,6 +1,6 @@
 <h1>Agenda da <%= @schedule.personal.profile.first_name %> para a data <%= @schedule.date %> </h1>
 <ul>
 <% @schedule.appointments.each do |appm| %>
-  <li>Horário das <%= appm.start_hour %> às <%= appm.end_hour %> - Preço <%= @schedule.price %> </li>
+  <li><%= link_to "Horário das #{appm.start_hour} às #{appm.end_hour} - Preço #{@schedule.price}", root_path %></li>
 <% end %>
 </ul>

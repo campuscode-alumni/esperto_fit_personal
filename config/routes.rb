@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :schedules, only:%i[new create edit update show]
   resources :appointments, only:%i[show] do
     get 'view', on: :member
+    post 'enroll', on: :member
   end
   resources :accounts, only:%i[show]
 
