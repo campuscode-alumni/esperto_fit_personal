@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :accounts
-  resources :units, only: %i[ index show ] 
+  resources :units, only: %i[ index show ]
   resources :customers, only:%i[] do
     post 'add_unit', on: :member
   end
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   namespace 'api' do
     namespace 'v1' do
       get '/search/account', to: 'accounts#search'
+      get '/personals', to: 'personals#index'
       resources :customers, only: %i[show]
     end
   end
