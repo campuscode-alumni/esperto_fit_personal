@@ -10,4 +10,10 @@ feature 'Units appear in homepage'do
     expect(page).to have_content(unit.name) 
     expect(page).to have_content(other_unit.name)
   end 
+
+  scenario 'and dont have any unit' do 
+    visit root_path
+
+    expect(page).to have_text 'Nenhuma unidade cadastrada'
+  end
 end
