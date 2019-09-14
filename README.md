@@ -23,7 +23,7 @@ Sucesso:
 
 HTTP Status: 200
 
-Result example: 
+Result example:
 
 ```json
 {
@@ -44,5 +44,66 @@ Result example:
 ```json
 {
   \"msg\":\"Conta não encontrada\"
+}
+```
+
+## Consulta Personal Trainers0
+
+
+### Exemplos de rota
+
+#### get '/api/v1/personals'
+
+ou para filtrar por unidades
+
+#### get '/api/v1/personals?unit=21'
+
+Sucesso:
+
+HTTP Status: 200
+
+Result example:
+
+```json
+[
+  {
+  \"email\":\"personal1@mail.com\",\"profile\":{
+    \"first_name\":\"Personal1\",\"last_name\":\"da Silva\"
+    }
+  },{\"email\":\"personal2@mail.com\",\"profile\":{
+        \"first_name\":\"Personal2\",\"last_name\":\"da Costa\"
+    }
+  },{\"email\":\"personal3@mail.com\",\"profile\":{
+          \"first_name\":\"Personal3\",\"last_name\":\"de Souza\"
+    }
+  }
+]
+```
+
+Erro:
+
+A consulta não retornou nenhum resultado
+
+HTTP Status: 404
+
+Result example:
+
+```json
+{
+  \"msg\":\"Nenhum personal encontrado\"
+}
+```
+
+Erro:
+
+Parametro unit passado não é inteiro
+
+HTTP Status: 412
+
+Result example:
+
+```json
+{
+  \"msg\":\"Parametro unidade espera id de Unidade\"
 }
 ```
