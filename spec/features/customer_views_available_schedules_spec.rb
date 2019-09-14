@@ -42,7 +42,4 @@ feature 'Customer can see Personal schedules' do
     expect(page).to have_content('Até o momento não há aulas de Personal disponível nesta unidade.')
   end
 
-  scenario 'if personal doesnt have a profile, it should say that unit doesnt have available schedules' do
-    pending
-  end
 end
