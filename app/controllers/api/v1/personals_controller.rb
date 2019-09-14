@@ -6,6 +6,8 @@ class Api::V1::PersonalsController < Api::V1::ApiController
     else
       personals = Personal.all
     end
-    render json: personals.as_json(include: :profile)
+    return render json: personals.as_json(include: :profile), status: :ok unless personals.empty?
+
+    render json: {msg: 'Nenhum personal encontrado' }, status: :not_found
   end
 end

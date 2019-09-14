@@ -58,12 +58,30 @@ describe 'Api get personals' do
   end
 
   it 'and personals are empty' do
-    #arrange
-
     #act
     get api_v1_personals_path
     #assert
     expect(response.status).to eq 404
     expect(response.body).to include 'Nenhum personal encontrado'
+  end
+
+  it 'and personals are empty filtered by units' do
+    #arrange
+    unidade = create(:unit, name: 'Unidade1')
+    #act
+    get api_v1_personals_path(unit: unidade.id)
+    #assert
+    expect(response.status).to eq 404
+    expect(response.body).to include 'Nenhum personal encontrado'
+  end
+
+  it 'and units params must be integer' do
+    #arrange
+    unidade = create(:unit, name: 'Unidade1')
+    #act
+    get api_v1_personals_path(unit: unidade.name)
+    #assert
+    expect(response.status).to eq 418
+    expect(response.body).to include 'Parametro unidade espera id de Unidade'
   end
 end
