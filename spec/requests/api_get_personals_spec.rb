@@ -81,7 +81,7 @@ describe 'Api get personals' do
     #act
     get api_v1_personals_path(unit: unidade.name)
     #assert
-    expect(response.status).to eq 418
+    expect(response.status).to eq 412
     expect(response.body).to include 'Parametro unidade espera id de Unidade'
   end
 end
