@@ -22,7 +22,7 @@ feature 'Visitor access units list' do
     create(:profile, account: user)
     #Act
     login_as(user, scope: :account)
-    
+
     visit root_path
     click_on 'Unidades Disponíveis'
 

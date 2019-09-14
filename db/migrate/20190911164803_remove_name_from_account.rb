@@ -3,3 +3,4 @@ class RemoveNameFromAccount < ActiveRecord::Migration[5.2]
     remove_column :accounts, :name, :string
   end
 end
+ 

@@ -15,5 +15,5 @@ RSpec.describe Appointment, type: :model do
       expect(Appointment.last.account.email).to eq account.email
     end
   end
-        
+
 end

@@ -17,7 +17,7 @@ feature 'Add unit to customer' do
     expect(page).to have_content('Matricula realizada com sucesso')
     expect(page).to have_content("Você é membro desta unidade")
     expect(current_path).to eq unit_path(unit)
-    expect(user.unit.id).to eq unit.id     
+    expect(user.unit.id).to eq unit.id
   end
 
   scenario 'if signed user is as personal it should redirect to root_path' do

@@ -22,11 +22,11 @@
             </li>
             <% end %>
           </ul>
-        </div> 
-      
+        </div>
+
         <div id="top-menu" class="col-md-8 text-right">
           <ul class="link_list">
-            <% if account_signed_in? %> 
+            <% if account_signed_in? %>
               <% if current_account.type == 'Personal' %>
                 <li><%= link_to 'Cadastrar agenda', new_schedule_path %></li>
                 <li><%= link_to 'Minhas agendas', my_schedule_path %></li>
@@ -37,7 +37,7 @@
               <li><%= link_to 'Sair', destroy_account_session_path, method: :delete %></li>
             <% else %>
               <li><%= link_to 'Unidades Disponíveis', units_path %></li>
-              <li><%= link_to 'Cadastrar na EspertoFit', new_account_registration_path %></li> 
+              <li><%= link_to 'Cadastrar na EspertoFit', new_account_registration_path %></li>
               <li><%= link_to 'Entrar', new_account_session_path %></li>
             <% end %>
           </ul>

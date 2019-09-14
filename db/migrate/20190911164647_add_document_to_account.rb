@@ -3,3 +3,4 @@ class AddDocumentToAccount < ActiveRecord::Migration[5.2]
     add_column :accounts, :document, :string
   end
 end
+ 

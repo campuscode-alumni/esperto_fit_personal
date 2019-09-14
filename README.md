@@ -23,7 +23,7 @@ Sucesso:
 
 HTTP Status: 200
 
-Result example: 
+Result example:
 
 ```json
 {

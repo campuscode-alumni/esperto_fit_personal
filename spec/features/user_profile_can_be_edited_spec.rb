@@ -4,7 +4,7 @@ feature 'User profile can be edited' do
   scenario '1: access  account profile details' do
     #Arrange
     profile = create(:profile, :personal)
-    
+
     #Act
     login_as profile.account, scope: :account
     visit root_path
@@ -20,7 +20,7 @@ feature 'User profile can be edited' do
   scenario '2: edit account profile' do
     #Arrange
     profile = create(:profile, :personal)
-    
+
     #Act
     login_as profile.account, scope: :account
     visit root_path
@@ -41,7 +41,7 @@ feature 'User profile can be edited' do
   scenario '3: edit account profile must not have blank fields' do
     #Arrange
     profile = create(:profile, :personal)
-    
+
     #Act
     login_as profile.account, scope: :account
     visit root_path
@@ -78,7 +78,7 @@ feature 'User profile can be edited' do
     #Arrange
     profile = create(:profile)
     another_profile = create(:profile, first_name: 'Laura')
-    
+
     #Act
     login_as profile.account, scope: :account
     visit edit_profile_path(another_profile)
