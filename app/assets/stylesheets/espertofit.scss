@@ -13,6 +13,7 @@ body{
 .container{
     background: #FFF;
     box-shadow: 0 0 50px #000;
+    max-width: 1000px;
 
     nav{
         background: #000;
@@ -33,7 +34,6 @@ body{
             color: $primary;
             display: block;
             border-bottom: 2px solid $dark;
-            text-transform: uppercase;
         }
 
         ul{
@@ -41,15 +41,15 @@ body{
             line-height: 14pt;
             background: $light;
             color: $dark;
-        }
 
-        a{
-            color: #000;
-            text-decoration: none;
-        }
-
-        a:hover, a:active{
-            color: $primary;
+            a{
+                color: #000;
+                text-decoration: none;
+            }
+    
+            a:hover, a:active{
+                color: $primary;
+            }
         }
 
     }
@@ -57,8 +57,12 @@ body{
     footer{
         background: #000;
         color: $light;
-        padding: 30px 0px;
+        padding: 10px 0px;
         font: 9pt $font-stack;
+
+        img{
+            width: 50px;
+        }
 
         hr{
             border: 0.1em solid #FFF;
@@ -92,19 +96,11 @@ body{
         }
     }
 
-    #logo{
-        font: #FFF;
-        font-size: 14pt;
-        margin: 0px;
+    .logo{
+        margin: 0;
 
-        a{
-            color: #FFF;
-            text-decoration: none;
-        }
-
-        .accent{
-            color: $primary;
-            font-weight: bold;
+        img{
+            height: 20px;
         }
 
     }
@@ -120,5 +116,48 @@ body{
       color: lightgreen;
       border: solid 1px lightgreen;
       text-align: center;
+    }
+}
+
+.btn-yellow{
+    background: $primary;
+    color: #000;
+}
+
+.btn-black{
+    background: $dark;
+    color: $light;
+}
+
+.btn-black:hover{
+    color: #FFF;
+}
+
+table{
+    background: $dark;
+    border: 2px solid #FFF;
+    table-layout: fixed;
+
+    tr{
+        td{
+            background: #FFF;
+            text-align: left;
+            padding: 2px 5px;
+            border-top: 1px solid $dark;
+        }
+
+        .attribute{
+            background: $light;
+            text-align: right;
+            font-weight: bold;
+        }
+    }
+
+    th{
+        font-size: 12pt;
+        text-transform: uppercase;
+        padding: 5px;
+        color: $primary;
+        font-weight: normal;
     }
 }

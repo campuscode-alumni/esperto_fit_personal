@@ -1,6 +1,8 @@
+<h2>Editar perfil</h2>
+
 <% if @profile.errors.any? %>
     <% @profile.errors.full_messages.each do |msg| %>
-        <br><%= msg %>
+        <%= msg %>
     <% end %>
 <% end %>
 
@@ -23,5 +25,5 @@
   <%= f.text_field :nickname %><br>
   <%= f.label :payment_method, 'Método de pagamento' %>
   <%= f.text_field :payment_method %><br>
-  <%= f.submit 'Editar' %>
+  <%= f.submit 'Editar', class: "btn btn-black btn-sm" %>
 <% end %>

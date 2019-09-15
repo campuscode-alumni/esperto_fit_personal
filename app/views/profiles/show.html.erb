@@ -10,6 +10,5 @@
  <p>Apelido: <%= @profile.nickname %></p>
  <p>Método de pagamento: <%= @profile.payment_method %></p>
  
- <%= link_to 'Editar Cadastro', edit_profile_path %> | 
- <%= link_to 'Voltar', root_path %>
+ <%= link_to 'Editar Cadastro', edit_profile_path, class: "btn btn-sm btn-black"%> <%= link_to 'Voltar', root_path, class: "btn btn-sm btn-yellow" %>
 
