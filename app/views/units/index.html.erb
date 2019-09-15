@@ -7,7 +7,7 @@
 <% else %>
   <% if current_account && current_account.unit %>
     <div id="current_unit">
-      <span>Sua unidade atual é <%= link_to current_account.unit.name, current_account.unit %>.</span>
+      <span>Sua unidade atual é <%= current_account.unit.name %>.</span>
     </div>
   <% end %>
   <ul>

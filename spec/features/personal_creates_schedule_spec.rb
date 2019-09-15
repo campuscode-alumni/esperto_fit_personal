@@ -31,8 +31,8 @@ feature 'Personal creates schedule' do
     click_on 'Salvar'
 
     expect(page).to have_content('Cadastrado com sucesso')
-    expect(page).to have_css('li', text: 'Segunda-feira')
-    expect(page).to have_css('li', text: 'Horário de início: 8h')
+    expect(page).to have_css('td', text: 'Segunda-feira')
+    expect(page).to have_css('td', text: '8h')
   end
 
   scenario 'and must fill all fields' do

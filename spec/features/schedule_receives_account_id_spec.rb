@@ -19,12 +19,12 @@ feature 'Schedule receives account ID' do
     fill_in 'Valor', with: '35'
     click_on 'Salvar'
 
-    expect(page).to have_css('h1', text: 'Agendas')
-    expect(page).to have_css('h2', text: 'Matriz')
-    expect(page).to have_css('li', text: '2020-02-20')
-    expect(page).to have_css('li', text: 'Horário de início: 8h')
-    expect(page).to have_css('li', text: 'Horário de término: 16h')
-    expect(page).to have_css('li', text: 'Valor/hora: R$35')
+    expect(page).to have_css('h2', text: 'Agendas')
+    expect(page).to have_css('th', text: 'Matriz')
+    expect(page).to have_css('td', text: '2020-02-20')
+    expect(page).to have_css('td', text: '8h')
+    expect(page).to have_css('td', text: '16h')
+    expect(page).to have_css('td', text: 'R$35')
   end
 
   scenario 'and must fill in all fields' do

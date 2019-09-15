@@ -18,14 +18,10 @@ feature 'Customer can see Personal schedules' do
     click_on "Personals na #{unit.name}"
 
     #Assert
-    expect(page).to have_css('th', text: "Personal")
-    expect(page).to have_css('tr', text: "#{profile.first_name}")
-    expect(page).to have_css('th', text: "Data Disponível")
-    expect(page).to have_css('tr', text: "#{unit.schedules[0].date}")
-    expect(page).to have_css('th', text: "Horário de Atendimento")
-    expect(page).to have_css('tr', text: "#{unit.schedules[0].start} às #{unit.schedules[0].finish}")
-    expect(page).to have_css('th', text: "Valor")
-    expect(page).to have_css('tr', text: "#{unit.schedules[0].price}")
+    expect(page).to have_css('th', text: "Patricia")
+    expect(page).to have_css('td', text: "#{unit.schedules[0].date}")
+    expect(page).to have_css('td', text: "#{unit.schedules[0].start} às #{unit.schedules[0].finish}")
+    expect(page).to have_css('td', text: "#{unit.schedules[0].price}")
   end
 
   scenario 'and there are no schedules in his unit' do

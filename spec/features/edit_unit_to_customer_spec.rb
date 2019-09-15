@@ -11,7 +11,7 @@ feature 'Customer changes unit' do
     click_on 'Unidades Disponíveis'
     #assert
     within("#current_unit") do
-      expect(page).to have_css('h3',text:"Sua unidade atual é #{user.unit.name}")
+      expect(page).to have_css('span',text:"Sua unidade atual é #{user.unit.name}")
     end
   end
   scenario 'changes successfully' do
@@ -32,6 +32,7 @@ feature 'Customer changes unit' do
     expect(current_path).to eq unit_path(new_unit)
     expect(user.unit.id).to eq new_unit.id
   end
+  
   scenario 'and must be enrolled with another unit' do
     old_unit = create(:unit, name: 'Old Unit') 
     user = create(:customer, unit: old_unit)
