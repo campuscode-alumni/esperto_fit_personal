@@ -1,19 +1,21 @@
+<h2>Unidades Disponíveis</h2>
 
 <% if @units.empty? %>
-  <h2>Nenhuma Unidade Disponível no Momento </h2>
+  <div class="alert alert-dark" role="alert">
+    Nenhuma Unidade Disponível no Momento
+  </div>
 <% else %>
   <% if current_account && current_account.unit %>
     <div id="current_unit">
-      <h3> Sua unidade atual é <%= current_account.unit.name%></h3>
+      <span>Sua unidade atual é <%= link_to current_account.unit.name, current_account.unit %>.</span>
     </div>
   <% end %>
-  <h2>Unidades Disponíveis</h2>
   <ul>
   <% @units.each do |unit| %>
     <% if current_account && current_account.type == "Customer" %>
       <li><%= link_to unit.name, unit_path(unit) %></li>
     <% else %>
-      <li><%=  unit.name%></li>
+      <li><%=  unit.name %></li>
     <% end %>
   <% end %>
   </ul>

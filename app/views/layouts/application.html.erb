@@ -15,7 +15,7 @@
           <ul class="link_list">
             <li><span class="logo"><%= link_to (image_tag 'logo_color.png'), root_path %></span></li>
             <% if account_signed_in? %>
-              <li>Olá, <%= link_to current_account.name, profile_path(current_account) %></li>
+              <li>Olá, <%= link_to current_account.profile.nickname, profile_path(current_account) %></li>
             <% end %>
           </ul>
         </div> 

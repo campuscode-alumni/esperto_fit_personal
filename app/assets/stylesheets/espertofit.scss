@@ -29,6 +29,19 @@ body{
     }
 
     main{
+
+        p, span{
+            a{
+            color: $primary;
+            font-weight: bold;
+            }
+
+            a:hover{
+                text-decoration: none;
+                color:$light;
+                background: #000;
+            }
+        }
       
         h1,h2,h3,h4,h5{
             color: $primary;
@@ -39,12 +52,11 @@ body{
         ul{
             padding: 5px 20px;
             line-height: 14pt;
-            background: $light;
-            color: $dark;
 
             a{
                 color: #000;
                 text-decoration: none;
+                font-weight: normal;
             }
     
             a:hover, a:active{
@@ -105,7 +117,6 @@ body{
 
     }
 
-
     .alert {
       color: red;
       border: solid 1px red;
@@ -121,6 +132,10 @@ body{
 
 .btn-yellow{
     background: $primary;
+    color: $dark;
+}
+
+.btn-yellow:hover{
     color: #000;
 }
 
@@ -133,11 +148,19 @@ body{
     color: #FFF;
 }
 
+#current_unit{
+    background: $dark;
+    color: $light;
+    width: 100%;
+    padding:10px;
+}
+
 table{
     background: $dark;
     border: 2px solid #FFF;
     table-layout: fixed;
-
+    margin: auto;
+    
     tr{
         td{
             background: #FFF;
@@ -160,4 +183,9 @@ table{
         color: $primary;
         font-weight: normal;
     }
+}
+
+#devise_form{
+    max-width: 600px;
+    margin: auto;
 }

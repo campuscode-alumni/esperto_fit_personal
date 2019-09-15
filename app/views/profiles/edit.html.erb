@@ -7,23 +7,60 @@
 <% end %>
 
 <%= form_for @profile do |f| %>
-  <%= f.label :first_name, 'Nome' %>
-  <%= f.text_field :first_name %><br>
-  <%= f.label :last_name, 'Sobrenome' %>
-  <%= f.text_field :last_name %><br>
-  <%= f.label :document, 'Documento' %>
-  <%= f.text_field :document %><br>
-  <%= f.label :address, 'Endereço' %>
-  <%= f.text_field :address %><br>
-  <%= f.label :date_of_birth, 'Data de Nascimento' %>
-  <%= f.text_field :date_of_birth %><br>
-  <%= f.label :contact, 'Contato' %>
-  <%= f.text_field :contact %><br>
-  <%= f.label :gender, 'Sexo' %>
-  <%= f.text_field :gender %><br>
-  <%= f.label :nickname, 'Apelido' %>
-  <%= f.text_field :nickname %><br>
-  <%= f.label :payment_method, 'Método de pagamento' %>
-  <%= f.text_field :payment_method %><br>
-  <%= f.submit 'Editar', class: "btn btn-black btn-sm" %>
+  <div class="row">
+    <div class="col form-group">
+      <%= f.label :first_name, 'Nome', class: "col-form-label" %>
+      <%= f.text_field :first_name, class: "form-control" %>
+    </div>
+
+    <div class="col form-group">
+      <%= f.label :last_name, 'Sobrenome', class: "col-form-label" %>
+      <%= f.text_field :last_name, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col form-group">
+      <%= f.label :document, 'Documento', class: "col-form-label" %>
+      <%= f.text_field :document, class: "form-control" %>
+    </div>
+
+    <div class="col form-group">
+      <%= f.label :date_of_birth, 'Data de Nascimento', class: "col-form-label" %>
+      <%= f.date_field :date_of_birth, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col form-group">
+      <%= f.label :gender, 'Sexo', class: "col-form-label" %>
+      <%= f.text_field :gender, class: "form-control" %>
+    </div>
+
+    <div class="col form-group">
+      <%= f.label :nickname, 'Apelido', class: "col-form-label" %>
+      <%= f.text_field :nickname, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col form-group">
+      <%= f.label :address, 'Endereço', class: "col-form-label" %>
+      <%= f.text_field :address, class: "form-control" %>
+    </div>
+
+    <div class="col form-group">
+      <%= f.label :contact, 'Contato', class: "col-form-label" %>
+      <%= f.text_field :contact, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :payment_method, 'Método de pagamento', class: "col-form-label" %>
+    <%= f.text_field :payment_method, class: "form-control" %>
+  </div>
+
+  <div class="form-group text-center">
+    <%= f.submit 'Editar', class: "btn btn-black btn-sm" %>
+  </div>
 <% end %>
