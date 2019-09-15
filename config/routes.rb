@@ -20,6 +20,11 @@ Rails.application.routes.draw do
       get '/search/account', to: 'accounts#search'
       get '/personals', to: 'personals#index'
       resources :customers, only: %i[show]
+
+      resources :units, only: %i[] do
+        resources :personals, only: %i[index]
+      end
+
     end
   end
 end

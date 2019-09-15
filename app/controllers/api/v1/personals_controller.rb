@@ -1,8 +1,8 @@
 class Api::V1::PersonalsController < Api::V1::ApiController
   def index
 
-    if params[:unit]
-      unit = Unit.find(params[:unit])
+    if params[:unit_id]
+      unit = Unit.find(params[:unit_id])
       personals = unit.personals
     else
       personals = Personal.all
