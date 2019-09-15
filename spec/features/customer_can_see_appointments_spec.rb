@@ -42,7 +42,7 @@ feature 'Customer can see apppointments' do
     login_as(customer_account, scope: :account) 
     visit view_appointment_path(other_unit)
 
-    expect(current_path).to eq root_path
+    expect(current_path).to eq new_account_session_path
   end
 
   scenario 'and must be logged in' do

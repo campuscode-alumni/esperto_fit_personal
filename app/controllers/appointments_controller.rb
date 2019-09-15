@@ -1,10 +1,13 @@
 class AppointmentsController < ApplicationController
+  before_action :authenticate_account!
   def show
     @unit = Unit.find(params[:id])
-    if !(current_account) 
-      redirect_to root_path
+    #if !(current_account) 
+      #redirect_to root_path
+   # end
+    if @unit.schedules.empty?
+      flash[:alert] = 'Até o momento não há aulas de Personal disponível nesta unidade.' 
     end
-    flash.now[:alert] = 'Até o momento não há aulas de Personal disponível nesta unidade.' if @unit.schedules.empty?
   end
 
   def view
