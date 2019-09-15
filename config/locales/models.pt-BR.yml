@@ -15,8 +15,8 @@ pt-BR:
       schedule:
         unit_id: Unidade
         date: Dia da semana
-        start: Horário de início
-        finish: Horário de término
+        start: Horário de Início
+        finish: Horário de Término
         price: Valor
       profile:
         first_name: Nome
@@ -27,7 +27,7 @@ pt-BR:
         gender: Sexo
         nickname: Apelido
         work_document: Documento de Trabalho
-        payment_method: Método de pagamento
+        payment_method: Método de Pagamento
       unit:
         personals: Personal Trainers
         name: Nome

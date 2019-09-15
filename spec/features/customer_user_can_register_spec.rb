@@ -33,7 +33,7 @@ feature 'Customer can register into system' do
     fill_in 'Contato', with: '989551359'
     fill_in 'Sexo', with: 'male'
     fill_in 'Apelido', with: 'jrafaeel'
-    fill_in 'Método de pagamento', with: 'cartao de credito'
+    fill_in 'Método de Pagamento', with: 'cartao de credito'
     click_on 'Enviar'
 
     #Assert
