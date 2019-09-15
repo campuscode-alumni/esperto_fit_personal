@@ -8,9 +8,9 @@ class Schedule < ApplicationRecord
   validates :price, numericality: { greater_than: 0 }
 
   def create_appointments
-    (self.start..self.finish).each do |x|
+    (self.start..self.finish).each do |time|
 
-      appm = Appointment.create(date_appointment: self.date, start_hour: x, end_hour: x+1, available: false, account: self.personal, schedule: self)
+      appm = Appointment.create(date_appointment: self.date, start_hour: time, end_hour: time+1, available: false, account: self.personal, schedule: self)
       CustomerAppointment.create(appointment: appm, name_class: "Aulas com Personal")
     end
   end

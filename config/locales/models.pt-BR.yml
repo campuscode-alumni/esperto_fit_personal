@@ -8,7 +8,7 @@ pt-BR:
       schedule: Agenda
       profile: Perfil
     attributes:
-      account: 
+      account:
         email: Email
         document: CPF
         password: Senha
@@ -26,10 +26,9 @@ pt-BR:
         contact: Contato
         gender: Sexo
         nickname: Apelido
+        work_document: Documento de Trabalho
         payment_method: Método de pagamento
       unit:
         personals: Personal Trainers
         name: Nome
         schedules: Agendas
-
-      

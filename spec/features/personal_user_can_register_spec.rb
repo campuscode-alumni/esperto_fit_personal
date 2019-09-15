@@ -40,14 +40,13 @@ feature 'Personal can register into system' do
 
     fill_in 'Nome', with: 'Joao'
     fill_in 'Sobrenome', with: 'Rafael'
-    fill_in 'Documento', with: '365900187'
     fill_in 'Endereço', with: 'Av Paulista, 374'
     fill_in 'Data de Nascimento', with: '25/05/1996'
     fill_in 'Contato', with: '989551359'
     fill_in 'Sexo', with: 'male'
     fill_in 'Apelido', with: 'jrafaeel'
-    fill_in 'Método de recebimento', with: 'credito em conta'
-    fill_in 'Documento de trabalho', with: '654987'
+    fill_in 'Método de Recebimento', with: 'credito em conta'
+    fill_in 'Documento de Trabalho', with: '654987'
     click_on 'Enviar'
 
     #Assert

@@ -30,7 +30,6 @@ feature 'User profile can be edited' do
 
     fill_in 'Nome', with: 'Mauricio'
     fill_in 'Sobrenome', with: 'Oliveira'
-    fill_in 'Documento', with: '54654654'
     click_on 'Enviar'
 
     #Assert
@@ -50,13 +49,12 @@ feature 'User profile can be edited' do
     click_on 'Editar Cadastro'
     fill_in 'Nome', with: ''
     fill_in 'Sobrenome', with: ''
-    fill_in 'Documento', with: ''
     fill_in 'Endereço', with: ''
     fill_in 'Data de Nascimento', with: ''
     fill_in 'Contato', with: ''
     fill_in 'Sexo', with: ''
     fill_in 'Apelido', with: ''
-    fill_in 'Método de recebimento', with: ''
+    fill_in 'Método de Recebimento', with: ''
     click_on 'Enviar'
 
     #Assert
