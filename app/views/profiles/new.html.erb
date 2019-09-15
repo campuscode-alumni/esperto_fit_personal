@@ -1,4 +1,4 @@
-<h1>Cadastro de Conta: <%= current_account.type.to_s() %></h1>
+<h2>Cadastro de Conta: <%= current_account.type.to_s() %></h2>
 
 <% if current_account.personal? %>
   <%= render 'form_personal' %>

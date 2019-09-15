@@ -1,6 +1,8 @@
 $light: #EEE;
 $dark: #333;
 $primary: #fcb823;
+$green: #33BB44;
+$red: #DD3322;
 $font-stack: "Helvetica", sans-serif;
 
 body{
@@ -56,7 +58,7 @@ body{
             a{
                 color: #000;
                 text-decoration: none;
-                font-weight: normal;
+                font-weight: bold;
             }
     
             a:hover, a:active{
@@ -118,15 +120,21 @@ body{
     }
 
     .alert {
-      color: red;
-      border: solid 1px red;
+      color: $red;
+      border: solid 1px $red;
       text-align: center;
+      margin: 5px;
+      padding:10px;
+      border-radius: 5px;
     }
 
     .notice {
-      color: lightgreen;
-      border: solid 1px lightgreen;
+      color: $green;
+      border: solid 1px $green;
       text-align: center;
+      margin: 5px;
+      padding:10px;
+      border-radius: 5px;
     }
 }
 
