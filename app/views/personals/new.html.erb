@@ -1,19 +1,19 @@
 <%= form_for @personal do |f| %>
   <div class="row">
     <div class="col form-group">
-      <%= f.label :first_name, 'Nome' %>
+      <%= f.label :first_name %>
       <%= f.text_field :first_name %>
     </div>
 
     <div class="col form-group">
-      <%= f.label :last_name, 'Sobrenome' %>
+      <%= f.label :last_name %>
       <%= f.text_field :name %>
     </div>
   </div>
 
   <div class="row">
     <div class="col form-group">
-      <%= f.label :document, 'Documento' %>
+      <%= f.label :document %>
       <%= f.text_field :document %>
     </div>
 
@@ -25,29 +25,29 @@
 
   <div class="row">
     <div class="col form-group">
-      <%= f.label :address, 'Endereço' %>
+      <%= f.label :address %>
       <%= f.text_field :address %>
     </div>
 
     <div class="col form-group">   
-      <%= f.label :contact, 'Contato' %>
+      <%= f.label :contact %>
       <%= f.text_field :contact %>
     </div>
   </div>
 
   <div class="row">
     <div class="col form-group">
-      <%= f.label :email, 'E-mail' %>
+      <%= f.label :email%>
       <%= f.text_field :email %>
     </div>
 
     <div class="col form-group">
-      <%= f.label :password, 'Senha' %>
+      <%= f.label :password %>
       <%= f.text_field :password %>
     </div>
   </div>
 
   <div class="form-group text-center">
-    <%= f.submit 'Enviar' %>
+    <%= f.submit t(:submit_btn) %>
   </div>
 <% end %>

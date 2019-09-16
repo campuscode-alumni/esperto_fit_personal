@@ -1,42 +1,38 @@
-<h3>Conta de <%= @profile.account.name %></h3>
+<h3>Conta de <%= @profile.nickname %></h3>
 <table class="col-sm-10 mb-2">
     <th><%= @profile.first_name %> <%= @profile.last_name %></th>
-    <tr>
-        <td class="attribute">Documento:</td>
-        <td><%= @profile.document %></td>
-    </tr>
 
     <tr>
-        <td class="attribute">Endereço:</td>
+        <td class="attribute"><%= t(:address) %>:</td>
         <td><%= @profile.address %></td>
     </tr> 
 
     <tr>
-        <td class="attribute">Data de Nascimento:</td>
+        <td class="attribute"><%= t(:date_of_birth)%>:</td>
         <td><%= l @profile.date_of_birth %></td>
     </tr> 
 
     <tr>
-        <td class="attribute">Contato:</td>
+        <td class="attribute"><%= t(:contact) %>:</td>
         <td><%= @profile.contact %></td>
     </tr> 
 
     <tr>
-        <td class="attribute">Sexo:</td>
+        <td class="attribute"><%= t(:gender) %>:</td>
         <td><%= @profile.gender %></td>
     </tr>
 
     <tr>
-        <td class="attribute">Apelido:</td>
+        <td class="attribute"><%= t(:nickname) %>:</td>
         <td><%= @profile.nickname %></td>
     </tr>
 
     <tr>
-        <td class="attribute">Método de pagamento:</td>
+        <td class="attribute"><%= t(:payment_method) %>:</td>
         <td><%= @profile.payment_method %></td>
     </tr>
 </table>
 
 <div class="text-center">
-    <%= link_to 'Editar Cadastro', edit_profile_path, class: "btn btn-sm btn-black"%> <%= link_to 'Voltar', root_path, class: "btn btn-sm btn-yellow" %>
+    <%= link_to t(:edit_profile), edit_profile_path, class: "btn btn-sm btn-black"%> <%= link_to t(:back), root_path, class: "btn btn-sm btn-yellow" %>
 </div>

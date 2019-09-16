@@ -28,7 +28,7 @@ feature 'Customer can see Personal schedules' do
     unit = create(:unit)
     customer = create(:customer, unit: unit)
 
-    
+
     login_as(customer, scope: :account)
     visit root_path
     click_on 'Unidades Disponíveis'

@@ -4,15 +4,15 @@ feature 'User profile can be edited' do
   scenario '1: access  account profile details' do
     #Arrange
     profile = create(:profile, :personal)
-    
+
     #Act
     login_as profile.account, scope: :account
     visit root_path
 
-    click_on profile.nickname
+    click_on profile.account.email
 
     #Assert
-    expect(page).to have_css('h3', text: "Conta de #{profile.account.name}")
+    expect(page).to have_css('h3', text: "Conta de #{profile.nickname}")
     expect(page).to have_link('Editar Cadastro')
     expect(page).to have_text(profile.last_name)
   end
@@ -20,18 +20,17 @@ feature 'User profile can be edited' do
   scenario '2: edit account profile' do
     #Arrange
     profile = create(:profile, :personal)
-    
+
     #Act
     login_as profile.account, scope: :account
     visit root_path
 
-    click_on profile.nickname
+    click_on profile.account.email
     click_on 'Editar Cadastro'
 
     fill_in 'Nome', with: 'Mauricio'
     fill_in 'Sobrenome', with: 'Oliveira'
-    fill_in 'Documento', with: '54654654'
-    click_on 'Editar'
+    click_on 'Enviar'
 
     #Assert
     expect(page).to have_text('Editado com sucesso!')
@@ -41,23 +40,22 @@ feature 'User profile can be edited' do
   scenario '3: edit account profile must not have blank fields' do
     #Arrange
     profile = create(:profile, :personal)
-    
+
     #Act
     login_as profile.account, scope: :account
     visit root_path
 
-    click_on profile.nickname
+    click_on profile.account.email
     click_on 'Editar Cadastro'
     fill_in 'Nome', with: ''
     fill_in 'Sobrenome', with: ''
-    fill_in 'Documento', with: ''
     fill_in 'Endereço', with: ''
     fill_in 'Data de Nascimento', with: ''
     fill_in 'Contato', with: ''
     fill_in 'Sexo', with: ''
     fill_in 'Apelido', with: ''
-    fill_in 'Método de pagamento', with: ''
-    click_on 'Editar'
+    fill_in 'Método de Recebimento', with: ''
+    click_on 'Enviar'
 
     #Assert
     expect(page).to have_content('Cadastro não editado.')
@@ -78,7 +76,7 @@ feature 'User profile can be edited' do
     #Arrange
     profile = create(:profile)
     another_profile = create(:profile, first_name: 'Laura')
-    
+
     #Act
     login_as profile.account, scope: :account
     visit edit_profile_path(another_profile)

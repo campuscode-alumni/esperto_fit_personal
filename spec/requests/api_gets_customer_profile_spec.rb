@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'API gets customer profile' do
   it 'successfully' do
     customer = create(:customer)
-    profile1 = create(:profile, account: customer)        
+    profile1 = create(:profile, account: customer)
 
     get api_v1_customer_path(customer)
     json_customer = JSON.parse(response.body, symbolize_names: true)

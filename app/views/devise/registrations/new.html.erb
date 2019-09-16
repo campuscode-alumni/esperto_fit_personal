@@ -4,35 +4,35 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field form-group">
-      <%= f.label :name, 'Nome Completo', class: "form-label" %>
-      <%= f.text_field :name, autocomplete: "new-password", class: "form-control" %>
+      <%= f.label :document, class: "form-label" %>
+      <%= f.text_field :document, autocomplete: t(:document), class: "form-control" %>
     </div>
 
     <div class="field form-group">
       <%= f.label :email, class: "form-label" %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: t(:email) , class: "form-control" %>
     </div>
 
     <div class="field form-group">
       <%= f.label :password, class: "form-label" %>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <em>(<%= "#{@minimum_password_length} #{t(:characters_minimum)}"%> )</em>
       <% end %>
-      <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+      <%= f.password_field :password, autocomplete: t(:new_password) , class: "form-control" %>
     </div>
 
     <div class="field form-group">
-      <%= f.label :password_confirmation, 'Confirmar Senha', class: "form-label" %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+      <%= f.label :password_confirmation, class: "form-label" %>
+      <%= f.password_field :password_confirmation, autocomplete: t(:new_password), class: "form-control" %>
     </div>
 
     <div class="field form-group">
-      <%= f.label :type, 'Tipo de Conta', class: "form-label" %>
-      <%= f.select(:type, options_for_select([['Aluno', 'Customer'], ['Personal', 'Personal']])) %>
+      <%= f.label :type, class: "form-label" %>
+      <%= f.select(:type, options_for_select([[t(:customer), 'Customer'], [t(:personal), 'Personal']])) %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Enviar", class: "btn btn-black btn-sm" %>
+      <%= f.submit t(:submit_btn), class: "btn btn-black btn-sm" %>
     </div>
   <% end %>
 <p>

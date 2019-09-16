@@ -18,23 +18,23 @@
               <li>Olá, <%= link_to current_account.profile.nickname, profile_path(current_account.profile) %></li>
             <% end %>
           </ul>
-        </div> 
-      
+        </div>
+
         <div id="top-menu" class="col-md-8 text-right">
           <ul class="link_list">
-            <% if account_signed_in? %> 
+            <% if account_signed_in? %>
               <% if current_account.type == 'Personal' %>
-                <li><%= link_to 'Cadastrar agenda', new_schedule_path %></li>
-                <li><%= link_to 'Minhas agendas', my_schedule_path %></li>
+                <li><%= link_to t(:new_shcedule), new_schedule_path %></li>
+                <li><%= link_to t(:my_schedules), my_schedule_path %></li>
               <% else %>
-                <li><%= link_to 'Agendar horário com Personal', personals_path %></li>
+                <li><%= link_to t(:new_appointment), personals_path %></li>
               <% end %>
-              <li><%= link_to 'Unidades Disponíveis', units_path %></li>
-              <li><%= link_to 'Sair', destroy_account_session_path, method: :delete %></li>
+              <li><%= link_to t(:units), units_path %></li>
+              <li><%= link_to t(:logout), destroy_account_session_path, method: :delete %></li>
             <% else %>
-              <li><%= link_to 'Unidades Disponíveis', units_path %></li>
-              <li><%= link_to 'Cadastrar na EspertoFit', new_account_registration_path %></li> 
-              <li><%= link_to 'Entrar', new_account_session_path %></li>
+              <li><%= link_to t(:units), units_path %></li>
+              <li><%= link_to t(:new_account), new_account_registration_path %></li>
+              <li><%= link_to t(:login), new_account_session_path %></li>
             <% end %>
           </ul>
         </div>
