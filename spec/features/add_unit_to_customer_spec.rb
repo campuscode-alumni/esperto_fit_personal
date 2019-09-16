@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 feature 'Add unit to customer' do
+  before(:each) do
+    filename = 'gyms.json'
+    url      = 'http://0.0.0.0:3000/api/v1/gyms'
+    stub_get_json(url, filename)
+  end
+  
   scenario 'successfully' do
     #arrange
     unit = create(:unit, name: 'Paulista')

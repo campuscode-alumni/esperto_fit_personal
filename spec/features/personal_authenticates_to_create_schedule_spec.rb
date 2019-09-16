@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 feature 'Personal authenticates to create schedule' do
+  before(:each) do
+    filename = 'gyms.json'
+    url      = 'http://0.0.0.0:3000/api/v1/gyms'
+    stub_get_json(url, filename)
+  end
+  
   scenario 'successfully' do
     account = create(:personal, email: 'teste@email.com', password: '123456')
     profile = create(:profile, account: account)
