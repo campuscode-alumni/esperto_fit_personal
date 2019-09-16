@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'Visitor access units list' do
   scenario 'and view empty list' do
     user = create(:customer)
+    create(:profile, account: user)
 
     #Act
     login_as(user, scope: :account)
@@ -18,10 +19,10 @@ feature 'Visitor access units list' do
     create(:unit)
     lista = Unit.all
     user = create(:customer)
-
+    create(:profile, account: user)
     #Act
     login_as(user, scope: :account)
-    
+
     visit root_path
     click_on 'Unidades Disponíveis'
 
@@ -37,7 +38,6 @@ feature 'Visitor access units list' do
     create(:unit)
     lista = Unit.all
     user = create(:customer)
-
     #Act
     login_as(user, scope: :account)
     visit root_path

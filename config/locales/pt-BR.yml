@@ -1,0 +1,17 @@
+pt-BR:
+  recieve_method: Método de Recebimento
+  submit_btn: Enviar
+  profile_edit: Editar cadastro
+  new_password: Nova senha
+  customer: Aluno
+  personal: Personal
+  # main links
+  login: Entrar
+  logout: Sair
+  back: Voltar
+  new_account: Cadastrar na EspertoFit
+  new_shcedule: Cadastrar agenda
+  my_schedules: Minhas agendas
+  new_appointment: Agendar horário com Personal
+  units: Unidades Disponíveis
+  edit_profile: Editar Cadastro
