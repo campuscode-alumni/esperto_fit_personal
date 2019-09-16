@@ -5,6 +5,7 @@ pt-BR:
   new_password: Nova senha
   customer: Aluno
   personal: Personal
+  characters_minimum: caracteres ao menos
   # main links
   login: Entrar
   logout: Sair

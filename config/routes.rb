@@ -18,7 +18,13 @@ Rails.application.routes.draw do
   namespace 'api' do
     namespace 'v1' do
       get '/search/account', to: 'accounts#search'
+      get '/personals', to: 'personals#index'
       resources :customers, only: %i[show]
+
+      resources :units, only: %i[] do
+        get '/personals', on: :member, action: 'personals'
+      end
+
     end
   end
 end

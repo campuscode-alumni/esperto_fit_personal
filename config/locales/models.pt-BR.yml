@@ -28,8 +28,8 @@ pt-BR:
         contact: Contato
         gender: Sexo
         nickname: Apelido
-        work_document: Documento de Trabalho
         payment_method: Método de Pagamento
+        work_document: Documento de Trabalho
       unit:
         personals: Personal Trainers
         name: Nome
