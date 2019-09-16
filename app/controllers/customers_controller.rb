@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
   before_action :authenticate_account!, only: %i[ add_unit ]
-  
+
   def add_unit
     if current_account.type == "Customer"
       customer = Customer.find(current_account.id)

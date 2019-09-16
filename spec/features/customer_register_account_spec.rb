@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User register account' do 
+feature 'User register account' do
   scenario 'successfully as customer' do
 
     #act
@@ -15,7 +15,7 @@ feature 'User register account' do
 
     #arrange
     expect(current_path).to eq new_profile_path
-    expect(Account.last.type).to eq 'Customer' 
+    expect(Account.last.type).to eq 'Customer'
     expect(Customer.last).to be_truthy
   end
 
@@ -29,10 +29,10 @@ feature 'User register account' do
     fill_in 'Confirmar Senha', with: '123456'
     select 'Personal', from: 'Tipo de Conta'
     click_on 'Enviar'
-    
+
     #arrange
     expect(current_path).to eq new_profile_path
-    expect(Account.last.type).to eq 'Personal' 
+    expect(Account.last.type).to eq 'Personal'
     expect(Personal.last).to be_truthy
   end
 

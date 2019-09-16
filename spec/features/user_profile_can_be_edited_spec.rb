@@ -30,7 +30,6 @@ feature 'User profile can be edited' do
 
     fill_in 'Nome', with: 'Mauricio'
     fill_in 'Sobrenome', with: 'Oliveira'
-    fill_in 'Documento', with: '54654654'
     click_on 'Enviar'
 
     #Assert

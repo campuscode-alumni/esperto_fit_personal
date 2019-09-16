@@ -1,14 +1,13 @@
 <h3>Conta de <%= @profile.nickname %></h3>
 
- <p>Nome: <%= @profile.first_name %></p>
- <p>Sobrenome: <%= @profile.last_name %></p>
- <p>Endereço: <%= @profile.address %></p> 
- <p>Data de Nascimento: <%= @profile.date_of_birth %></p> 
- <p>Contato: <%= @profile.contact %></p> 
- <p>Sexo: <%= @profile.gender %></p>
- <p>Apelido: <%= @profile.nickname %></p>
- <p>Método de pagamento: <%= @profile.payment_method %></p>
- 
- <%= link_to 'Editar Cadastro', edit_profile_path %> | 
- <%= link_to 'Voltar', root_path %>
+ <p><%= "#{t(:first_name)}: #{@profile.first_name}" %></p>
+ <p><%= "#{t(:last_name)}: #{@profile.last_name}" %></p>
+ <p><%= "#{t(:address)}: #{@profile.address}" %></p>
+ <p><%= "#{t(:date_of_birth)}: #{@profile.date_of_birth}" %></p>
+ <p><%= "#{t(:contact)}: #{@profile.contact}" %></p>
+ <p><%= "#{t(:gender)}: #{@profile.gender}" %></p>
+ <p><%= "#{t(:nickname)}: #{@profile.nickname}" %></p>
+ <p><%= "#{t(:payment_method)}: #{@profile.payment_method}" %></p>
 
+ <%= link_to t(:edit_profile), edit_profile_path %> |
+ <%= link_to t(:back), root_path %>

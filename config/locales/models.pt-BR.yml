@@ -12,13 +12,13 @@ pt-BR:
         email: Email
         document: CPF
         password: Senha
-        password_confirmation: Confirmar Senha
         type: Tipo de Conta
+        password_confirmation: Confirmar Senha
       schedule:
         unit_id: Unidade
         date: Dia da semana
-        start: Horário de início
-        finish: Horário de término
+        start: Horário de Início
+        finish: Horário de Término
         price: Valor
       profile:
         first_name: Nome
@@ -28,8 +28,13 @@ pt-BR:
         contact: Contato
         gender: Sexo
         nickname: Apelido
+<<<<<<< HEAD
         payment_method: Método de Pagamento
         work_document: Documento de Trabalho
+=======
+        work_document: Documento de Trabalho
+        payment_method: Método de Pagamento
+>>>>>>> e97057de89cdcdb8c9d7059659117752eb654ad5
       unit:
         personals: Personal Trainers
         name: Nome

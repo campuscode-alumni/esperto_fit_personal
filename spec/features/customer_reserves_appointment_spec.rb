@@ -10,7 +10,7 @@ feature 'Customer view personal list' do
     third_personal = create(:personal, document: '12345678903')
     create(:profile, first_name: 'Personal 3', account: third_personal)
     schedule = create(:schedule, personal: personal, unit: unit)
-    schedule = create(:schedule, personal: second_personal, unit: unit)    
+    schedule = create(:schedule, personal: second_personal, unit: unit)
     user = create(:customer, unit: unit)
     login_as(user, scope: :account)
     visit root_path
