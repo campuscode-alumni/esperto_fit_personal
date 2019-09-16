@@ -14,8 +14,8 @@ feature 'Schedule receives account ID' do
 
     select 'Matriz', from: 'Unidade'
     fill_in 'Dia da semana', with: '2020-02-20'
-    fill_in 'Horário de início', with: '8'
-    fill_in 'Horário de término', with: '16'
+    fill_in 'Horário de Início', with: '8'
+    fill_in 'Horário de Término', with: '16'
     fill_in 'Valor', with: '35'
     click_on 'Salvar'
 
@@ -40,8 +40,8 @@ feature 'Schedule receives account ID' do
 
     select 'Matriz', from: ''
     fill_in 'Dia da semana', with: ''
-    fill_in 'Horário de início', with: ''
-    fill_in 'Horário de término', with: ''
+    fill_in 'Horário de Início', with: ''
+    fill_in 'Horário de Término', with: ''
     fill_in 'Valor', with: ''
     click_on 'Salvar'
 

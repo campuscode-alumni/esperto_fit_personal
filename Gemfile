@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.4'
 #Devise
-gem 'devise', ">= 4.7.1"
+gem 'devise', '~> 4.7.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
@@ -40,7 +40,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
-
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

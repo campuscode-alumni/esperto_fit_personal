@@ -3,8 +3,8 @@ class ProfilesController < ApplicationController
   before_action :set_id, only: %i[edit update]
   before_action :authenticate_account!, only: %i[new create edit update]
 
-  def index 
-    
+  def index
+
   end
 
   def new
@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     @profile.account_id = current_account.id
-    
+
     if @profile.save
       redirect_to @profile
     end

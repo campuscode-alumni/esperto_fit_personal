@@ -8,29 +8,29 @@ pt-BR:
       schedule: Agenda
       profile: Perfil
     attributes:
-      account: 
+      account:
         email: Email
-        name: Nome
+        document: CPF
         password: Senha
+        type: Tipo de Conta
+        password_confirmation: Confirmar Senha
       schedule:
         unit_id: Unidade
         date: Dia da semana
-        start: Horário de início
-        finish: Horário de término
+        start: Horário de Início
+        finish: Horário de Término
         price: Valor
       profile:
         first_name: Nome
         last_name: Sobrenome
-        document: Documento
         address: Endereço
         date_of_birth: Data de Nascimento
         contact: Contato
         gender: Sexo
         nickname: Apelido
-        payment_method: Método de pagamento
+        payment_method: Método de Pagamento
+        work_document: Documento de Trabalho
       unit:
         personals: Personal Trainers
         name: Nome
         schedules: Agendas
-
-      
