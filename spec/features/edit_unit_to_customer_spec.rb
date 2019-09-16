@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Customer changes unit' do
   scenario 'and views the current unit before changing' do
     #arrage
-    old_unit = create(:unit, name: 'Old Unit') 
+    old_unit = create(:unit, name: 'Old Unit')
     user = create(:customer, unit: old_unit)
     #act
     login_as(user, scope: :account)
@@ -16,8 +16,8 @@ feature 'Customer changes unit' do
   end
   scenario 'changes successfully' do
     #arrage
-    old_unit = create(:unit, name: 'Old Unit') 
-    new_unit = create(:unit, name: 'New Unit') 
+    old_unit = create(:unit, name: 'Old Unit')
+    new_unit = create(:unit, name: 'New Unit')
     user = create(:customer, unit: old_unit)
     #act
     login_as(user, scope: :account)
@@ -33,7 +33,7 @@ feature 'Customer changes unit' do
     expect(user.unit.id).to eq new_unit.id
   end
   scenario 'and must be enrolled with another unit' do
-    old_unit = create(:unit, name: 'Old Unit') 
+    old_unit = create(:unit, name: 'Old Unit')
     user = create(:customer, unit: old_unit)
     #act
     login_as(user, scope: :account)

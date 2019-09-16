@@ -4,37 +4,37 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
    <div class="field">
-    <%= f.label :name, 'Nome Completo' %><br />
-    <%= f.text_field :name, autocomplete: "new-password" %>
+    <%= f.label :document %><br />
+    <%= f.text_field :document, autocomplete: t(:document) %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: t(:email) %>
   </div>
 
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= "#{@minimum_password_length} #{t(:characters_minimum)}"%> )</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: t(:new_password) %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, 'Confirmar Senha' %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: t(:new_password) %>
   </div>
 
   <div class="field">
-    <%= f.label :type, 'Tipo de Conta' %>
-    <%= f.select(:type, options_for_select([['Aluno', 'Customer'], ['Personal', 'Personal']])) %>
+    <%= f.label :type %>
+    <%= f.select(:type, options_for_select([[t(:customer), 'Customer'], [t(:personal), 'Personal']])) %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Enviar" %>
+    <%= f.submit t(:submit_btn) %>
   </div>
-  
+
 <% end %>
 
 <%= render "devise/shared/links" %>

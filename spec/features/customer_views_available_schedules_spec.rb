@@ -9,7 +9,7 @@ feature 'Customer can see Personal schedules' do
     profile = create(:profile, account: account, first_name: 'Patricia')
 
     create(:schedule, date: '10/09/2019', start: 10, finish: 18, price: "50", personal: account, unit: unit)
-    
+
     #Act
     login_as(customer, scope: :account)
     visit root_path
@@ -32,7 +32,7 @@ feature 'Customer can see Personal schedules' do
     unit = create(:unit)
     customer = create(:customer, unit: unit)
 
-    
+
     login_as(customer, scope: :account)
     visit root_path
     click_on 'Unidades Disponíveis'
