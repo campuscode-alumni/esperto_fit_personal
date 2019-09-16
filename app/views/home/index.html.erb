@@ -2,4 +2,13 @@
 
 <% @gyms.each do |gym| %>
   <h3 class="gym"><%= gym.name %></h3>
+  <img src=<%= gym.images[0] %>>
+  <ul>
+    <li>
+      <%= "Horário de atendimento das #{gym.open_hour} às #{gym.close_hour} de #{gym.working_days}" %>
+    </li>
+    <li>
+      <%= gym.address %>
+    </li>
+  </ul>
 <% end %>
