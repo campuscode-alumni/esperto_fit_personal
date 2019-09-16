@@ -249,7 +249,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.2)
-  devise (>= 4.7.1)
+  devise (~> 4.7.1)
   factory_bot_rails
   jbuilder (~> 2.5)
   jquery-rails

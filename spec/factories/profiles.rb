@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :profile do
-    document { "12341234" }
     first_name { "João" }
     last_name { "Silva" }
     date_of_birth { "2019-09-03" }
@@ -9,7 +8,6 @@ FactoryBot.define do
     contact { "12341234" }
     nickname { "jojo" }
     payment_method { "cartão de credito" }
-    work_document { '' }
     account
 
     trait :personal do
