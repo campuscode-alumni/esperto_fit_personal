@@ -1,21 +1,26 @@
 require 'rails_helper'
 
-feature 'Customer view personal list' do
-  scenario 'view personals for unit' do
+feature 'Customer can reserve an appointment' do
+  scenario 'with a personal' do
+    #Arrange
     unit = create(:unit)
-    personal = create(:personal, name: 'Personal 1')
-    second_personal = create(:personal, name: 'Personal 2')
-    third_personal = create(:personal, name: 'Personal 3')
-    schedule = create(:schedule, personal: personal, unit: unit)
-    schedule = create(:schedule, personal: second_personal, unit: unit)    
+    account = create(:personal, email: 'teste@email.com', password: '123456')
+    profile = create(:profile, account: account, first_name: 'Patricia')
+    schedule = create(:schedule, personal: account, unit: unit)
     user = create(:customer, unit: unit)
     login_as(user, scope: :account)
-    visit root_path
-    click_on 'Agendar horário com Personal'
 
-    expect(page).to have_content('Personal 1')
-    expect(page).to have_content('Personal 2')
-    expect(page).not_to have_content('Personal 3')
+    #Act
+    visit root_path
+    click_on 'Unidades Disponíveis'
+    click_on unit.name
+    click_on "Personals na #{unit.name}"
+    click_on "#{profile.first_name}"
+    click_on "Horário das 10 às 11h - Preço 50"
+
+    #Assert
+    expect(page).to have_content('Aula agendada com sucesso!')
+
   end
 
 end
