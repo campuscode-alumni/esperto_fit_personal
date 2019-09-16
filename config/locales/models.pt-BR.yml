@@ -12,6 +12,8 @@ pt-BR:
         email: Email
         document: CPF
         password: Senha
+        type: Tipo de Conta
+        password_confirmation: Confirmar Senha
       schedule:
         unit_id: Unidade
         date: Dia da semana
