@@ -2,7 +2,7 @@
 <ul>
 <% @schedule.appointments.each do |appm| %>
   <%#byebug%>
-  <% if CustomerAppointment.find(appm.id).account != nil %>
+  <% if CustomerAppointment.find(appm.id).account_id != nil %>
     <li><%= link_to 'Escolher essa aula', enroll_appointment_path(appm_id: appm.id, schedule_id: @schedule.id), method: :post %> - Horário das <%= appm.start_hour %> às <%= appm.end_hour %> - Preço <%= @schedule.price %> </li>
   <% else %>
     <li>Aula Indisponivel - Horário das <%= appm.start_hour %> às <%= appm.end_hour %> - Preço <%= @schedule.price %> </li>

@@ -30,7 +30,12 @@ feature 'Customer can reserve an appointment' do
     schedule = create(:schedule, start: 10, finish: 12, personal: account, unit: unit)
     schedule.create_appointments
     user = create(:customer, unit: unit)
-    customer_appm = create(:customer_appointment, account: user, appointment: schedule.appointments[0])
+    cp = CustomerAppointment.find(schedule.appointments[0].id)
+    
+    byebug
+    cp.account = user
+    byebug
+    #customer_appm = create(:customer_appointment, account: user, appointment: schedule.appointments[0])
     
     login_as(user, scope: :account)
     visit root_path
