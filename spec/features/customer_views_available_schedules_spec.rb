@@ -8,7 +8,7 @@ feature 'Customer can see Personal schedules' do
     account = create(:personal, email: 'teste@email.com', password: '123456')
     profile = create(:profile, account: account, first_name: 'Patricia')
 
-    create(:schedule, date: '10/09/2019', start: 10, finish: 18, price: "50", personal: account, unit: unit)
+    create(:schedule, date: '2019-10-09', start: 10, finish: 18, price: "50", personal: account, unit: unit)
     
     #Act
     login_as(customer, scope: :account)
@@ -19,7 +19,7 @@ feature 'Customer can see Personal schedules' do
 
     #Assert
     expect(page).to have_css('th', text: "Patricia")
-    expect(page).to have_css('td', text: "#{unit.schedules[0].date}")
+    expect(page).to have_css('td', text: "09/10/2019")
     expect(page).to have_css('td', text: "#{unit.schedules[0].start} às #{unit.schedules[0].finish}")
     expect(page).to have_css('td', text: "#{unit.schedules[0].price}")
   end

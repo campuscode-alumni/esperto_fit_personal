@@ -24,14 +24,14 @@ feature 'Personal creates schedule' do
     click_on 'Cadastrar agenda'
 
     select 'Matriz', from: 'Unidade'
-    fill_in 'Dia da semana', with: 'Segunda-feira'
+    fill_in 'Data', with: '2019-09-20'
     fill_in 'Horário de início', with: '8'
     fill_in 'Horário de término', with: '16'
     fill_in 'Valor', with: '35'
     click_on 'Salvar'
 
     expect(page).to have_content('Cadastrado com sucesso')
-    expect(page).to have_css('td', text: 'Segunda-feira')
+    expect(page).to have_css('td', text: '20/09/2019')
     expect(page).to have_css('td', text: '8h')
   end
 
@@ -47,7 +47,7 @@ feature 'Personal creates schedule' do
     click_on 'Cadastrar agenda'
 
     select 'Matriz', from: ''
-    fill_in 'Dia da semana', with: ''
+    fill_in 'Data', with: ''
     fill_in 'Horário de início', with: ''
     fill_in 'Horário de término', with: ''
     fill_in 'Valor', with: ''
@@ -68,7 +68,7 @@ feature 'Personal creates schedule' do
     click_on 'Cadastrar agenda'
 
     select 'Matriz', from: 'Unidade'
-    fill_in 'Dia da semana', with: 'Segunda-feira'
+    fill_in 'Data', with: 'Segunda-feira'
     fill_in 'Horário de início', with: '8'
     fill_in 'Horário de término', with: '16'
     fill_in 'Valor', with: '-2'

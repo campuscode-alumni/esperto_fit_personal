@@ -14,7 +14,7 @@ pt-BR:
         password: Senha
       schedule:
         unit_id: Unidade
-        date: Dia da semana
+        date: Data
         start: Horário de início
         finish: Horário de término
         price: Valor

@@ -13,7 +13,7 @@ feature 'Schedule receives account ID' do
     click_on 'Cadastrar agenda'
 
     select 'Matriz', from: 'Unidade'
-    fill_in 'Dia da semana', with: '2020-02-20'
+    fill_in 'Data', with: '2020-02-20'
     fill_in 'Horário de início', with: '8'
     fill_in 'Horário de término', with: '16'
     fill_in 'Valor', with: '35'
@@ -21,7 +21,7 @@ feature 'Schedule receives account ID' do
 
     expect(page).to have_css('h2', text: 'Agendas')
     expect(page).to have_css('th', text: 'Matriz')
-    expect(page).to have_css('td', text: '2020-02-20')
+    expect(page).to have_css('td', text: '20/02/2020')
     expect(page).to have_css('td', text: '8h')
     expect(page).to have_css('td', text: '16h')
     expect(page).to have_css('td', text: 'R$35')
@@ -39,7 +39,7 @@ feature 'Schedule receives account ID' do
     click_on 'Cadastrar agenda'
 
     select 'Matriz', from: ''
-    fill_in 'Dia da semana', with: ''
+    fill_in 'Data', with: ''
     fill_in 'Horário de início', with: ''
     fill_in 'Horário de término', with: ''
     fill_in 'Valor', with: ''

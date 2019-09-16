@@ -6,7 +6,7 @@
     </th>
     <tr>
       <td class="attribute">Data:</td>
-      <td><%= schedule.date %></td>
+      <td><%= l schedule.date %></td>
     </tr>
     <tr>
       <td class="attribute">Horário de Atendimento:</td>
@@ -14,7 +14,7 @@
     </tr>
     <tr>
       <td class="attribute">Valor:</td>
-      <td><%= schedule.price %></td>
+      <td><%= t('hour_price', price: schedule.price) %></td>
     </tr>
   </table>
 <% end %>

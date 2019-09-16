@@ -5,7 +5,7 @@
     <th><%= schedule.unit.name%></th>
       <tr>
         <td class="attribute">Data:</td>
-        <td><%= schedule.date %></td>
+        <td><%= l schedule.date %></td>
       </tr>    
       <tr>  
         <td class="attribute">Horário de início:</td>
@@ -17,7 +17,7 @@
       </tr>
       <tr>
         <td class="attribute">Valor/hora:</td>
-        <td>R$<%= schedule.price %></td>
+        <td><%= t('hour_price', price: schedule.price) %></td>
       </tr>
     </table>
   <% end %>
