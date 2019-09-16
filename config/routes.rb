@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   get '/my_schedule', to: 'schedules#my_schedule'
+  get 'pending_appointments', to: 'appointments#pending_appointments'
   resources :accounts, only:%i[show]
 
   namespace 'api' do

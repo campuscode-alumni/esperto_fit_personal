@@ -30,6 +30,7 @@
               <% if current_account.type == 'Personal' %>
                 <li><%= link_to t(:new_shcedule), new_schedule_path %></li>
                 <li><%= link_to t(:my_schedules), my_schedule_path %></li>
+                <li><%= link_to t(:pending_appointments), pending_appointments_path %></li>
               <% else %>
                 <li><%= link_to t(:new_appointment), personals_path %></li>
               <% end %>

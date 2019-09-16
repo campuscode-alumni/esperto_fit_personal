@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_12_162703) do
+ActiveRecord::Schema.define(version: 2019_09_16_191754) do
 
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_09_12_162703) do
     t.string "name_class"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
     t.index ["account_id"], name: "index_customer_appointments_on_account_id"
     t.index ["appointment_id"], name: "index_customer_appointments_on_appointment_id"
   end
