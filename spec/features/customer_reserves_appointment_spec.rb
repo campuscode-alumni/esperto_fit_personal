@@ -6,7 +6,8 @@ feature 'Customer can reserve an appointment' do
     unit = create(:unit)
     account = create(:personal, email: 'teste@email.com', password: '123456')
     profile = create(:profile, account: account, first_name: 'Patricia')
-    schedule = create(:schedule, personal: account, unit: unit)
+    schedule = create(:schedule, start: 10, finish: 11, personal: account, unit: unit)
+    schedule.create_appointments
     user = create(:customer, unit: unit)
     login_as(user, scope: :account)
 
@@ -16,10 +17,29 @@ feature 'Customer can reserve an appointment' do
     click_on unit.name
     click_on "Personals na #{unit.name}"
     click_on "#{profile.first_name}"
-    click_on "Horário das 10 às 11h - Preço 50"
+    click_on "Escolher essa aula" # - Horário das 10 às 11h - Preço 50"
 
     #Assert
     expect(page).to have_content('Aula agendada com sucesso!')
+
+  end
+  scenario 'and can\'t select taken class' do
+    unit = create(:unit)
+    account = create(:personal, email: 'teste@email.com', password: '123456')
+    profile = create(:profile, account: account, first_name: 'Patricia')
+    schedule = create(:schedule, start: 10, finish: 12, personal: account, unit: unit)
+    schedule.create_appointments
+    user = create(:customer, unit: unit)
+    customer_appm = create(:customer_appointment, account: user, appointment: schedule.appointments[0])
+    
+    login_as(user, scope: :account)
+    visit root_path
+    click_on 'Unidades Disponíveis'
+    click_on unit.name
+    click_on "Personals na #{unit.name}"
+    click_on "#{profile.first_name}"
+    
+    expect(page).to have_content('Aula Indisponivel')
 
   end
 

@@ -16,4 +16,13 @@ class AppointmentsController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def enroll
+    @enrollment = CustomerAppointment.find(params[:appm_id])
+    @enrollment.account = current_account
+    if @enrollment.save!
+      flash[:notice] = 'Aula agendada com sucesso!'
+      redirect_to view_appointment_path(params[:schedule_id])
+    end
+  end
 end
