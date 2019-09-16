@@ -16,7 +16,7 @@ class Api::V1::PersonalsController < Api::V1::ApiController
 
     render json: {msg: 'Nenhum personal encontrado' }, status: :not_found
 
-    rescue ActiveRecord::RecordNotFound
+  rescue ActiveRecord::RecordNotFound
 
     render json: {msg: 'Parametro unidade espera id de Unidade' }, status: 412
   end

@@ -27,11 +27,12 @@ Result example:
 
 ```json
 {
-  \"id\":1,
-\"created_at\":\"2019-09-12T17:55:42.383Z\",\"updated_at\":\"2019-09-12T17:55:42.383Z\",
-\"email\":\"email@email.com\",
-\"schedule_id\":null,
-\"document\":\"12345678900\"
+  "id":1,
+  "created_at":"2019-09-12T17:55:42.383Z",
+  "updated_at":"2019-09-12T17:55:42.383Z",
+  "email":"email@email.com",
+  "schedule_id":null,
+  "document":"12345678900"
 }
 ```
 
@@ -43,20 +44,20 @@ Result example:
 
 ```json
 {
-  \"msg\":\"Conta não encontrada\"
+  "msg": "Conta não encontrada"
 }
 ```
 
-## Consulta Personal Trainers0
+## Consulta Personal Trainers
 
 
 ### Exemplos de rota
 
+para listar todos os personais
 #### get '/api/v1/personals'
 
 ou para filtrar por unidades
-
-#### get '/api/v1/personals?unit=21'
+#### get '/api/v1/unit/personals?unit_id=21'
 
 Sucesso:
 
@@ -67,14 +68,22 @@ Result example:
 ```json
 [
   {
-  \"email\":\"personal1@mail.com\",\"profile\":{
-    \"first_name\":\"Personal1\",\"last_name\":\"da Silva\"
+  "email": "personal1@mail.com",
+  "profile":{
+    "first_name": "Personal1",
+    "last_name": "da Silva"
     }
-  },{\"email\":\"personal2@mail.com\",\"profile\":{
-        \"first_name\":\"Personal2\",\"last_name\":\"da Costa\"
+  },{
+    "email":"personal2@mail.com",
+    "profile":{
+        "first_name":"Personal2",
+        "last_name":"da Costa"
     }
-  },{\"email\":\"personal3@mail.com\",\"profile\":{
-          \"first_name\":\"Personal3\",\"last_name\":\"de Souza\"
+  },{
+    "email":"personal3@mail.com",
+    "profile":{
+      "first_name":"Personal3",
+      "last_name":"de Souza"
     }
   }
 ]
@@ -90,7 +99,7 @@ Result example:
 
 ```json
 {
-  \"msg\":\"Nenhum personal encontrado\"
+  "msg":"Nenhum personal encontrado"
 }
 ```
 
@@ -104,6 +113,6 @@ Result example:
 
 ```json
 {
-  \"msg\":\"Parametro unidade espera id de Unidade\"
+  "msg":"Parametro unidade espera id de Unidade"
 }
 ```
