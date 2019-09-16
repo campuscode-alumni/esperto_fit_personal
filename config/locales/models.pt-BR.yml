@@ -28,13 +28,8 @@ pt-BR:
         contact: Contato
         gender: Sexo
         nickname: Apelido
-<<<<<<< HEAD
         payment_method: Método de Pagamento
         work_document: Documento de Trabalho
-=======
-        work_document: Documento de Trabalho
-        payment_method: Método de Pagamento
->>>>>>> e97057de89cdcdb8c9d7059659117752eb654ad5
       unit:
         personals: Personal Trainers
         name: Nome

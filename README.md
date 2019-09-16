@@ -57,7 +57,7 @@ para listar todos os personais
 #### get '/api/v1/personals'
 
 ou para filtrar por unidades
-#### get '/api/v1/unit/personals?unit_id=21'
+#### get '/api/v1/unit/personals?id=21'
 
 Sucesso:
 
