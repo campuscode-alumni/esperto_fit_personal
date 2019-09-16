@@ -15,7 +15,7 @@ describe 'Api get personals' do
     create(:schedule, personal: personal3)
 
     #act
-    get api_v1_unit_personals_path(unit_id: unidade.id)
+    get personals_api_v1_unit_path(id: unidade.id)
 
     json_personals = JSON.parse(response.body, symbolize_names: true)
     #assert
@@ -70,7 +70,7 @@ describe 'Api get personals' do
     #arrange
     unidade = create(:unit, name: 'Unidade1')
     #act
-    get api_v1_unit_personals_path(unit_id: unidade.id)
+    get personals_api_v1_unit_path(id: unidade.id)
     #assert
     expect(response.status).to eq 404
     expect(response.body).to include 'Nenhum personal encontrado'
@@ -80,7 +80,7 @@ describe 'Api get personals' do
     #arrange
     unidade = create(:unit, name: 'Unidade1')
     #act
-    get api_v1_unit_personals_path(unit_id: unidade.name)
+    get personals_api_v1_unit_path(id: unidade.name)
     #assert
     expect(response.status).to eq 412
     expect(response.body).to include 'Parametro unidade espera id de Unidade'

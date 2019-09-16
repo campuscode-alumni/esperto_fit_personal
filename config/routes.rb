@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       resources :customers, only: %i[show]
 
       resources :units, only: %i[] do
-        resources :personals, only: %i[index]
+        get '/personals', on: :member, action: 'personals'
       end
 
     end
