@@ -34,7 +34,7 @@ feature 'Customer can register into system' do
     fill_in 'Apelido', with: 'jrafaeel'
     fill_in 'Método de Pagamento', with: 'cartao de credito'
     click_on 'Enviar'
-    byebug
+    save_page
     #Assert
     expect(Profile.last.first_name).to eq 'Mauricio'
     expect(Profile.last.work_document).to be_falsey
