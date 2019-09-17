@@ -24,6 +24,7 @@ feature 'Customer can reserve an appointment' do
 
   end
   scenario 'and can\'t select taken class' do
+    #Arrange
     unit = create(:unit)
     account = create(:personal, email: 'teste@email.com', password: '123456')
     profile = create(:profile, account: account, first_name: 'Patricia')
@@ -31,12 +32,10 @@ feature 'Customer can reserve an appointment' do
     schedule.create_appointments
     user = create(:customer, unit: unit)
     cp = CustomerAppointment.find(schedule.appointments[0].id)
-    
-    byebug
     cp.account = user
-    byebug
-    #customer_appm = create(:customer_appointment, account: user, appointment: schedule.appointments[0])
-    
+    cp.save
+
+    #Act
     login_as(user, scope: :account)
     visit root_path
     click_on 'Unidades Disponíveis'
@@ -44,6 +43,7 @@ feature 'Customer can reserve an appointment' do
     click_on "Personals na #{unit.name}"
     click_on "#{profile.first_name}"
     
+    #Assert
     expect(page).to have_content('Aula Indisponivel')
     expect(page).to have_link('Escolher essa aula')
 
