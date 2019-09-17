@@ -5,8 +5,10 @@
     <p><strong>Endereço: </strong> <%= gym[:address] %></p>
     <p><strong>Funcionamento: </strong> de <%= "#{gym[:working_days]}, das #{gym[:open_hour]} às #{gym[:close_hour]}" %></p>
   <% if current_account.profile.enrollment_id == gym[:id] %>
-    Cadastrado
-  <% else %> 
+    <p class='btn btn-black btn-sm'> Está é a sua Unidade </p>
+  <% elsif !(current_account.profile.enrollment_id == nil) %> 
+    <%= link_to 'Mudar para esta unidade', add_unit_customer_path(gym), method: :post, class: "btn btn-black btn-sm" %>
+  <% else %>
     <%= link_to 'Cadastrar Nesta Unidade', add_unit_customer_path(gym), method: :post, class: "btn btn-black btn-sm" %>
   <% end %>
   </div>
