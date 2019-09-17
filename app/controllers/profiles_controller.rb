@@ -17,6 +17,8 @@ class ProfilesController < ApplicationController
 
     if @profile.save
       redirect_to @profile
+    else
+      render :new
     end
   end
 

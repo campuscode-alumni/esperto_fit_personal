@@ -1,6 +1,8 @@
+<h2>Editar perfil</h2>
+
 <% if @profile.errors.any? %>
     <% @profile.errors.full_messages.each do |msg| %>
-        <br><%= msg %>
+        <div class="alert"><%= msg %></div>
     <% end %>
 <% end %>
 

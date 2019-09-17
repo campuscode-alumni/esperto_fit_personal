@@ -25,7 +25,6 @@ feature 'Customer can register into system' do
     #Act
     login_as customer, scope: :account
     visit root_path
-
     fill_in 'Nome', with: 'Mauricio'
     fill_in 'Sobrenome', with: 'Oliveira'
     fill_in 'Endereço', with: 'Av Paulista, 374'
@@ -35,7 +34,7 @@ feature 'Customer can register into system' do
     fill_in 'Apelido', with: 'jrafaeel'
     fill_in 'Método de Pagamento', with: 'cartao de credito'
     click_on 'Enviar'
-
+    save_page
     #Assert
     expect(Profile.last.first_name).to eq 'Mauricio'
     expect(Profile.last.work_document).to be_falsey

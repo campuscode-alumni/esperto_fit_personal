@@ -13,18 +13,18 @@ feature 'Schedule receives account ID' do
     click_on 'Cadastrar agenda'
 
     select 'Matriz', from: 'Unidade'
-    fill_in 'Dia da semana', with: '2020-02-20'
+    fill_in 'Data', with: '2020-02-20'
     fill_in 'Horário de Início', with: '8'
     fill_in 'Horário de Término', with: '16'
     fill_in 'Valor', with: '35'
     click_on 'Salvar'
 
-    expect(page).to have_css('h1', text: 'Agendas')
-    expect(page).to have_css('h2', text: 'Matriz')
-    expect(page).to have_css('li', text: '2020-02-20')
-    expect(page).to have_css('li', text: 'Horário de início: 8h')
-    expect(page).to have_css('li', text: 'Horário de término: 16h')
-    expect(page).to have_css('li', text: 'Valor/hora: R$35')
+    expect(page).to have_css('h2', text: 'Agendas')
+    expect(page).to have_css('th', text: 'Matriz')
+    expect(page).to have_css('td', text: '20/02/2020')
+    expect(page).to have_css('td', text: '8h')
+    expect(page).to have_css('td', text: '16h')
+    expect(page).to have_css('td', text: 'R$35')
   end
 
   scenario 'and must fill in all fields' do
@@ -39,7 +39,7 @@ feature 'Schedule receives account ID' do
     click_on 'Cadastrar agenda'
 
     select 'Matriz', from: ''
-    fill_in 'Dia da semana', with: ''
+    fill_in 'Data', with: ''
     fill_in 'Horário de Início', with: ''
     fill_in 'Horário de Término', with: ''
     fill_in 'Valor', with: ''
