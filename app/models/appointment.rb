@@ -4,6 +4,9 @@ class Appointment < ApplicationRecord
   has_one :customer, through: :customer_appointment
 
   def has_owner?
-    CustomerAppointment.find(self.id).account_id
+    if CustomerAppointment.find(self.id).account_id
+      return true
+    end
+    return false
   end
 end

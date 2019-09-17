@@ -31,17 +31,16 @@ feature 'Customer can reserve an appointment' do
     schedule.create_appointments
     user = create(:customer, unit: unit)
     cp = CustomerAppointment.find(schedule.appointments[0].id)
-    
     cp.account = user
     cp.save
-    
+
     login_as(user, scope: :account)
     visit root_path
     click_on 'Unidades Disponíveis'
     click_on unit.name
     click_on "Personals na #{unit.name}"
     click_on "#{profile.first_name}"
-    
+
     expect(page).to have_content('Aula Indisponivel')
 
   end
