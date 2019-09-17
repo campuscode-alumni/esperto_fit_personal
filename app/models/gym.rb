@@ -12,9 +12,17 @@ class Gym
     response = EspertoAcademy.client.get do |req|
       req.url 'gyms'
     end
-    #byebug
     if response.status == 200 
       return response.body
     end
+  end
+
+  def self.find(id)
+    response = EspertoAcademy.client.get do |req|
+      req.url "gyms/#{id}"
+    end
+    if response.status == 200 
+      return response.body
+    end 
   end
 end
