@@ -1,6 +1,6 @@
 development:
-  base_url: http://0.0.0.0:3000
+  base_url: http://0.0.0.0:4000
 production:
-  base_url: https://example.com.br/
+  base_url: http://0.0.0.0:4000 
 test:
-  base_url: http://0.0.0.0:3000
+  base_url: http://0.0.0.0:4000

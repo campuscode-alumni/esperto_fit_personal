@@ -12,8 +12,9 @@ class Gym
     response = EspertoAcademy.client.get do |req|
       req.url 'gyms'
     end
-    return response.body.map { |gym| new(gym) } if response.status == 200
-
-    []
+    #byebug
+    if response.status == 200 
+      return response.body
+    end
   end
 end
