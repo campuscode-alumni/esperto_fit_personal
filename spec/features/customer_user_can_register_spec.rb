@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 feature 'Customer can register into system' do
+  before(:each) do
+    list_gyms
+  end
+  
   scenario 'first: basic register' do
     #Arrange
 

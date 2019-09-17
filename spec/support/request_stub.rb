@@ -1,7 +1,7 @@
 module RequestStub
   def list_gyms
     filename = 'gyms.json'
-    url      = 'http://0.0.0.0:3000/api/v1/gyms'
+    url      = 'http://0.0.0.0:4000/api/v1/gyms'
     json_response = JSON.parse(
       File.read(Rails.root.join('spec', 'support', "#{filename}")
     ), symbolize_names: true)
