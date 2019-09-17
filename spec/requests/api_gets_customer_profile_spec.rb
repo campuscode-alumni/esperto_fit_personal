@@ -7,7 +7,6 @@ describe 'API gets customer profile' do
 
     get api_v1_customer_path(customer)
     json_customer = JSON.parse(response.body, symbolize_names: true)
-    byebug
 
     expect(response.status).to eq 202
     expect(response.body).not_to include customer.email
