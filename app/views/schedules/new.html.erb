@@ -2,35 +2,35 @@
 <%= flash[:notice] %>
 <%= form_for @schedule do |f| %>
   <div class="form-group text-center">
-    <%= f.label :unit_id, class: "form-label" %> 
+    <%= f.label :unit_id, class: "form-label" %>
     <%= f.collection_select(:unit_id, Unit.all, :id, :name) %>
   </div>
 
   <div class="row">
     <div class="col form-group">
-      <%= f.label :date, class: "col-form-label" %> 
+      <%= f.label :date, class: "col-form-label" %>
       <%= f.date_field :date, class: "form-control"  %>
     </div>
 
     <div class="col form-group">
-      <%= f.label :price, class: "col-form-label" %> 
+      <%= f.label :price, class: "col-form-label" %>
       <%= f.number_field :price, class: "form-control"  %>
     </div>
   </div>
 
   <div class="row">
     <div class="col form-group">
-      <%= f.label :start, class: "col-form-label" %> 
+      <%= f.label :start, class: "col-form-label" %>
       <%= f.number_field :start, class: "form-control" %>
     </div>
 
     <div class="col form-group">
-      <%= f.label :finish, class: "col-form-label" %> 
+      <%= f.label :finish, class: "col-form-label" %>
       <%= f.number_field :finish, class: "form-control"  %>
     </div>
   </div>
 
   <div class="form-group text-center">
-    <%= f.submit t(save_btn), class: "btn btn-sm btn-black" %>
+    <%= f.submit t(:save_btn), class: "btn btn-sm btn-black" %>
   </div>
 <% end %>
