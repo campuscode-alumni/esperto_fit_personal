@@ -23,10 +23,11 @@ Rails.application.routes.draw do
       get '/search/account', to: 'accounts#search'
       get '/personals', to: 'personals#index'
       resources :customers, only: %i[show]
-
       resources :units, only: %i[] do
         get '/personals', on: :member, action: 'personals'
       end
+
+      post 'customers/:id/', to: 'customers#post_payments'
 
     end
   end
