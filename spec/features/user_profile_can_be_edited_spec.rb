@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 feature 'User profile can be edited' do
+  before(:each) do
+    list_gyms
+  end
+
   scenario '1: access  account profile details' do
     #Arrange
     profile = create(:profile, :personal)
