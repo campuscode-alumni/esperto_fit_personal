@@ -1,5 +1,5 @@
 module RequestStub
-  def self.list_gyms
+  def list_gyms
     filename = 'gyms.json'
     url      = 'http://0.0.0.0:3000/api/v1/gyms'
     json_response = JSON.parse(
