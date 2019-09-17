@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'Add unit to customer' do
   before(:each) do
     list_gyms
+    get_gym
   end
   scenario 'successfully' do
     #arrange
