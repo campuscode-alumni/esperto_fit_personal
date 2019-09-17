@@ -2,9 +2,7 @@ require 'rails_helper'
 
 feature 'User register account' do
   before(:each) do
-    filename = 'gyms.json'
-    url      = 'http://0.0.0.0:3000/api/v1/gyms'
-    stub_get_json(url, filename)
+    list_gyms
   end
   
   scenario 'successfully as customer' do
