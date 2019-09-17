@@ -45,7 +45,6 @@ feature 'Customer can reserve an appointment' do
     
     #Assert
     expect(page).to have_content('Aula Indisponivel')
-    expect(page).to have_link('Escolher essa aula')
 
   end
 
