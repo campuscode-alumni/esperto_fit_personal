@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_12_162703) do
+ActiveRecord::Schema.define(version: 2019_09_17_205944) do
 
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -72,7 +72,9 @@ ActiveRecord::Schema.define(version: 2019_09_12_162703) do
     t.datetime "updated_at", null: false
     t.string "work_document"
     t.integer "account_id"
+    t.integer "enrollment_id"
     t.index ["account_id"], name: "index_profiles_on_account_id"
+    t.index ["enrollment_id"], name: "index_profiles_on_enrollment_id"
   end
 
   create_table "schedules", force: :cascade do |t|

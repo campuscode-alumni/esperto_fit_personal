@@ -3,13 +3,11 @@ class CustomersController < ApplicationController
 
   def add_unit
     if current_account.type == "Customer"
-      byebug
       customer = Customer.find(current_account.id) 
-      unit = JSON.parse((Faraday.get 'http://localhost:4000/api/v1/gyms').body, symbolize_names: true)
-      
-      customer.update(unit: unit)
+      unit = JSON.parse((Faraday.get "http://localhost:4000/api/v1/gyms/#{params[:id]}").body, symbolize_names: true)
+      customer.profile.update(enrollment_id: unit[:gym][:id])
       flash[:notice] = 'Matricula realizada com sucesso'
-      redirect_to unit_path(params[:id])
+      redirect_to root_path
     else
       redirect_to root_path
     end
