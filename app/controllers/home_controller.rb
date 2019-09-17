@@ -4,6 +4,9 @@ class HomeController < ApplicationController
       return redirect_to new_profile_path unless current_account.profile?
     end
     units = Faraday.get 'http://localhost:4000/api/v1/gyms'
-    @gyms = JSON.parse(units.body, symbolize_names: true)
+    gyms = JSON.parse(units.body, symbolize_names: true)
+    status = units.status
+    @result = [gyms, status: status]
+    
   end
 end

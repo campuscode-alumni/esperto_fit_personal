@@ -4,7 +4,8 @@ class CustomersController < ApplicationController
   def add_unit
     if current_account.type == "Customer"
       customer = Customer.find(current_account.id)
-      unit = Unit.find(params[:id])
+      unit = Faraday.get 'http://localhost:4000/api/v1/gyms'
+      
       customer.update(unit: unit)
       flash[:notice] = 'Matricula realizada com sucesso'
       redirect_to unit_path(params[:id])

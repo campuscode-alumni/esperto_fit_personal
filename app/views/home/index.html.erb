@@ -1,9 +1,13 @@
-
-<% @gyms.each do |gym|%>
-<div class="academias">
-  <h3><%= gym[:name] %></h3>
-  <p><strong>Endereço: </strong> <%= gym[:address] %></p>
-  <p><strong>Funcionamento: </strong> de <%= "#{gym[:working_days]}, das #{gym[:open_hour]} às #{gym[:close_hour]}" %></p>
-</div>
-<br>
+<% if @result[1][:status] == 200 %>
+  <% @result[0].each do |gym|%>
+  <div class=<%= "academia-#{gym[:id]}"%>>
+    <h3><%= gym[:name] %></h3>
+    <p><strong>Endereço: </strong> <%= gym[:address] %></p>
+    <p><strong>Funcionamento: </strong> de <%= "#{gym[:working_days]}, das #{gym[:open_hour]} às #{gym[:close_hour]}" %></p>
+    <%= link_to 'Cadastrar Nesta Unidade', add_unit_customer_path(gym), method: :post, class: "btn btn-black btn-sm" %>
+  </div>
+  <br>
+  <% end %>
+<% else %>
+  <h1> 404 - Academia(s) não encontrada(s) </h1>
 <% end %>
