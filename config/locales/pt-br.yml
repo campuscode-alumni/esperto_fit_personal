@@ -8,6 +8,7 @@ pt-BR:
   personal: Personal
   characters_minimum: caracteres ao menos
   appointment_hour: Horário de Atendimento
+  date_txt: Data
   # main links
   login: Entrar
   logout: Sair
