@@ -29,5 +29,7 @@ module EspertoFitPersonal
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.cookbook = config_for(:espertofit).symbolize_keys
   end
 end
