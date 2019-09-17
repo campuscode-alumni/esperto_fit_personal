@@ -4,6 +4,8 @@ class HomeController < ApplicationController
       return redirect_to new_profile_path unless current_account.profile?
     end
 
-    @gyms = Gym.all
+    @gyms = JSON.parse(Gym.all.to_json, symbolize_names: true)
+
+    byebug
   end
 end
