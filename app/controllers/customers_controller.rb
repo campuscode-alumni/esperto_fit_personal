@@ -7,11 +7,11 @@ class CustomersController < ApplicationController
       #unit = JSON.parse((Faraday.get "http://localhost:4000/api/v1/gyms/#{params[:id]}").body, symbolize_names: true)
       unit = Gym.find(params[:id])
       if customer.profile.enrollment_id == nil 
-        customer.profile.update(enrollment_id: unit[:gym][:id])
+        customer.profile.update(enrollment_id: unit[:id])
         flash[:notice] = 'Matricula realizada com sucesso'
         redirect_to root_path
       else
-        customer.profile.update(enrollment_id: unit[:gym][:id])
+        customer.profile.update(enrollment_id: unit[:id])
         flash[:notice] = 'Unidade Trocada com sucesso'
         redirect_to root_path 
       end
