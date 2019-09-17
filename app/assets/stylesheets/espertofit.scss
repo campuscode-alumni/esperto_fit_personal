@@ -44,7 +44,7 @@ body{
                 background: #000;
             }
         }
-      
+
         h1,h2,h3,h4,h5{
             color: $primary;
             display: block;
@@ -60,7 +60,7 @@ body{
                 text-decoration: none;
                 font-weight: bold;
             }
-    
+
             a:hover, a:active{
                 color: $primary;
             }
@@ -168,7 +168,7 @@ table{
     border: 2px solid #FFF;
     table-layout: fixed;
     margin: auto;
-    
+
     tr{
         td{
             background: #FFF;

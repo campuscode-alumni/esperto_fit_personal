@@ -9,7 +9,7 @@ feature 'Customer can see Personal schedules' do
     profile = create(:profile, account: account, first_name: 'Patricia')
 
     create(:schedule, date: '2019-10-09', start: 10, finish: 18, price: "50", personal: account, unit: unit)
-    
+
     #Act
     login_as(customer, scope: :account)
     visit root_path
@@ -18,7 +18,7 @@ feature 'Customer can see Personal schedules' do
     click_on "Personals na #{unit.name}"
 
     #Assert
-    expect(page).to have_css('th', text: "Patricia")
+    expect(page).to have_css('td', text: "Patricia")
     expect(page).to have_css('td', text: "09/10/2019")
     expect(page).to have_css('td', text: "#{unit.schedules[0].start} às #{unit.schedules[0].finish}")
     expect(page).to have_css('td', text: "#{unit.schedules[0].price}")
