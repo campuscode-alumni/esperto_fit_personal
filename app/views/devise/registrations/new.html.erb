@@ -1,40 +1,41 @@
-<h2>Sign up</h2>
+<h2>Cadastrar-se</h2>
+<div class="text-center" id="devise_form">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field form-group">
+      <%= f.label :document, class: "form-label" %>
+      <%= f.text_field :document, autocomplete: t(:document), class: "form-control" %>
+    </div>
 
-   <div class="field">
-    <%= f.label :document %><br />
-    <%= f.text_field :document, autocomplete: t(:document) %>
-  </div>
+    <div class="field form-group">
+      <%= f.label :email, class: "form-label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: t(:email) , class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: t(:email) %>
-  </div>
+    <div class="field form-group">
+      <%= f.label :password, class: "form-label" %>
+      <% if @minimum_password_length %>
+      <em>(<%= "#{@minimum_password_length} #{t(:characters_minimum)}"%> )</em>
+      <% end %>
+      <%= f.password_field :password, autocomplete: t(:new_password) , class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= "#{@minimum_password_length} #{t(:characters_minimum)}"%> )</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: t(:new_password) %>
-  </div>
+    <div class="field form-group">
+      <%= f.label :password_confirmation, class: "form-label" %>
+      <%= f.password_field :password_confirmation, autocomplete: t(:new_password), class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: t(:new_password) %>
-  </div>
+    <div class="field form-group">
+      <%= f.label :type, class: "form-label" %>
+      <%= f.select(:type, options_for_select([[t(:customer), 'Customer'], [t(:personal), 'Personal']])) %>
+    </div>
 
-  <div class="field">
-    <%= f.label :type %>
-    <%= f.select(:type, options_for_select([[t(:customer), 'Customer'], [t(:personal), 'Personal']])) %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit t(:submit_btn) %>
-  </div>
-
-<% end %>
-
-<%= render "devise/shared/links" %>
+    <div class="actions">
+      <%= f.submit t(:submit_btn), class: "btn btn-black btn-sm" %>
+    </div>
+  <% end %>
+<p>
+  <%= render "devise/shared/links" %>
+</p>
+</div>

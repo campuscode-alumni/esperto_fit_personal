@@ -16,7 +16,7 @@ pt-BR:
         password_confirmation: Confirmar Senha
       schedule:
         unit_id: Unidade
-        date: Dia da semana
+        date: Data
         start: Horário de Início
         finish: Horário de Término
         price: Valor

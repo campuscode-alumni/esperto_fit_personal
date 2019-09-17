@@ -1,7 +1,6 @@
-<h3> Agendas disponíveis na unidade <%= @unit.name %> </h3>
-
-  <br>
+<h2> Agendas disponíveis na unidade <%= @unit.name %> </h2>
 <% @unit.schedules.each do |schedule|%>
+<<<<<<< HEAD
 <table>
   <tr>
     <th>Personal</th>
@@ -15,5 +14,23 @@
     <td><%= schedule.start %> às <%= schedule.finish %></td>
     <td><%= schedule.price %></td>
   </tr>
+=======
+  <table class="col-sm-6 float-left mb-2">
+    <th>
+      <%=link_to schedule.personal.profile.first_name, view_appointment_path(schedule)%>
+    </th>
+    <tr>
+      <td class="attribute">Data:</td>
+      <td><%= l schedule.date %></td>
+    </tr>
+    <tr>
+      <td class="attribute">Horário de Atendimento:</td>
+      <td><%= schedule.start %> às <%= schedule.finish %></td>
+    </tr>
+    <tr>
+      <td class="attribute">Valor:</td>
+      <td><%= t('hour_price', price: schedule.price) %></td>
+    </tr>
+>>>>>>> origin
   </table>
 <% end %>

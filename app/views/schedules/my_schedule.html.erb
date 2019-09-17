@@ -1,13 +1,25 @@
-<h1> Agendas </h1>
+<h2> Agendas </h2>
 <% if @schedules.any? %>
   <% @schedules.each do |schedule| %>
-    <h2><%= schedule.unit.name%></h2>
-    <ul>
-      <li><%= schedule.date %></li>
-      <li>Horário de início: <%= schedule.start %>h</li>
-      <li>Horário de término: <%= schedule.finish %>h</li>
-      <li>Valor/hora: R$<%= schedule.price %></li>
-    </ul>
+    <table class="col-sm-6 float-left mb-2">
+    <th><%= schedule.unit.name%></th>
+      <tr>
+        <td class="attribute">Data:</td>
+        <td><%= l schedule.date %></td>
+      </tr>
+      <tr>
+        <td class="attribute">Horário de início:</td>
+        <td><%= schedule.start %>h</td>
+      </tr>
+      <tr>
+        <td class="attribute">Horário de término:</td>
+        <td><%= schedule.finish %>h</td>
+      </tr>
+      <tr>
+        <td class="attribute">Valor/hora:</td>
+        <td><%= t('hour_price', price: schedule.price) %></td>
+      </tr>
+    </table>
   <% end %>
 <% else %>
   <div>
