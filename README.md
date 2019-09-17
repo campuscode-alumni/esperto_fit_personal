@@ -116,3 +116,28 @@ Result example:
   "msg":"Parametro unidade espera id de Unidade"
 }
 ```
+
+## Consulta de Customer
+
+### Exemplo de rota
+#### get 'api/v1/cutomers/1'
+
+Sucesso:
+
+HTTP Status: 202
+
+Result Exemple:
+
+```json
+{
+  "id": 1,
+  "first_name": "Arlindo",
+  "last_name": "Castanho",
+  "date_of_birth": "1988-09-22",
+  "gender": "male",
+  "address": "Rua da Saudade, 333",
+  "contact": "2345-3333",
+  "nickname": "lindin",
+  "payment_method": "débito"
+}
+```
