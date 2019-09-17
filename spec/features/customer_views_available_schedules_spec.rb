@@ -8,8 +8,8 @@ feature 'Customer can see Personal schedules' do
     account = create(:personal, email: 'teste@email.com', password: '123456')
     profile = create(:profile, account: account, first_name: 'Patricia')
 
-    create(:schedule, date: '10/09/2019', start: 10, finish: 18, price: "50", personal: account, unit: unit)
-
+    create(:schedule, date: '2019-10-09', start: 10, finish: 18, price: "50", personal: account, unit: unit)
+    
     #Act
     login_as(customer, scope: :account)
     visit root_path
@@ -18,14 +18,10 @@ feature 'Customer can see Personal schedules' do
     click_on "Personals na #{unit.name}"
 
     #Assert
-    expect(page).to have_css('th', text: "Personal")
-    expect(page).to have_css('tr', text: "#{profile.first_name}")
-    expect(page).to have_css('th', text: "Data Disponível")
-    expect(page).to have_css('tr', text: "#{unit.schedules[0].date}")
-    expect(page).to have_css('th', text: "Horário de Atendimento")
-    expect(page).to have_css('tr', text: "#{unit.schedules[0].start} às #{unit.schedules[0].finish}")
-    expect(page).to have_css('th', text: "Valor")
-    expect(page).to have_css('tr', text: "#{unit.schedules[0].price}")
+    expect(page).to have_css('th', text: "Patricia")
+    expect(page).to have_css('td', text: "09/10/2019")
+    expect(page).to have_css('td', text: "#{unit.schedules[0].start} às #{unit.schedules[0].finish}")
+    expect(page).to have_css('td', text: "#{unit.schedules[0].price}")
   end
 
   scenario 'and there are no schedules in his unit' do
