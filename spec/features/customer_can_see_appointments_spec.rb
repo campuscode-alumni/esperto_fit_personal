@@ -3,21 +3,20 @@ require 'rails_helper'
 feature 'Customer can see apppointments' do
   before(:each) do
     list_gyms
+    get_gym
   end
 
   scenario 'Successfully' do
-      unit = create(:unit)
-    customer = create(:customer, unit: unit)
+    customer = create(:customer)
     account = create(:personal, email: 'teste@email.com', password: '123456')
     profile = create(:profile, account: account, first_name: 'Patricia')
-    schedule = create(:schedule, date: '10/09/2019', start: 10, finish: 12, price: "50", personal: account, unit: unit)
+    schedule = create(:schedule, date: '10/09/2019', start: 10, finish: 12, price: "50", personal: account, unit: Gym.first)
     schedule.create_appointments
 
     login_as(customer, scope: :account) 
     visit root_path 
-    click_on 'Unidades Disponíveis' 
-    click_on unit.name 
-    click_on "Personals na #{unit.name}" 
+    click_on Gym.first.name
+    click_on "Personals na #{Gym.first.name}" 
     click_on 'Patricia'
 
     expect(page).to have_css('h1', text: "Agenda da #{profile.first_name} para a data #{schedule.date}")

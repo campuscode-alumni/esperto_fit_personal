@@ -29,7 +29,7 @@ class Gym
       req.url "gyms/#{id}"
     end
     if response.status == 200 
-      return JSON.parse(response.body, symbolize_names: true)
+      return JSON.parse(response.body.to_json, symbolize_names: true)
     end 
   end
 end
