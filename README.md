@@ -120,7 +120,7 @@ Result example:
 ## Consulta de Customer
 
 ### Exemplo de rota
-#### get 'api/v1/cutomers/1'
+#### get 'api/v1/customers?id=1'
 
 Sucesso:
 

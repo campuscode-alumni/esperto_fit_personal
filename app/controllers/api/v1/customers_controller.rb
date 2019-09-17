@@ -1,6 +1,6 @@
 class Api::V1::CustomersController < Api::V1::ApiController
-  
-  # get api/v1/customers/1
+
+  # get api/v1/customers?id=1
   def show
     @customer = Customer.find(params[:id])
 
