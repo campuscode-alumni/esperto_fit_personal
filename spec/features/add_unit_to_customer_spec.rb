@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 feature 'Add unit to customer' do
+  before(:each) do
+    list_gyms
+  end
+  
   scenario 'successfully' do
     #arrange
     unit = JSON.parse((Faraday.get 'http://localhost:4000/api/v1/gyms').body, symbolize_names: true)

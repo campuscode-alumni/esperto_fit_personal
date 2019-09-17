@@ -29,5 +29,7 @@ module EspertoFitPersonal
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.esperto_academy = config_for(:esperto_academy).symbolize_keys 
   end
 end

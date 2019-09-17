@@ -6,8 +6,6 @@ SimpleCov.start 'rails' do
   add_filter 'app/helpers'
 end
 
-
-
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
@@ -44,6 +42,8 @@ RSpec.configure do |config|
   config.include Warden::Test::Helpers
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+
+  config.include RequestStub
 
   config.include Warden::Test::Helpers
 
