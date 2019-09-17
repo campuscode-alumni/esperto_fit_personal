@@ -3,14 +3,14 @@ require 'rails_helper'
 feature 'Add unit to customer' do
   scenario 'successfully' do
     #arrange
-    unit = create(:unit, name: 'Paulista')
+    unit = JSON.parse((Faraday.get 'http://localhost:4000/api/v1/gyms').body, symbolize_names: true)
     user = create(:customer)
     create(:profile, account: user)
     #act
     login_as(user, scope: :account)
     visit root_path
     click_on 'Unidades Disponíveis'
-    click_on unit.name
+    click_on unit[0][:name]
     click_on 'Matricular-se Nesta Unidade'
     user.reload
     #assert
