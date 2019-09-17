@@ -7,6 +7,7 @@ pt-BR:
   customer: Aluno
   personal: Personal
   characters_minimum: caracteres ao menos
+  appointment_hour: Horário de Atendimento
   # main links
   login: Entrar
   logout: Sair
