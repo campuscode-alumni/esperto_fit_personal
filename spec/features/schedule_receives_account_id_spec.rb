@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 feature 'Schedule receives account ID' do
+  before(:each) do
+    list_gyms
+  end
+
   scenario 'successfully' do
     personal = create(:personal, email: 'teste@email.com', password: '123456')
     unit = create(:unit, name: 'Matriz')
