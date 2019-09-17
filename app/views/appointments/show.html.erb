@@ -2,18 +2,20 @@
 <% @unit.schedules.each do |schedule|%>
   <table class="col-sm-6 float-left mb-2">
     <th>
-      <%=link_to schedule.personal.profile.first_name, view_appointment_path(schedule)%>
+      <td>
+        <%=link_to schedule.personal.profile.first_name, view_appointment_path(schedule)%>
+      </td>
     </th>
     <tr>
-      <td class="attribute">t(date):</td>
+      <td class="attribute"> <%= t(:date) %> :</td>
       <td><%= l schedule.date %></td>
     </tr>
     <tr>
-      <td class="attribute">t(appointment_hour):</td>
+      <td class="attribute"> <%= t(:appointment_hour) %>:</td>
       <td><%= schedule.start %> às <%= schedule.finish %></td>
     </tr>
     <tr>
-      <td class="attribute">t(:price):</td>
+      <td class="attribute"> <%= t(:price) %> :</td>
       <td><%= t('hour_price', price: schedule.price) %></td>
     </tr>
   </table>
