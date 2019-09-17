@@ -1,10 +1,11 @@
 <h1>Agenda da <%= @schedule.personal.profile.first_name %> para a data <%= @schedule.date %> </h1>
 <ul>
 <% @schedule.appointments.each do |appm| %>
-  <% if appm.has_owner? %>
-    <li>Aula Indisponivel - Horário das <%= appm.start_hour %> às <%= appm.end_hour %> - Preço <%= @schedule.price %> </li>
-  <% else %>
+  <%#byebug%>
+  <% if CustomerAppointment.find(appm.id).account_id != nil %>
     <li><%= link_to 'Escolher essa aula', enroll_appointment_path(appm_id: appm.id, schedule_id: @schedule.id), method: :post %> - Horário das <%= appm.start_hour %> às <%= appm.end_hour %> - Preço <%= @schedule.price %> </li>
+  <% else %>
+    <li>Aula Indisponivel - Horário das <%= appm.start_hour %> às <%= appm.end_hour %> - Preço <%= @schedule.price %> </li>
   <% end %>
 <% end %>
 </ul>
