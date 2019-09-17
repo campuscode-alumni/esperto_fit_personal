@@ -4,6 +4,6 @@ class UnitsController < ApplicationController
   end
   
   def show
-    @unit = Gym.find(params[:id])
+    @unit = JSON.parse(Gym.find(params[:id]), symbolize_names: true)
   end
 end
