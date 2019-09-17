@@ -1,7 +1,8 @@
 class AppointmentsController < ApplicationController
   before_action :authenticate_account!
   def show
-    @unit = Unit.find(params[:id])
+    @unit = Gym.find(params[:id])
+    
     #if !(current_account) 
       #redirect_to root_path
    # end
