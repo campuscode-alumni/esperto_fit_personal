@@ -6,7 +6,13 @@ SimpleCov.start 'rails' do
   add_filter 'app/helpers'
 end
 
-
+def stub_get_json(url, filename)
+  json_response = JSON.parse(
+    File.read(Rails.root.join('spec', 'support', "#{filename}")
+  ), symbolize_names: true)
+  stub_request(:get, url).
+    to_return(status: 200, body: json_response)
+end
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
