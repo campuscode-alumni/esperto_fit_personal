@@ -18,7 +18,7 @@ feature 'Add unit to customer' do
     click_on 'Unidades Disponíveis'
     click_on unit.name
     click_on 'Matricular-se Nesta Unidade'
-
+    user.reload
     #assert
     expect(page).to have_content('Matricula realizada com sucesso')
     expect(page).to have_content("Você é membro desta unidade")

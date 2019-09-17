@@ -1,24 +1,48 @@
 require 'rails_helper'
 
-feature 'Customer view personal list' do
-  scenario 'view personals for unit' do
+feature 'Customer can reserve an appointment' do
+  scenario 'with a personal' do
+    #Arrange
     unit = create(:unit)
-    personal = create(:personal, document: '12345678901')
-    create(:profile, first_name: 'Personal 1', account: personal)
-    second_personal = create(:personal, document: '12345678902')
-    create(:profile, first_name: 'Personal 2', account: second_personal)
-    third_personal = create(:personal, document: '12345678903')
-    create(:profile, first_name: 'Personal 3', account: third_personal)
-    schedule = create(:schedule, personal: personal, unit: unit)
-    schedule = create(:schedule, personal: second_personal, unit: unit)
+    account = create(:personal, email: 'teste@email.com', password: '123456')
+    profile = create(:profile, account: account, first_name: 'Patricia')
+    schedule = create(:schedule, start: 10, finish: 11, personal: account, unit: unit)
+    schedule.create_appointments
     user = create(:customer, unit: unit)
     login_as(user, scope: :account)
-    visit root_path
-    click_on 'Agendar horário com Personal'
 
-    expect(page).to have_content('Personal 1')
-    expect(page).to have_content('Personal 2')
-    expect(page).not_to have_content('Personal 3')
+    #Act
+    visit root_path
+    click_on 'Unidades Disponíveis'
+    click_on unit.name
+    click_on "Personals na #{unit.name}"
+    click_on "#{profile.first_name}"
+    click_on "Escolher essa aula" # - Horário das 10 às 11h - Preço 50"
+
+    #Assert
+    expect(page).to have_content('Aula agendada com sucesso!')
+
+  end
+  scenario 'and can\'t select taken class' do
+    unit = create(:unit)
+    account = create(:personal, email: 'teste@email.com', password: '123456')
+    profile = create(:profile, account: account, first_name: 'Patricia')
+    schedule = create(:schedule, start: 10, finish: 12, personal: account, unit: unit)
+    schedule.create_appointments
+    user = create(:customer, unit: unit)
+    cp = CustomerAppointment.find(schedule.appointments[0].id)
+    cp.account = user
+    cp.save
+
+    login_as(user, scope: :account)
+    visit root_path
+    click_on 'Unidades Disponíveis'
+    click_on unit.name
+    click_on "Personals na #{unit.name}"
+    click_on "#{profile.first_name}"
+
+    expect(page).to have_content('Aula Indisponivel')
+
   end
 
 end

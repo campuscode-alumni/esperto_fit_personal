@@ -1,6 +1,8 @@
 $light: #EEE;
 $dark: #333;
 $primary: #fcb823;
+$green: #33BB44;
+$red: #DD3322;
 $font-stack: "Helvetica", sans-serif;
 
 body{
@@ -13,6 +15,7 @@ body{
 .container{
     background: #FFF;
     box-shadow: 0 0 50px #000;
+    max-width: 1000px;
 
     nav{
         background: #000;
@@ -28,28 +31,39 @@ body{
     }
 
     main{
-      
+
+        p, span{
+            a{
+            color: $primary;
+            font-weight: bold;
+            }
+
+            a:hover{
+                text-decoration: none;
+                color:$light;
+                background: #000;
+            }
+        }
+
         h1,h2,h3,h4,h5{
             color: $primary;
             display: block;
             border-bottom: 2px solid $dark;
-            text-transform: uppercase;
         }
 
         ul{
             padding: 5px 20px;
             line-height: 14pt;
-            background: $light;
-            color: $dark;
-        }
 
-        a{
-            color: #000;
-            text-decoration: none;
-        }
+            a{
+                color: #000;
+                text-decoration: none;
+                font-weight: bold;
+            }
 
-        a:hover, a:active{
-            color: $primary;
+            a:hover, a:active{
+                color: $primary;
+            }
         }
 
     }
@@ -57,8 +71,12 @@ body{
     footer{
         background: #000;
         color: $light;
-        padding: 30px 0px;
+        padding: 10px 0px;
         font: 9pt $font-stack;
+
+        img{
+            width: 50px;
+        }
 
         hr{
             border: 0.1em solid #FFF;
@@ -92,33 +110,90 @@ body{
         }
     }
 
-    #logo{
-        font: #FFF;
-        font-size: 14pt;
-        margin: 0px;
+    .logo{
+        margin: 0;
 
-        a{
-            color: #FFF;
-            text-decoration: none;
-        }
-
-        .accent{
-            color: $primary;
-            font-weight: bold;
+        img{
+            height: 20px;
         }
 
     }
 
-
     .alert {
-      color: red;
-      border: solid 1px red;
+      color: $red;
+      border: solid 1px $red;
       text-align: center;
+      margin: 5px;
+      padding:10px;
+      border-radius: 5px;
     }
 
     .notice {
-      color: lightgreen;
-      border: solid 1px lightgreen;
+      color: $green;
+      border: solid 1px $green;
       text-align: center;
+      margin: 5px;
+      padding:10px;
+      border-radius: 5px;
     }
+}
+
+.btn-yellow{
+    background: $primary;
+    color: $dark;
+}
+
+.btn-yellow:hover{
+    color: #000;
+}
+
+.btn-black{
+    background: $dark;
+    color: $light;
+}
+
+.btn-black:hover{
+    color: #FFF;
+}
+
+#current_unit{
+    background: $dark;
+    color: $light;
+    width: 100%;
+    padding:10px;
+}
+
+table{
+    background: $dark;
+    border: 2px solid #FFF;
+    table-layout: fixed;
+    margin: auto;
+
+    tr{
+        td{
+            background: #FFF;
+            text-align: left;
+            padding: 2px 5px;
+            border-top: 1px solid $dark;
+        }
+
+        .attribute{
+            background: $light;
+            text-align: right;
+            font-weight: bold;
+        }
+    }
+
+    th{
+        font-size: 12pt;
+        text-transform: uppercase;
+        padding: 5px;
+        color: $primary;
+        font-weight: normal;
+    }
+}
+
+#devise_form{
+    max-width: 600px;
+    margin: auto;
 }

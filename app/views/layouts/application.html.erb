@@ -13,13 +13,9 @@
       <nav class="row">
         <div id="hello" class="col-md-4">
           <ul class="link_list">
-            <li>
-              <span id="logo"><%= link_to 'esperto', root_path %><%= link_to 'fit', root_path, class: "accent" %></span>
-            </li>
-            <% if account_signed_in? %>
-            <li>
-              Olá, <%= link_to current_account.email, profile_path(current_account) %>
-            </li>
+            <li><span class="logo"><%= link_to (image_tag 'logo_color.png'), root_path %></span></li>
+            <% if account_signed_in? && current_account.profile %>
+              <li>Olá, <%= link_to current_account.profile.nickname, profile_path(current_account.profile) %></li>
             <% end %>
           </ul>
         </div>
@@ -31,7 +27,10 @@
                 <li><%= link_to t(:new_shcedule), new_schedule_path %></li>
                 <li><%= link_to t(:my_schedules), my_schedule_path %></li>
               <% else %>
-                <li><%= link_to t(:new_appointment), personals_path %></li>
+                <% if current_account && current_account.unit %>
+                  <li><%= link_to t(:new_appointment), appointment_path(current_account.unit) %></li>
+
+                <% end %>
               <% end %>
               <li><%= link_to t(:units), units_path %></li>
               <li><%= link_to t(:logout), destroy_account_session_path, method: :delete %></li>
@@ -58,13 +57,16 @@
 
       <footer class="row mt-2">
         <div class="col-md-12 text-center">
-          <ul class="link_list">
-            <li><%= link_to 'Home', root_path %></li>
-            <li><%= link_to 'Link1', root_path %></li>
-            <li><%= link_to 'Link2', root_path %></li>
-          </ul>
+          <p>
+            <ul class="link_list">
+              <li><%= link_to 'Home', root_path %></li>
+              <li><%= link_to 'Link1', root_path %></li>
+              <li><%= link_to 'Link2', root_path %></li>
+            </ul>
+          </p>
           <hr>
-          <span id="logo">esperto<span class="accent">fit</span></span>
+          <%= image_tag 'logo_Compact_White.png' %><br><br>
+          <p>EspertoFit &copy; 2019</p>
         </div>
       </footer>
     </div>

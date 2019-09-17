@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :appointment do
+
     account
     available { false }
     start_hour { 13 }

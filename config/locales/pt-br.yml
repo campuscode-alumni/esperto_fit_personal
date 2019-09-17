@@ -1,11 +1,14 @@
 pt-BR:
   recieve_method: Método de Recebimento
   submit_btn: Enviar
+  save_btn: Salvar
   profile_edit: Editar cadastro
   new_password: Nova senha
   customer: Aluno
   personal: Personal
   characters_minimum: caracteres ao menos
+  appointment_hour: Horário de Atendimento
+  date_txt: Data
   # main links
   login: Entrar
   logout: Sair
@@ -16,3 +19,4 @@ pt-BR:
   new_appointment: Agendar horário com Personal
   units: Unidades Disponíveis
   edit_profile: Editar Cadastro
+  hour_price: "R$%{price}"
