@@ -22,4 +22,11 @@ class Account < ApplicationRecord
     !profile.nil?
   end
 
+  def banished?
+    response = EspertoAcademy.client.get do |req|
+      req.url 'clients/consult_cpf?cpf=12345678909'
+    end
+    response.body[:status] == 'banished'
+  end
+
 end

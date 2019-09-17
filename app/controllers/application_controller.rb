@@ -6,4 +6,14 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:document, :type])
   end
+
+  def after_sign_in_path_for(account)
+    if account.banished?
+      sign_out account
+      flash[:alert] = 'CPF banido'
+      new_account_registration_path
+    else
+      super
+    end
+  end
 end

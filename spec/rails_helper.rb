@@ -6,16 +6,9 @@ SimpleCov.start 'rails' do
   add_filter 'app/helpers'
 end
 
-def stub_get_json(url, filename)
-  json_response = JSON.parse(
-    File.read(Rails.root.join('spec', 'support', "#{filename}")
-  ), symbolize_names: true)
-  stub_request(:get, url).
-    to_return(status: 200, body: json_response)
-end
-
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+require 'webmock/rspec'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
@@ -50,6 +43,8 @@ RSpec.configure do |config|
   config.include Warden::Test::Helpers
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+
+  config.include RequestStub
 
   config.include Warden::Test::Helpers
 

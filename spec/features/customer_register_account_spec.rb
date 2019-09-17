@@ -6,7 +6,7 @@ feature 'User register account' do
     #act
     visit root_path
     click_on 'Cadastrar na EspertoFit'
-    fill_in 'CPF', with: '12345678900'
+    fill_in 'CPF', with: '12345678945'
     fill_in 'Email', with: 'email@generico.com'
     fill_in 'Senha', with: '123456'
     fill_in 'Confirmar Senha', with: '123456'
@@ -89,5 +89,25 @@ feature 'User register account' do
     click_on 'Enviar'
     #arrange
     expect(page).to have_content("Email já está em uso")
+  end
+
+  scenario 'and must not be banished' do
+
+    cpf_status
+
+    #act
+    visit root_path
+    click_on 'Cadastrar na EspertoFit'
+    fill_in 'CPF', with: '12345678909'
+    fill_in 'Email', with: 'email@generico.com'
+    fill_in 'Senha', with: '123456'
+    fill_in 'Confirmar Senha', with: '123456'
+    select 'Aluno', from: 'Tipo de Conta'
+    click_on 'Enviar'
+
+    #arrange
+    expect(current_path).to eq new_account_registration_path
+    expect(page).to have_link('Cadastrar na EspertoFit')
+    expect(page).to have_content('CPF banido')
   end
 end
