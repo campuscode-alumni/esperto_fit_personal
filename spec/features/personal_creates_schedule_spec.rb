@@ -1,8 +1,11 @@
 require 'rails_helper'
 
 feature 'Personal creates schedule' do
+  before(:each) do
+    cpf_status_empty
+  end
   scenario 'and they should be logged in' do
-    account = create(:personal, email: 'teste@email.com', password: '123456')
+    account = create(:personal, email: 'teste@email.com', password: '123456', document:'12345678908')
     profile = create(:profile, account: account)
 
     login_as(account, scope: :account)
@@ -13,7 +16,7 @@ feature 'Personal creates schedule' do
   end
 
   scenario 'successfully creates schedule' do
-    personal = create(:personal, email: 'teste@email.com', password: '123456')
+    personal = create(:personal, email: 'teste@email.com', password: '123456', document:'12345678908')
     unit = create(:unit, name: 'Matriz')
 
     visit root_path
@@ -36,7 +39,7 @@ feature 'Personal creates schedule' do
   end
 
   scenario 'and must fill all fields' do
-    personal = create(:personal, email: 'teste@email.com', password: '123456')
+    personal = create(:personal, email: 'teste@email.com', password: '123456', document:'12345678908')
     unit = create(:unit, name: 'Matriz')
 
     visit root_path
@@ -57,7 +60,7 @@ feature 'Personal creates schedule' do
   end
 
   scenario 'and the price cant be negative' do
-    personal = create(:personal, email: 'teste@email.com', password: '123456')
+    personal = create(:personal, email: 'teste@email.com', password: '123456', document:'12345678908')
     unit = create(:unit, name: 'Matriz')
 
     visit root_path

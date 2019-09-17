@@ -1,8 +1,11 @@
 require 'rails_helper'
 
 feature 'Schedule receives account ID' do
+  before(:each) do
+    cpf_status_empty
+  end
   scenario 'successfully' do
-    personal = create(:personal, email: 'teste@email.com', password: '123456')
+    personal = create(:personal, email: 'teste@email.com', password: '123456', document:'12345678908')
     unit = create(:unit, name: 'Matriz')
 
     visit root_path
@@ -28,7 +31,7 @@ feature 'Schedule receives account ID' do
   end
 
   scenario 'and must fill in all fields' do
-    personal = create(:personal, email: 'teste@email.com', password: '123456')
+    personal = create(:personal, email: 'teste@email.com', password: '123456', document:'12345678908')
     unit = create(:unit, name: 'Matriz')
 
     visit root_path
@@ -49,7 +52,7 @@ feature 'Schedule receives account ID' do
   end
 
   scenario 'and must fill in all fields' do
-    personal = create(:personal, email: 'teste@email.com', password: '123456')
+    personal = create(:personal, email: 'teste@email.com', password: '123456', document:'12345678908')
 
     visit root_path
     click_on 'Entrar'
@@ -68,7 +71,7 @@ feature 'Schedule receives account ID' do
   end
 
   scenario 'and user should be a personal' do
-    customer = create(:customer, email: 'teste@email.com', password: '123456')
+    customer = create(:customer, email: 'teste@email.com', password: '123456', document:'12345678908')
     profile = create(:profile, account: customer)
 
     login_as(customer, scope: :account)

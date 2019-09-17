@@ -1,9 +1,9 @@
 module RequestStub
   def cpf_status
     filename = 'cpf_status.json'
-    url      = 'http://0.0.0.0:3000/api/v1/clients/consult_cpf?cpf=12345678909'
+    url      = 'http://0.0.0.0:3000/api/v1/clients/consult_cpf?cpf=99999999999'
     json_response = File.read(Rails.root.join('spec', 'support', "#{filename}"))
-    
+
     stub_request(:get, url)
       .with(
         headers: {
@@ -14,12 +14,12 @@ module RequestStub
       )
       .to_return(status: 302, body: json_response, headers:  {'Content-Type': 'application/json'})
   end
-  
+
   def cpf_status_empty
     filename = 'cpf_status.json'
-    url      = 'http://0.0.0.0:3000/api/v1/clients/consult_cpf?cpf=12345678909'
+    url      = 'http://0.0.0.0:3000/api/v1/clients/consult_cpf?cpf=12345678908'
     json_response = File.read(Rails.root.join('spec', 'support', "#{filename}"))
-    
+
     stub_request(:get, url)
       .with(
         headers: {

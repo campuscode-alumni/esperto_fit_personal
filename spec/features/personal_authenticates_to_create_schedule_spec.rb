@@ -23,7 +23,9 @@ feature 'Personal authenticates to create schedule' do
   end
 
   scenario 'and customers cant create schedule' do
-    customer = create(:account, email: 'teste@email.com', password: '123456')
+
+    cpf_status_empty
+    customer = create(:account, email: 'teste@email.com', password: '123456', document:'12345678908')
 
     visit root_path
     click_on 'Entrar'
@@ -35,15 +37,17 @@ feature 'Personal authenticates to create schedule' do
   end
 
   scenario 'and signed in user can sign out' do
-    customer = create(:account, email: 'teste@email.com', password: '123456')
-
+    #Arrange
+    cpf_status_empty
+    customer = create(:account, email: 'teste@email.com', password: '123456', document:'12345678908')
+    #Act
     visit root_path
     click_on 'Entrar'
     fill_in 'Email', with: 'teste@email.com'
     fill_in 'Senha', with: '123456'
     click_on 'Log in'
     click_on 'Sair'
-
+    #Assert
     expect(page).to have_link('Cadastrar na EspertoFit')
   end
 end
