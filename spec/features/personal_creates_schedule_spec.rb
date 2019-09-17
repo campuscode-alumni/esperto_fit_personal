@@ -31,7 +31,7 @@ feature 'Personal creates schedule' do
     click_on 'Salvar'
 
     expect(page).to have_content('Cadastrado com sucesso')
-    expect(page).to have_css('td', text: '20/09/2019')
+    expect(page).to have_css('td', text: '2019-09-20')
     expect(page).to have_css('td', text: '8h')
   end
 
