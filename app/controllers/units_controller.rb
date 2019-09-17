@@ -6,6 +6,5 @@ class UnitsController < ApplicationController
 
   def show
     @unit = JSON.parse((Faraday.get "http://localhost:4000/api/v1/gyms/#{params[:id]}").body, symbolize_names: true)
-    @unit[:gym]
   end
 end
