@@ -3,7 +3,7 @@
 <%= form_for @schedule do |f| %>
   <div class="form-group text-center">
     <%= f.label :unit_id, class: "form-label" %>
-    <%= f.collection_select(:unit_id, Unit.all, :id, :name) %>
+    <%= f.collection_select(:unit_id, Gym.all, :id, :name) %>
   </div>
 
   <div class="row">

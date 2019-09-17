@@ -7,6 +7,13 @@ class Gym
       instance_variable_set("@#{key.to_s}", value)
     end
   end
+  
+  def self.find(id)
+    response = EspertoAcademy.client.get do |req|
+      req.url "gyms/#{id}"
+    end
+    return new(response.body) if response.status == 200
+  end
 
   def self.all
     response = EspertoAcademy.client.get do |req|
