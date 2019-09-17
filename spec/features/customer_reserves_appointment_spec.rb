@@ -45,6 +45,7 @@ feature 'Customer can reserve an appointment' do
     click_on "#{profile.first_name}"
     
     expect(page).to have_content('Aula Indisponivel')
+    expect(page).to have_link('Escolher essa aula')
 
   end
 
