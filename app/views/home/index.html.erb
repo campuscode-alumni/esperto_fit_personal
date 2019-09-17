@@ -2,6 +2,7 @@
   <% @result[0].each do |gym|%>
   <div class=<%= "academia-#{gym[:id]}"%>>
     <h3><%= gym[:name] %></h3>
+    <img src=<%= gym[:images][0] %>>
     <p><strong>Endereço: </strong> <%= gym[:address] %></p>
     <p><strong>Funcionamento: </strong> de <%= "#{gym[:working_days]}, das #{gym[:open_hour]} às #{gym[:close_hour]}" %></p>
   <% if current_account && current_account.profile.enrollment_id == gym[:id] %>

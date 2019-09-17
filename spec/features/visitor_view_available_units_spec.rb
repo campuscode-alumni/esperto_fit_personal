@@ -12,7 +12,7 @@ feature 'visitor view units' do
       File.read(Rails.root.join('spec', 'support', "gyms.json")
     ), symbolize_names: true)
 
-    expect(page).to have_css('.gym', count: 3)
+    expect(page).to have_css('h3', count: 3)
 
     expect(page).to have_css('h3', text: 'Academia 01')
     expect(page).to have_css("img[src*='#{json_response[0][:images][0]}']")
