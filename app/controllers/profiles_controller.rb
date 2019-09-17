@@ -12,7 +12,6 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    # byebug
     @profile = Profile.new(profile_params)
     @profile.account_id = current_account.id
 
