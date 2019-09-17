@@ -31,12 +31,21 @@ RSpec.describe Appointment, type: :model do
       cp = CustomerAppointment.find(schedule.appointments[0].id)
       cp.account = customer_account
       cp.save
+
       expect(schedule.appointments[0].has_owner?).to eq true
       
     end
 
-    it 'returns nil when no customer owns the appointment'do
-      pending
+    it 'returns false when no customer owns the appointment'do 
+      unit = create(:unit) 
+      
+      personal_account = create(:personal, email: 'teste@email.com', password: '123456')
+      personal_profile = create(:profile, account: personal_account, first_name: 'Patricia')
+
+      schedule = create(:schedule, date: '10/09/2019', start: 10, finish: 12, price: "50", personal: personal_account, unit: unit) 
+      schedule.create_appointments
+
+      expect(schedule.appointments[0].has_owner?).to eq false
     end
   end
 end
