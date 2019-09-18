@@ -18,7 +18,7 @@ feature 'Customer can see Personal schedules' do
     click_on "Personals na #{unit.name}"
 
     #Assert
-    expect(page).to have_css('td', text: "Patricia")
+    expect(page).to have_css('th', text: "Patricia")
     expect(page).to have_css('td', text: "09/10/2019")
     expect(page).to have_css('td', text: "#{unit.schedules[0].start} às #{unit.schedules[0].finish}")
     expect(page).to have_css('td', text: "#{unit.schedules[0].price}")

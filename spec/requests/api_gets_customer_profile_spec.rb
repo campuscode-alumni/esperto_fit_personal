@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe 'API gets customer profile' do
   it 'successfully' do
-    customer = create(:customer)
+    customer = create(:customer, document: '12345678900')
     profile1 = create(:profile, account: customer)
 
-    get api_v1_customer_path(customer)
+    get api_v1_search_customer_path(document: '12345678900')
     json_customer = JSON.parse(response.body, symbolize_names: true)
 
     expect(response.status).to eq 202
@@ -15,7 +15,7 @@ describe 'API gets customer profile' do
   end
 
   it 'and the account ID is not valid' do
-    get api_v1_customer_path(id: 1987)
+    get api_v1_search_customer_path(id: 1987)
     json_customer = JSON.parse(response.body, symbolize_names: true)
 
     expect(response.status).to eq 404

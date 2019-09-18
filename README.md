@@ -122,7 +122,7 @@ Result example:
 ## Consulta de Customer
 
 ### Exemplo de rota
-#### get "api/v1/customers/#{id}"
+#### get "/api/v1/search/customer?document=12345678900"
 
 Sucesso:
 
@@ -141,5 +141,17 @@ Result Exemple:
   "contact": "2345-3333",
   "nickname": "lindin",
   "payment_method": "débito"
+}
+```
+
+Erro:
+
+HTTP Status: 404
+
+Result example:
+
+```json
+{
+  "msg": "Não encontrada"
 }
 ```

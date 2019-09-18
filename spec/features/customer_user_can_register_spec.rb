@@ -37,7 +37,7 @@ feature 'Customer can register into system' do
     fill_in 'Endereço', with: 'Av Paulista, 374'
     fill_in 'Data de Nascimento', with: '25/05/1996'
     fill_in 'Contato', with: '989551359'
-    fill_in 'Sexo', with: 'male'
+    select 'male', from: 'Sexo'    
     fill_in 'Apelido', with: 'jrafaeel'
     fill_in 'Método de Pagamento', with: 'cartao de credito'
     click_on 'Enviar'

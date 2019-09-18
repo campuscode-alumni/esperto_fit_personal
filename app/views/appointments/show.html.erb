@@ -2,9 +2,9 @@
 <% @unit.schedules.each do |schedule|%>
   <table class="col-sm-6 float-left mb-2">
     <th>
-      <td>
-        <%=link_to schedule.personal.profile.first_name, view_appointment_path(schedule)%>
-      </td>
+      <span>
+        <%= link_to schedule.personal.profile.first_name, view_appointment_path(schedule)%>
+      </span>
     </th>
     <tr>
       <td class="attribute"> <%= t(:date_txt) %> :</td>

@@ -25,7 +25,7 @@ feature 'Schedule receives account ID' do
 
     expect(page).to have_css('h2', text: 'Agendas')
     expect(page).to have_css('th', text: 'Matriz')
-    expect(page).to have_css('td', text: '2020-02-20')
+    expect(page).to have_css('td', text: '20/02/2020')
     expect(page).to have_css('td', text: '8h')
     expect(page).to have_css('td', text: '16h')
     expect(page).to have_css('td', text: 'R$35')
