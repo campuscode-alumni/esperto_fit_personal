@@ -16,4 +16,9 @@ class Gym
 
     []
   end
+  def imgs
+    return ['logo_Compact_White.jpg'] unless self.images
+
+    self.images
+  end
 end
