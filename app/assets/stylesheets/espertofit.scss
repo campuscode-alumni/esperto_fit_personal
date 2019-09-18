@@ -9,7 +9,6 @@ body{
     font: 10pt $font-stack;
     color: $font-stack;
     background: $dark;
-    padding-bottom:0px;
 }
 
 .container{
@@ -23,7 +22,6 @@ body{
         padding: 5px 0px;
         line-height:25px;
 
-
         #top-menu{
             font: 8pt $font-stack;
             text-transform: uppercase;
@@ -31,6 +29,8 @@ body{
     }
 
     main{
+        min-height: 80vh;
+        padding: 10px 0px;
 
         p, span{
             a{
@@ -44,7 +44,7 @@ body{
                 background: #000;
             }
         }
-
+      
         h1,h2,h3,h4,h5{
             color: $primary;
             display: block;
@@ -60,12 +60,11 @@ body{
                 text-decoration: none;
                 font-weight: bold;
             }
-
+    
             a:hover, a:active{
                 color: $primary;
             }
         }
-
     }
 
     footer{
@@ -79,7 +78,7 @@ body{
         }
 
         hr{
-            border: 0.1em solid #FFF;
+            border: 1px solid #FFF;
             width: 200px;
         }
     }
@@ -116,7 +115,6 @@ body{
         img{
             height: 20px;
         }
-
     }
 
     .alert {
@@ -165,10 +163,9 @@ body{
 
 table{
     background: $dark;
-    border: 2px solid #FFF;
     table-layout: fixed;
     margin: auto;
-
+    
     tr{
         td{
             background: #FFF;
@@ -181,6 +178,8 @@ table{
             background: $light;
             text-align: right;
             font-weight: bold;
+            border-left: 2px solid #FFF;
+
         }
     }
 
@@ -190,6 +189,7 @@ table{
         padding: 5px;
         color: $primary;
         font-weight: normal;
+        border-left: 2px solid #FFF;
     }
 }
 
