@@ -1,0 +1,14 @@
+  {
+    "id":1,
+    "created_at":"2019-09-12T17:13:13.272Z",
+    "updated_at":"2019-09-12T17:13:13.275Z",
+    "name":"Academia 01",
+    "cod":1,
+    "open_hour":"09:00",
+    "close_hour":"22:00",
+    "working_days":"segunda à sexta",
+    "address":"Av Paulista 111",
+    "images":["https://lorempixel.com/400/400/sports/", 
+              "https://lorempixel.com/400/400/sports/"
+    ]
+  }
