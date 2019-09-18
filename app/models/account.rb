@@ -31,6 +31,8 @@ class Account < ApplicationRecord
     return false if response.status == 404
 
     response.body[:status] == 'banished'
+  rescue Faraday::ParsingError
+    return false 
   end
 
 end
