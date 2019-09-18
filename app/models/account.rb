@@ -5,6 +5,7 @@ class Account < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :document, presence: true
+  validates :document, uniqueness: true
 
   has_one :enrollment
   has_one :unit, through: :enrollment
@@ -20,6 +21,16 @@ class Account < ApplicationRecord
 
   def profile?
     !profile.nil?
+  end
+
+  def banished?
+    response = EspertoAcademy.client.get do |req|
+      req.url "clients/consult_cpf/#{self.document}"
+    end
+
+    return false if response.status == 404
+
+    response.body[:status] == 'banished'
   end
 
 end

@@ -6,11 +6,11 @@ feature 'Personal can register into system' do
   end
   scenario 'first: basic register' do
     #Arrange
-
+    cpf_status_empty
     #Act
     visit root_path
     click_on 'Cadastrar na EspertoFit'
-    fill_in 'CPF', with: '12345678912'
+    fill_in 'CPF', with: '12345678908'
     fill_in 'Email', with: 'email@email.com'
     fill_in 'Senha', with: '123123'
     fill_in 'Confirmar Senha', with: '123123'
