@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 feature 'Customer can see apppointments' do
+  before(:each) do
+    list_gyms
+  end
+
   scenario 'Successfully' do
     unit = create(:unit)
     customer = create(:customer, unit: unit)

@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'Schedule receives account ID' do
   before(:each) do
     cpf_status_empty
+    list_gyms
   end
   scenario 'successfully' do
     personal = create(:personal, email: 'teste@email.com', password: '123456', document:'12345678908')

@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 feature 'Personal authenticates to create schedule' do
+  before(:each) do
+    list_gyms
+  end
+  
   scenario 'successfully' do
     account = create(:personal, email: 'teste@email.com', password: '123456')
     profile = create(:profile, account: account)

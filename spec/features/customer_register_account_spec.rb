@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 feature 'User register account' do
+  before(:each) do
+    list_gyms
+  end
 
   scenario 'successfully as customer' do
 

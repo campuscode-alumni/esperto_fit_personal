@@ -1,3 +1,4 @@
+require 'faraday'
 require 'faraday_middleware'
 
 class EspertoAcademy
