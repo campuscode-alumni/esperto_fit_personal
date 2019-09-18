@@ -7,8 +7,8 @@ class SchedulesController < ApplicationController
 
   def create
     @schedule = Schedule.new(params_schedule)
-    @schedule.personal = current_account
-
+    @schedule.personal = current_account 
+    byebug
     if @schedule.save
       flash[:notice] = "Cadastrado com sucesso"
       @schedule.create_appointments

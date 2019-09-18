@@ -1,6 +1,4 @@
 class Schedule < ApplicationRecord
-
-  
   belongs_to :unit
   belongs_to :personal, foreign_key: 'account_id'
 
