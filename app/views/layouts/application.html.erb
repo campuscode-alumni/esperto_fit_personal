@@ -15,7 +15,7 @@
           <ul class="link_list">
             <li><span class="logo"><%= link_to (image_tag 'logo_color.png'), root_path %></span></li>
             <% if account_signed_in? && current_account.profile %>
-              <li>Olá, <%= link_to current_account.profile.nickname, profile_path(current_account.profile) %></li>
+              <li><%= t(:hello) %> <%= link_to current_account.profile.nickname, profile_path(current_account.profile) %></li>
             <% end %>
           </ul>
         </div>
@@ -27,10 +27,7 @@
                 <li><%= link_to t(:new_shcedule), new_schedule_path %></li>
                 <li><%= link_to t(:my_schedules), my_schedule_path %></li>
               <% else %>
-                <% if current_account && current_account.unit %>
-                  <li><%= link_to t(:new_appointment), appointment_path(current_account.unit) %></li>
-
-                <% end %>
+                <li><%= link_to t(:new_appointment), personals_path %></li>
               <% end %>
               <li><%= link_to t(:units), units_path %></li>
               <li><%= link_to t(:logout), destroy_account_session_path, method: :delete %></li>
@@ -44,7 +41,7 @@
       </nav>
 
       <main class="row">
-        <div id="content" class="col-md-12 mt-2">
+        <div id="content" class="col-md-12">
           <% if flash[:notice]%>
             <p class="notice"><%= notice %></p>
           <% end %>
@@ -55,13 +52,13 @@
         </div>
       </main>
 
-      <footer class="row mt-2">
+      <footer class="row page-footer">
         <div class="col-md-12 text-center">
           <p>
             <ul class="link_list">
-              <li><%= link_to 'Home', root_path %></li>
-              <li><%= link_to 'Link1', root_path %></li>
-              <li><%= link_to 'Link2', root_path %></li>
+              <li><%= link_to t(:home_page), root_path %></li>
+              <li><%= link_to t(:academy_link), root_path %></li>
+              <li><%= link_to t(:payments_link), root_path %></li>
             </ul>
           </p>
           <hr>
