@@ -3,6 +3,6 @@ class HomeController < ApplicationController
     if account_signed_in?
       return redirect_to new_profile_path unless current_account.profile?
     end
-    @gyms = Gym.all
+    @units = Unit.all
   end
 end
