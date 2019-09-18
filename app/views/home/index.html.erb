@@ -1,13 +1,9 @@
-<h2>Unidades</h2>
-
-<% @units.each do |gym| %>
-  <h3 class="gym"><%= gym.name %></h3>
-  <ul>
-    <li>
-      <%= "Horário de atendimento das #{gym.open_hour} às #{gym.close_hour} de #{gym.working_days}" %>
-    </li>
-    <li>
-      <%= gym.address %>
-    </li>
-  </ul>
-<% end %>
+  <% @units.each do |gym|%>
+  <div class=<%= "academia-#{gym[:id]}"%>>
+    <h3><%= gym.name %></h3>
+    <p><strong>Endereço: </strong> <%= gym.address %></p>
+    <p><strong>Funcionamento: </strong> de <%= "#{gym.working_days}, das #{gym.open_hour} às #{gym.close_hour}" %></p>
+    <%= link_to 'Cadastrar Nesta Unidade', add_unit_customer_path(gym), method: :post, class: "btn btn-black btn-sm" %>
+  </div>
+  <br>
+  <% end %>
