@@ -11,7 +11,7 @@ class Plan
     response = EspertoAcademy.client.get do |req|
       req.url "gyms/#{gym_id}/plans"
     end
-    return response.body.map { |plans| new(plan) } if response.status == 200
+    return response.body[:plans].map { |plan| new(plan) } if response.status == 200
 
     []
   end

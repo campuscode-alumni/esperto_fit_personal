@@ -13,6 +13,7 @@ pt-BR:
   months: meses
   minimum_permanence: Permanencia mínima
   coin: R$
+  plan: Plano
   # main links
   login: Entrar
   logout: Sair

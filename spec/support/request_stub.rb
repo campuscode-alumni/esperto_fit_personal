@@ -40,4 +40,13 @@ module RequestStub
     stub_request(:get, url).
       to_return(status: 200, body: json_response)
   end
+
+  def list_plans(id)
+    filename = 'plans.json'
+    url      = "http://academy.com.br/api/v1/gyms/#{id}/plans"
+    json_response = File.read(Rails.root.join('spec', 'support', "#{filename}"))
+    stub_request(:get, url).
+      to_return(status: 200, body: json_response, headers: {'Content-Type': 'application/json'})
+  end
+
 end
