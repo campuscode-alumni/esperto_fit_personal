@@ -14,6 +14,8 @@ class Payments
     return response.body if response.status == 200
 
     []
+  rescue Faraday::ConnectionFailed
+    []
   end
 
 end
