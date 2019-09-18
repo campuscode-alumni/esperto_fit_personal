@@ -122,7 +122,7 @@ Result example:
 ## Consulta de Customer
 
 ### Exemplo de rota
-#### get "api/v1/customers/#{id}"
+#### get "/api/v1/search/customer?document=12345678900"
 
 Sucesso:
 

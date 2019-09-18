@@ -1,8 +1,8 @@
 class Api::V1::CustomersController < Api::V1::ApiController
 
-  # get api/v1/customers?id=1
-  def show
-    @customer = Customer.find(params[:id])
+  # get api/v1/customers?document=12345667878
+  def search
+    @customer = Customer.find_by!(document: params[:document])
 
     render json: @customer.profile,
            except: %i[account_id work_document created_at updated_at],
