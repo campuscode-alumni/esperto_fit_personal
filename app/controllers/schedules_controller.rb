@@ -8,7 +8,6 @@ class SchedulesController < ApplicationController
   def create
     @schedule = Schedule.new(params_schedule)
     @schedule.personal = current_account 
-    byebug
     if @schedule.save
       flash[:notice] = "Cadastrado com sucesso"
       @schedule.create_appointments
@@ -34,7 +33,7 @@ class SchedulesController < ApplicationController
   private
 
   def params_schedule
-    params.require(:schedule).permit(:date, :start, :finish, :price, :unit_id, :account_id)
+    params.require(:schedule).permit(:date, :start, :finish, :price, :account_id, :gym_id)
   end
 
 end

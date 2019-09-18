@@ -2,7 +2,7 @@
 <% if @schedules.any? %>
   <% @schedules.each do |schedule| %>
     <table class="col-sm-6 float-left mb-2">
-    <th><%= schedule.unit.name%></th>
+    <th><%= Gym.find(schedule.gym_id)[:name] %></th>
       <tr>
         <td class="attribute">Data:</td>
         <td><%=  schedule.date %></td>

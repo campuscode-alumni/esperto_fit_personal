@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_18_131739) do
+ActiveRecord::Schema.define(version: 2019_09_18_135045) do
 
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -84,7 +84,9 @@ ActiveRecord::Schema.define(version: 2019_09_18_131739) do
     t.integer "start"
     t.integer "finish"
     t.integer "account_id"
+    t.integer "gym_id"
     t.index ["account_id"], name: "index_schedules_on_account_id"
+    t.index ["gym_id"], name: "index_schedules_on_gym_id"
     t.index ["unit_id"], name: "index_schedules_on_unit_id"
   end
 
