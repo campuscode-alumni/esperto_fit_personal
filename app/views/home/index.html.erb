@@ -1,14 +1,19 @@
-<h2>Unidades</h2>
-<% @gyms.each do |gym| %>
-  <% byebug %>
-  <h3 class="gym"><%= gym.name %></h3>
-  <img src=<%= gym.images[0] %>>
-  <ul>
-    <li>
-      <%= "Horário de atendimento das #{gym.open_hour} às #{gym.close_hour} de #{gym.working_days}" %>
-    </li>
-    <li>
-      <%= gym.address %>
-    </li>
-  </ul>
+ <% @gyms.each do |gym|%>
+  <div class=<%= "academia-#{gym.id}"%>>
+    <% if current_account && current_account.type == "Customer"%> 
+    <h2><%= link_to gym.name, unit_path(gym) %></h2>
+  <% else %>
+    <h2><%= gym.name %></h2>
+  <% end %>
+    <p><strong>Endereço: </strong> <%= gym.address %></p>
+    <p><strong>Funcionamento: </strong> de <%= "#{gym.working_days}, das #{gym.open_hour} às #{gym.close_hour}" %></p>
+  <% if current_account && current_account.profile.enrollment_id == gym.id %>
+    <p class='btn btn-black btn-sm'> Está é a sua Unidade </p>
+  <% elsif current_account && !(current_account.profile.enrollment_id == nil) %> 
+    <%= link_to 'Mudar para esta unidade', add_unit_customer_path(gym), method: :post, class: "btn btn-black btn-sm" %>
+  <% elsif current_account %>
+    <%= link_to 'Cadastrar Nesta Unidade', add_unit_customer_path(gym), method: :post, class: "btn btn-black btn-sm" %>
+  <% end %>
+  </div>
+  <br>
 <% end %>
