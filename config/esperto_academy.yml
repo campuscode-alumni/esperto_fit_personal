@@ -3,6 +3,7 @@ development:
   payment_url: http://0.0.0.0:5000
 production:
   base_url: https://example.com.br/
+  payment_url: http://0.0.0.0:5000
 test:
   base_url: http://academy.com.br
   payment_url: http://0.0.0.0:5000

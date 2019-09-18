@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature 'Customer can see his payments' do
   before(:each) { list_gyms }
+  before(:each) { list_payments }
   scenario '1: he must be signed in to see payments' do
     user = create(:customer)
     profile = create(:profile, account: user, first_name: 'Marta')
@@ -14,7 +15,7 @@ feature 'Customer can see his payments' do
 
     expect(page).to have_link('Meus Pagamentos')
     end
-
+    
     scenario 'and can see payment page' do
       user = create(:customer)
       profile = create(:profile, account: user, first_name: 'Marta')
@@ -26,7 +27,8 @@ feature 'Customer can see his payments' do
       end
       click_on 'Meus Pagamentos'
 
-      expect(current_page).to eq payments_profile_path
-      expect(page).to have_css('h3', text: 'Pagamentos de Marta')
+      expect(page).to have_content('Valor')
+      expect(page).to have_content('Vencimento')
+      expect(page).to have_content('Status')
     end
 end

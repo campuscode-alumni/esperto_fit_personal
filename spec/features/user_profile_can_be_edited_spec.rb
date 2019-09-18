@@ -13,7 +13,7 @@ feature 'User profile can be edited' do
     login_as profile.account, scope: :account
     visit root_path
 
-    click_on profile.nickname
+    click_on profile.first_name
 
     #Assert
     expect(page).to have_css('h3', text: "Conta de #{profile.nickname}")
@@ -29,7 +29,7 @@ feature 'User profile can be edited' do
     login_as profile.account, scope: :account
     visit root_path
 
-    click_on profile.nickname
+    click_on profile.first_name
     click_on 'Editar Cadastro'
 
     fill_in 'Nome', with: 'Mauricio'
@@ -49,7 +49,7 @@ feature 'User profile can be edited' do
     login_as profile.account, scope: :account
     visit root_path
 
-    click_on profile.nickname
+    click_on profile.first_name
     click_on 'Editar Cadastro'
 
     fill_in 'Nome', with: ''
