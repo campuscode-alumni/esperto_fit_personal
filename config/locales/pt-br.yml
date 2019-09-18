@@ -10,6 +10,9 @@ pt-BR:
   characters_minimum: caracteres ao menos
   appointment_hour: Horário de Atendimento
   date_txt: Data
+  months: meses
+  minimum_permanence: Permanencia mínima
+  coin: R$
   # main links
   login: Entrar
   logout: Sair

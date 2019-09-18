@@ -8,6 +8,7 @@ FactoryBot.define do
     contact { "12341234" }
     nickname { "jojo" }
     payment_method { "cartão de credito" }
+    plan { 1 }
     account
 
     trait :personal do
