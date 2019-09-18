@@ -1,5 +1,5 @@
 class Gym
-  attr_reader :name, :open_hour, :close_hour,
+  attr_reader :id, :name, :open_hour, :close_hour,
               :working_days, :address, :images
 
   def initialize(**args)
@@ -9,11 +9,18 @@ class Gym
   end
 
   def self.all
-    response = EspertoAcademy.client.get do |req|
+    resp = EspertoAcademy.client.get do |req|
       req.url 'gyms'
     end
-    return response.body.map { |gym| new(gym) } if response.status == 200
+    return resp.body.map { |gym| new(gym) } if resp.status == 200
+    []
+  end
 
+  def self.find(id)
+    resp = EspertoAcademy.client.get do |req|
+      req.url "gyms/#{id}"
+    end
+    return resp.body[:gym] if resp.status == 200
     []
   end
 end
