@@ -24,8 +24,9 @@ feature 'Customer can register into system' do
 
   scenario 'second: register as customer' do
     #Arrange
-    customer = create(:customer)
-
+    list_gyms
+    unit = create(:unit)
+    customer = create(:customer, unit: unit)
     #Act
     login_as customer, scope: :account
     visit root_path

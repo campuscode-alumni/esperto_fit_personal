@@ -93,6 +93,12 @@ ActiveRecord::Schema.define(version: 2019_09_18_180029) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "ex_gym_ref"
+    t.integer "cod"
+    t.string "open_hour"
+    t.string "close_hour"
+    t.string "working_days"
+    t.string "address"
   end
 
 end
