@@ -4,6 +4,7 @@ feature 'User Logs In' do
 
   scenario 'Successfully' do
     cpf_status_empty
+    list_gyms
     user = create(:account, password:'123456', document: '12345678908')
     create(:profile, account: user)
     #act
@@ -18,8 +19,10 @@ feature 'User Logs In' do
   end
 
   scenario 'and must exist' do
+    list_gyms
     #Act
     visit root_path
+
     click_on 'Entrar'
     fill_in 'Email', with: 'abc@email.com'
     fill_in 'Senha', with: '123456'
@@ -33,6 +36,7 @@ feature 'User Logs In' do
 
   scenario 'and must not be banished' do
     cpf_status
+    list_gyms
     user = create(:account, password:'123456', document: '99999999999')
     create(:profile, account: user)
     #act
