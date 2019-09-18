@@ -32,4 +32,13 @@ class Account < ApplicationRecord
     response.body[:status] == 'banished'
   end
 
+  def inactive?
+    response = EspertoAcademy.client.get do |req|
+      req.url "clients/consult_cpf/#{self.document}"
+    end
+    return false if response.status == 404
+
+    response.body[:status] == 'inactive'
+  end
+
 end

@@ -28,7 +28,7 @@ feature 'Customer selects plan on resigration' do
     visit root_path
     select 'Executivo', from: 'Plano'
     click_on 'Enviar'
-    
+
     expect(current_path).to eq(root_path)
     expect(page).to have_content('Matriculado com sucesso')
 
