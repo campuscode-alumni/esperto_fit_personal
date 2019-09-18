@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(account)
     if account.banished?
       sign_out account
+      flash.clear
       flash[:alert] = 'CPF banido'
       new_account_registration_path
     else

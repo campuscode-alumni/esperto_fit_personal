@@ -19,7 +19,7 @@ Things you may want to cover:
 
 
 ### Exemplo de rota
-#### get '/api/v1/search/account?document=12345678900'
+#### get "/api/v1/search/account/#{cpf}"
 
 Sucesso:
 
@@ -59,7 +59,7 @@ para listar todos os personais
 #### get '/api/v1/personals'
 
 ou para filtrar por unidades
-#### get '/api/v1/unit/personals?id=21'
+#### get "/api/v1/unit/personals/#{id}"
 
 Sucesso:
 
@@ -122,7 +122,7 @@ Result example:
 ## Consulta de Customer
 
 ### Exemplo de rota
-#### get 'api/v1/customers?id=1'
+#### get "api/v1/customers/#{id}"
 
 Sucesso:
 

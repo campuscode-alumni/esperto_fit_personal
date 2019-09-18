@@ -1,8 +1,8 @@
 require 'faraday_middleware'
 
 class EspertoAcademy
-  class << self 
-    def endpoint 
+  class << self
+    def endpoint
       Rails.configuration.esperto_academy[:base_url]
     end
 
@@ -10,18 +10,18 @@ class EspertoAcademy
       'v1'
     end
 
-    def esperto_academy_url 
+    def esperto_academy_url
       "#{endpoint}/api/#{api_version}"
     end
 
-    def client 
+    def client
       @client ||= new_connection
     end
 
     private
 
     def new_connection
-      Faraday.new(url: esperto_academy_url) do |faraday| 
+      Faraday.new(url: esperto_academy_url) do |faraday|
         faraday.use :instrumentation
         faraday.headers['Content-Type'] = 'application/json'
 
@@ -31,4 +31,4 @@ class EspertoAcademy
       end
     end
   end
-end 
+end

@@ -25,8 +25,9 @@ class Account < ApplicationRecord
 
   def banished?
     response = EspertoAcademy.client.get do |req|
-      req.url "clients/consult_cpf?cpf=#{self.document}"
+      req.url "clients/consult_cpf/#{self.document}"
     end
+
     return false if response.status == 404
 
     response.body[:status] == 'banished'
