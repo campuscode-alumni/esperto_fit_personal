@@ -1,4 +1,5 @@
-<h2><%= @unit.name %> </h2>
+<h2><%= @unit[:name] %> </h2>
+<% byebug %>
 <% if current_account && current_account.unit == @unit %>
   <p>Você é membro desta unidade.</p>
    <%= link_to "Personals na #{@unit.name}", appointment_path, class: "btn btn-black btn-sm" %>

@@ -1,7 +1,7 @@
  <% @gyms.each do |gym|%>
   <div class=<%= "academia-#{gym.id}"%>>
     <% if current_account && current_account.type == "Customer"%> 
-    <h2><%= link_to gym.name, unit_path(gym) %></h2>
+    <h2><%= link_to gym.name, unit_path(gym.id) %></h2>
   <% else %>
     <h2><%= gym.name %></h2>
   <% end %>
