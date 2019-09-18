@@ -152,6 +152,6 @@ Result example:
 
 ```json
 {
-  "msg": "Conta não encontrada"
+  "msg": "Não encontrada"
 }
 ```
