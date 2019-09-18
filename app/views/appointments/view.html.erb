@@ -1,4 +1,4 @@
-<h1>Agenda da <%= @schedule.personal.profile.first_name %> para <%= l @schedule.date %> </h1>
+<h1>Agenda de <%= @schedule.personal.profile.first_name %> para <%= l @schedule.date %> </h1>
 <ul>
 <% @schedule.appointments.each do |appm| %>
   <% if appm.has_owner? %>
