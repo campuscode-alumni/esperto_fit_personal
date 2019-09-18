@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
     @profile.account_id = current_account.id
 
     if @profile.save
-      redirect_to @profile
+      redirect_to root_path
     else
       render :new
     end
