@@ -12,8 +12,8 @@ class Unit < ApplicationRecord
 
   def self.load_api
     Gym.all.each do |gym|
-      u = Unit.find_by(ex_gym_ref: gym.id, name: gym.name)
-      if u.nil?
+      unity = Unit.find_by(ex_gym_ref: gym.id, name: gym.name)
+      if unity.blank?
         Unit.create(name: gym.name,
                     ex_gym_ref: gym.id,
                     working_days: gym.working_days,
@@ -23,7 +23,7 @@ class Unit < ApplicationRecord
                     address: gym.address)
                 
       else
-        u.update(name: gym.name,
+        unity.update(name: gym.name,
                   ex_gym_ref: gym.id,
                   working_days: gym.working_days,
                   cod: gym.cod,
