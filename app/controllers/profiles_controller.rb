@@ -40,6 +40,10 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def payments
+    @payments = Payments.find('44444444444')#Profile.find(params[:id]).account.document)
+  end
+
   private
 
   def profile_params
