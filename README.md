@@ -143,3 +143,15 @@ Result Exemple:
   "payment_method": "débito"
 }
 ```
+
+Erro:
+
+HTTP Status: 404
+
+Result example:
+
+```json
+{
+  "msg": "Conta não encontrada"
+}
+```
