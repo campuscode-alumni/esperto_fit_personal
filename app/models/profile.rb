@@ -1,5 +1,6 @@
 class Profile < ApplicationRecord
-  enum gender: {male: 0, female: 1}
+  GENDERS = [:female, :male]
+  enum gender: GENDERS
 
   belongs_to :account
 
