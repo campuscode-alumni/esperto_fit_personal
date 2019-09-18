@@ -7,37 +7,37 @@ feature 'Add unit to customer' do
   
   scenario 'successfully' do
     #arrange
-    unit = create(:unit, name: 'Paulista')
+    unit = create(:unit, name: 'Nova Paulista')
     user = create(:customer)
     create(:profile, account: user)
+    
     #act
     login_as(user, scope: :account)
     visit root_path
-    click_on 'Unidades Disponíveis'
-    click_on unit.name
-    click_on 'Matricular-se Nesta Unidade'
-    user.reload
+    within('div.academia-1') do
+      click_on 'Cadastrar Nesta Unidade'
+    end
+
     #assert
-    expect(page).to have_content('Matricula realizada com sucesso')
-    expect(page).to have_content("Você é membro desta unidade")
-    expect(current_path).to eq unit_path(unit)
-    expect(user.unit.id).to eq unit.id
+
+    within('div.academia-1') do
+      expect(page).to have_content('Está é a sua Unidade')
+    end
   end
 
-  scenario 'if signed user is as personal it should redirect to root_path' do
+  scenario 'if signed user is as personal it should not show buttons' do
     #Arrange
-    unit = create(:unit, name: 'Paulista')
+    unit = create(:unit, name: 'Nova Paulista')
     account = create(:personal)
     profile = create(:profile, account: account)
 
     #Act
     login_as(account, scope: :account)
     visit root_path
-    click_on 'Unidades Disponíveis'
-    visit unit_path(unit)
-    click_on 'Matricular-se Nesta Unidade'
 
     #Assert
-    expect(current_path).to eq root_path
+    within('div.academia-1') do
+      expect(page).to_not have_link('Cadastrar Nesta Unidade')
+    end
   end
 end
