@@ -11,9 +11,14 @@ class Plan
     response = EspertoAcademy.client.get do |req|
       req.url "gyms/#{gym_id}/plans"
     end
-    return response.body[:plans].map { |plan| new(plan) } if response.status == 200
+    return [] unless response.status == 200 
 
-    []
+    response.body[:plans].map { |plan| new(plan) }
+
+  rescue Faraday::ConnectionFailed
+    [] 
+  rescue Faraday::ParsingError
+    [] 
   end
 
 
