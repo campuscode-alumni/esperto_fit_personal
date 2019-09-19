@@ -23,6 +23,7 @@ pt-BR:
   my_schedules: Minhas agendas
   new_appointment: Agendar horário com Personal
   units: Unidades Disponíveis
+  see_payments: Meus Pagamentos
   edit_profile: Editar Cadastro
   hour_price: "R$%{price}"
   schedule_date: Data

@@ -30,6 +30,11 @@ class Account < ApplicationRecord
     return false if response.status == 404
 
     response.body[:status] == 'banished'
+
+  rescue Faraday::ConnectionFailed
+    return false
+  rescue Faraday::ParsingError
+    return false
   end
 
   def inactive?
@@ -38,7 +43,11 @@ class Account < ApplicationRecord
     end
     return false if response.status == 404
 
-    response.body[:status] == 'inactive'
+    response.body[:status] == 'inactive' 
+  rescue Faraday::ConnectionFailed
+    return false
+  rescue Faraday::ParsingError
+    return false
   end
 
 end

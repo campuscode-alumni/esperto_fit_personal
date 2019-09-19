@@ -6,6 +6,7 @@ class HomeController < ApplicationController
       
       return redirect_to new_plan_path if current_account.type == 'Customer' && current_account.profile.plan == nil
     end
+    
     Unit.load_api
     @units = Unit.all
   end

@@ -1,0 +1,18 @@
+<% if !@payments.empty? %>
+  <table class="col-sm-6 float-left mb-2">
+    <tr>
+      <th>Valor</th>
+      <th>Vencimento</th>
+      <th>Status</th>
+    </tr>
+    <% @payments[:payments].each do |payments|%>
+      <tr>
+        <td><%= payments[:value] %></td>
+        <td><%= payments[:dt_venc] %></td>
+        <td><%= payments[:status] %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>503 - Não foi possível estabelecer conexão com o servidor de pagamentos.</p>
+<% end %>

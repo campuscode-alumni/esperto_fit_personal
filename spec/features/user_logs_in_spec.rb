@@ -15,7 +15,7 @@ feature 'User Logs In' do
     click_on 'Log in'
     #Assert
     expect(current_path).to eq root_path
-    expect(page).to have_content "Olá, #{user.profile.nickname}"
+    expect(page).to have_content "Olá, #{user.profile.first_name}"
   end
 
   scenario 'and must exist' do

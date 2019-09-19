@@ -15,6 +15,8 @@ class Gym
     return response.body.map { |gym| new(gym) } if response.status == 200
 
     []
+  rescue Faraday::ConnectionFailed
+    []
   end
 
   def self.find(id)
@@ -24,6 +26,10 @@ class Gym
     return response.body if response.status == 200
 
     []
+  rescue Faraday::ConnectionFailed
+    [] 
+  rescue Faraday::ParsingError
+    [] 
   end
 
   def imgs

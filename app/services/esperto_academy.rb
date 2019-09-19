@@ -29,6 +29,7 @@ class EspertoAcademy
         faraday.response :json, parser_options: { symbolize_names: true },
           content_type: /\bjson$/
         faraday.adapter :net_http
+        
       end
     end
   end

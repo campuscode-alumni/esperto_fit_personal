@@ -4,7 +4,8 @@ require 'faraday_middleware'
 class EspertoPayment
   class << self
     def endpoint
-      Rails.configuration.esperto_payment[:base_url]
+      Rails.configuration.esperto_academy[:payment_url]
+      #Rails.configuration.esperto_payment[:base_url]
     end
 
     def api_version
