@@ -26,7 +26,7 @@
               <% if current_account.type == 'Personal' %>
                 <li><%= link_to t(:new_shcedule), new_schedule_path %></li>
                 <li><%= link_to t(:my_schedules), my_schedule_path %></li>
-              <% else %>
+              <% elsif current_account.enrollment%>
                 <li><%= link_to t(:new_appointment), unit_path(current_account.enrollment.unit) %></li>
               <% end %>
               <li><%= link_to t(:units), units_path %></li>
