@@ -1,0 +1,17 @@
+<h2>Selecionar plano</h2>
+
+<% @plans.each do |plan| %>
+<p> <%= "#{plan.name} #{t(:coin)}#{plan.price}, #{t(:minimum_permanence)} #{plan.minimum_permanence} #{t(:months)}" %></p>
+<% end %>
+
+<%= form_tag plans_path, method: :post do %>
+
+  <div class="field form-group">
+        <%= label_tag :profile_plan, t(:plan) ,class: "form-label" %>
+        <%= collection_select(:profile, :plan, @plans, :id, :name) %>
+  </div>
+
+  <div class="actions">
+        <%= submit_tag t(:submit_btn), class: "btn btn-black btn-sm" %>
+  </div>
+<% end %>

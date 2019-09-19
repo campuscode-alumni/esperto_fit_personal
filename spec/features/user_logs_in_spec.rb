@@ -52,4 +52,22 @@ feature 'User Logs In' do
     expect(page).not_to have_link('Sair')
   end
 
+  scenario 'and must not be Inactive' do
+    cpf_status_inactive
+    list_gyms
+    user = create(:account, password:'123456', document: '88888888888')
+    create(:profile, account: user)
+    #act
+    visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: user.email
+    fill_in 'Senha', with: '123456'
+    click_on 'Log in'
+    #Assert
+    expect(current_path).to eq new_account_registration_path
+    expect(page).to have_content "CPF Inativo"
+    expect(page).to have_link('Entrar')
+    expect(page).not_to have_link('Sair')
+  end
+
 end

@@ -13,6 +13,11 @@ class ApplicationController < ActionController::Base
       flash.clear
       flash[:alert] = 'CPF banido'
       new_account_registration_path
+    elsif account.inactive?
+      sign_out account
+      flash.clear
+      flash[:alert] = 'CPF Inativo'
+      new_account_registration_path
     else
       super
     end

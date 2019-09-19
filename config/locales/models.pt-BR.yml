@@ -30,6 +30,7 @@ pt-BR:
         nickname: Apelido
         payment_method: Método de Pagamento
         work_document: Documento de Trabalho
+        plan: Plano
       unit:
         personals: Personal Trainers
         name: Nome
