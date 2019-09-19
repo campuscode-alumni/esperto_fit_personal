@@ -1,0 +1,17 @@
+
+  {
+  "cpf": "41370123850",
+  "payments":[
+     {
+        "value"    :40.0,
+        "dt_venc"    :"2019-09-15",
+        "status"    :"pending"
+     },
+     {
+        "value"    :40.0,
+        "dt_venc"    :"2019-10-15",
+        "status"    :"pending"
+     }
+
+  ]
+  }

@@ -7,7 +7,7 @@
     </div>
 
     <div class="field form-group">
-      <%= f.label :password, 'Senha', class: "form-label" %>
+      <%= f.label :password, class: "form-label" %>
       <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
     </div>
 
@@ -19,7 +19,7 @@
     <% end %>
 
     <div class="actions form-group">
-      <%= f.submit "Log in", class: "btn btn-black btn-sm" %>
+      <%= f.submit t(:login_btn), class: "btn btn-black btn-sm" %>
     </div>
   <% end %>
 

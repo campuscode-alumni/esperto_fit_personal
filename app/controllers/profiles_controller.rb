@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
     @profile.account_id = current_account.id
 
     if @profile.save
-      redirect_to @profile
+      redirect_to root_path
     else
       render :new
     end
@@ -38,6 +38,10 @@ class ProfilesController < ApplicationController
       flash.now[:alert] = 'Cadastro não editado.'
       render :edit
     end
+  end
+
+  def payments
+    @payments = Payments.find('41370123850')#Profile.find(params[:id]).account.document)
   end
 
   private

@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   resources :customers, only:%i[] do
     post 'add_unit', on: :member
   end
-  resources :profiles, only: %i[index new create show edit update]
+  resources :profiles, only: %i[index new create show edit update] do
+    get 'payments', on: :member
+  end
   resources :units, only: %i[index show]
   resources :personals, only: %i[index new create edit]
   resources :schedules, only:%i[new create edit update show]
+  resources :plans, only: %i[ new create ]
   resources :appointments, only:%i[show] do
     get 'view', on: :member
     post 'enroll', on: :member
@@ -22,7 +25,7 @@ Rails.application.routes.draw do
     namespace 'v1' do
       get '/search/account', to: 'accounts#search'
       get '/personals', to: 'personals#index'
-      resources :customers, only: %i[show]
+      get '/search/customer', to: 'customers#search'
 
       resources :units, only: %i[] do
         get '/personals', on: :member, action: 'personals'

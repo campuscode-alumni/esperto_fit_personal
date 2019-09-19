@@ -1,6 +1,7 @@
 pt-BR:
   recieve_method: Método de Recebimento
   submit_btn: Enviar
+  login_btn: Log in
   save_btn: Salvar
   profile_edit: Editar cadastro
   new_password: Nova senha
@@ -9,6 +10,10 @@ pt-BR:
   characters_minimum: caracteres ao menos
   appointment_hour: Horário de Atendimento
   date_txt: Data
+  months: meses
+  minimum_permanence: Permanencia mínima
+  coin: R$
+  plan: Plano
   # main links
   login: Entrar
   logout: Sair
@@ -18,5 +23,24 @@ pt-BR:
   my_schedules: Minhas agendas
   new_appointment: Agendar horário com Personal
   units: Unidades Disponíveis
+  see_payments: Meus Pagamentos
   edit_profile: Editar Cadastro
   hour_price: "R$%{price}"
+  schedule_date: Data
+  address: Endereço
+  date_of_birth: Data de nascimento
+  contact: Contato
+  gender: Sexo
+  nickname: Apelido
+  payment_method: Método de pagamento
+  female: Feminino
+  male: Masculino
+  start: Horário de início
+  finish: Horário de término
+  price: Valor
+  schedules: Agendas
+  new_schedule: Cadastrar nova agenda
+  hello: 'Olá, '
+  academy_link: 'Gestão de Unidades'
+  payments_link: 'Pagamentos'
+  home_page: 'Página inicial'

@@ -1,22 +1,22 @@
-<h2> Agendas </h2>
+<h2><%= t(:schedules) %></h2>
 <% if @schedules.any? %>
   <% @schedules.each do |schedule| %>
-    <table class="col-sm-6 float-left mb-2">
+    <table class="col-sm-6 float-left mb-2 ">
     <th><%= schedule.unit.name%></th>
       <tr>
-        <td class="attribute">Data:</td>
-        <td><%=  schedule.date %></td>
+        <td class="attribute"><%= t(:schedule_date) %>:</td>
+        <td><%= l schedule.date %></td>
       </tr>
       <tr>
-        <td class="attribute">Horário de início:</td>
+        <td class="attribute"><%= t(:start) %>:</td>
         <td><%= schedule.start %>h</td>
       </tr>
       <tr>
-        <td class="attribute">Horário de término:</td>
+        <td class="attribute"><%= t(:finish) %>:</td>
         <td><%= schedule.finish %>h</td>
       </tr>
       <tr>
-        <td class="attribute">Valor/hora:</td>
+        <td class="attribute"><%= t(:price) %>:</td>
         <td><%= t('hour_price', price: schedule.price) %></td>
       </tr>
     </table>

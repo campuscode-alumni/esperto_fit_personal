@@ -1,11 +1,13 @@
 class HomeController < ApplicationController
+
   def index
     if account_signed_in?
       return redirect_to new_profile_path unless current_account.profile?
+      
+      return redirect_to new_plan_path if current_account.type == 'Customer' && current_account.profile.plan == nil
     end
-
-    @gyms = JSON.parse(Gym.all.to_json, symbolize_names: true)
-
-    byebug
+    
+    Unit.load_api
+    @units = Unit.all
   end
 end

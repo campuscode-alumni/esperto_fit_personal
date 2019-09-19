@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :account do
-    document { "12345678900" }
+    sequence :document do |n|
+      "1234567890#{n}"
+    end
     sequence :email do |n|
       "email#{n}@generico.com"
     end
@@ -9,7 +11,9 @@ FactoryBot.define do
 
   end
   factory :customer, class: Customer do
-    document { "12345678900" }
+    sequence :document do |n|
+      "2234567890#{n}"
+    end
     sequence :email do |n|
       "aluno#{n}@generico.com"
     end
@@ -18,7 +22,9 @@ FactoryBot.define do
 
   end
   factory :personal, class: Personal do
-    document { "12345678900" }
+    sequence :document do |n|
+      "3234567890#{n}"
+    end
     sequence :email do |n|
       "personal#{n}@generico.com"
     end

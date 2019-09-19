@@ -1,17 +1,18 @@
-<h2>Unidades</h2>
+ <% @units.each do |gym|%>
+  <div class=<%= "academia-#{gym.id}"%>>
+    <h2><%= gym.name %></h2>
+    <p><strong>Endereço: </strong> <%= gym.address %></p>
+    <p><strong>Funcionamento: </strong> de <%= "#{gym.working_days}, das #{gym.open_hour} às #{gym.close_hour}" %></p>
 
-<% @gyms.each do |gym| %>
-  <h3 class="gym"><%= gym.name %></h3>
-  
-  <ul>
-    <li>
-      <%= "Horário de atendimento das #{gym.open_hour} às #{gym.close_hour} de #{gym.working_days}" %>
-    </li>
-    <li>
-      <%= gym.address %>
-    </li>
-      <li>ID: 
-      
-    </li>
-  </ul>
+    <% if current_account && current_account.type != 'Personal' %>
+      <% if current_account && current_account.enrollment && current_account.enrollment.unit_id == gym.id %>
+        <p class='btn btn-black btn-sm'> Está é a sua Unidade </p>
+      <% elsif current_account && !(current_account.enrollment == nil) %> 
+        <%= link_to 'Mudar para esta unidade', add_unit_customer_path(gym.id), method: :post, class: "btn btn-black btn-sm" %>
+      <% elsif current_account %>
+        <%= link_to 'Cadastrar Nesta Unidade', add_unit_customer_path(gym.id), method: :post, class: "btn btn-black btn-sm" %>
+      <% end %>
+    <% end %>
+  </div>
+  <br>
 <% end %>
