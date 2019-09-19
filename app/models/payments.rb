@@ -16,6 +16,8 @@ class Payments
     []
   rescue Faraday::ConnectionFailed
     []
+  rescue Faraday::ParsingError
+    [] 
   end
 
 end

@@ -27,7 +27,9 @@ class Gym
 
     []
   rescue Faraday::ConnectionFailed
-    []
+    [] 
+  rescue Faraday::ParsingError
+    [] 
   end
 
   def imgs
