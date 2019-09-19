@@ -1,0 +1,18 @@
+{
+  "plans":[{
+      "id":1,
+      "name":"Executivo",
+      "minimum_permanence":3,
+      "created_at":"2019-09-17T18:28:35.445Z",
+      "updated_at":"2019-09-17T18:28:35.445Z",
+      "price":100000
+  },
+   {
+      "id":2,
+      "name":"Basic",
+      "minimum_permanence":3,
+      "created_at":"2019-09-17T18:28:35.447Z",
+      "updated_at":"2019-09-17T18:28:35.447Z",
+      "price":500000
+    }]
+}

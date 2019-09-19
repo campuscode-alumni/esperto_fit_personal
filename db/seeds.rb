@@ -13,11 +13,8 @@ personal_acc = Account.create!(document: '12345678910', email: 'personal@email.c
 
 Enrollment.new(account: customer_acc, unit: unit)
 
-customer_prof = Profile.create(account: customer_acc, first_name: 'Customer', last_name: 'Smith', address: 'Customer Street', date_of_birth: '01-01-1970', contact: '123-456-789', gender: 'male', nickname: 'CustomerNick', payment_method: 'Credito')
-personal_prof = Profile.create(account: personal_acc, first_name: 'Personal', last_name: 'Smith', work_document: '123.456.789.10', address: 'Personal Street', date_of_birth: '01-01-1970', contact: '123-456-789', gender: 'male', nickname: 'PersonalNick', payment_method: 'Credito')
+customer_prof = Profile.create(account: customer_acc, first_name: 'Customer', last_name: 'Smith', address: 'Customer Street', date_of_birth: '01-01-1970', contact: '123-456-789', gender: 'male', nickname: 'CustomerNick', payment_method: 'Credito', plan: 1)
+personal_prof = Profile.create(account: personal_acc, first_name: 'Personal', last_name: 'Smith', work_document: '123.456.789.10', address: 'Personal Street', date_of_birth: '01-01-1970', contact: '123-456-789', gender: 'male', nickname: 'PersonalNick', payment_method: 'Credito', plan: 2)
 
 schedule = Schedule.create(date: '12/11/2020', price: '50', unit: unit, start: 10, finish: 13, personal: personal_acc)
 schedule.create_appointments
-
-
-

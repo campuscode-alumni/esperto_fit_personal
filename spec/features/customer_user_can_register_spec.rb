@@ -24,11 +24,14 @@ feature 'Customer can register into system' do
 
   scenario 'second: register as customer' do
     #Arrange
-    customer = create(:customer)
-
+    list_gyms
+    unit = create(:unit)
+    customer = create(:customer, unit: unit)
+    list_plans(unit.ex_gym_ref)
     #Act
     login_as customer, scope: :account
     visit root_path
+    save_page
     fill_in 'Nome', with: 'Mauricio'
     fill_in 'Sobrenome', with: 'Oliveira'
     fill_in 'Endereço', with: 'Av Paulista, 374'
@@ -38,7 +41,7 @@ feature 'Customer can register into system' do
     fill_in 'Apelido', with: 'jrafaeel'
     fill_in 'Método de Pagamento', with: 'cartao de credito'
     click_on 'Enviar'
-    save_page
+   
     #Assert
     expect(Profile.last.first_name).to eq 'Mauricio'
     expect(Profile.last.work_document).to be_falsey
