@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     elsif account.inactive?
       sign_out account
       flash.clear
-      flash[:alert] = 'CPF inativo'
+      flash[:alert] = 'CPF Inativo'
       new_account_registration_path
     else
       super

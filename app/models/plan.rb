@@ -16,13 +16,5 @@ class Plan
     []
   end
 
-  def self.all
-    response = EspertoAcademy.client.get do |req|
-      req.url 'show_all_plans'
-    end
-    return response.body.map { |plans| new(plan) } if response.status == 200
 
-    []
-  end
- 
 end
