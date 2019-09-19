@@ -9,7 +9,7 @@
 Unit.load_api
 #First set of customers, personals and schedules
 unit = Unit.first
-customer_acc = Account.create(document: '12345678900', email: 'customer@email.com', password: '123456', type: 'Customer', unit: unit)
+customer_acc = Account.create(document: '111111111', email: 'customer@email.com', password: '123456', type: 'Customer', unit: unit)
 personal_acc = Account.create!(document: '12345678910', email: 'personal@email.com', password: '123456', type: 'Personal', unit: unit)
 
 Enrollment.new(account: customer_acc, unit: unit)
